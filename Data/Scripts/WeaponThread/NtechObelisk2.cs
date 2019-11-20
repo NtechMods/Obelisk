@@ -28,7 +28,7 @@ namespace WeaponThread
                 WeaponId = "Ntech Obelisk", // name of weapon in terminal
                 AmmoMagazineId = "Blank",
                 Block = AimControl(trackTargets: true, turretAttached: true, turretController: true, primaryTracking: false, rotateRate: 0.05f, elevateRate: 0.05f, minAzimuth: -180, maxAzimuth: 180, minElevation: -70, maxElevation: 90, offset: Vector(x: 0, y: .12, z: 0), fixedOffset: false, inventorySize: 0.34f, debug: false),
-                DeviateShotAngle = 0.4f,
+                DeviateShotAngle = 0f,
                 AimingTolerance = .5f, // 0 - 180 firing angle
                 EnergyCost = 0.00010001f, //(((EnergyCost * DefaultDamage) * ShotsPerSecond) * BarrelsPerShot) * ShotsPerBarrel
                 Hybrid = false, //projectile based weapon with energy cost
@@ -41,11 +41,11 @@ namespace WeaponThread
 
                 Loading = new AmmoLoading
                 {
-                    RateOfFire = 600,
+                    RateOfFire = 2600,
                     BarrelsPerShot = 1,
                     TrajectilesPerBarrel = 1, // Number of Trajectiles per barrel per fire event.
                     SkipBarrels = 0,
-                    ReloadTime = 360, // Measured in game ticks (6 = 100ms, 60 = 1 seconds, etc..).
+                    ReloadTime = 1, // Measured in game ticks (6 = 100ms, 60 = 1 seconds, etc..).
                     DelayUntilFire = 0, // Measured in game ticks (6 = 100ms, 60 = 1 seconds, etc..).
                     HeatPerShot = 1, //heat generated per shot
                     MaxHeat = 10000, //max heat before weapon enters cooldown (70% of max heat)
@@ -83,7 +83,7 @@ namespace WeaponThread
             },
             Ammo = new AmmoDefinition
             {
-                BaseDamage = 150f,
+                BaseDamage = 3f,
                 Mass = 1f, // in kilograms
                 Health = 0, // 0 = disabled, otherwise how much damage it can take from other trajectiles before dying.
                 BackKickForce = 0f,
@@ -115,7 +115,7 @@ namespace WeaponThread
                     TargetLossTime = 0, // 0 is disabled, Measured in game ticks (6 = 100ms, 60 = 1 seconds, etc..).
                     AccelPerSec = 0f,
                     DesiredSpeed = 400f,
-                    MaxTrajectory = 1500f,
+                    MaxTrajectory = 3000f,
                     SpeedVariance = Random(start: 0, end: 0), // subtracts value from DesiredSpeed
                     RangeVariance = Random(start: 0, end: 0), // subtracts value from MaxTrajectory
                     Smarts = new Smarts
@@ -159,7 +159,7 @@ namespace WeaponThread
                         Name = "EnergyBlast", // Smoke_LargeGunShot
                         Color = Color(red: 1, green: 5, blue: 1, alpha: 1),
                         Offset = Vector(x: 0, y: -1, z: 0),
-                        Extras = Options(loop: true, restart: false, distance: 200, duration: 1, scale: 1f),
+                        Extras = Options(loop: true, restart: false, distance: 500, duration: 1, scale: 3f),
                     },
                     Barrel2 = new Particle
                     {
