@@ -27,7 +27,7 @@ namespace WeaponThread
             {
                 WeaponId = "Ntech Obelisk", // name of weapon in terminal
                 AmmoMagazineId = "Blank",
-                Block = AimControl(trackTargets: true, turretAttached: true, turretController: true, primaryTracking: true, rotateRate: 0.05f, elevateRate: 0.05f, minAzimuth: -180, maxAzimuth: 180, minElevation: -70, maxElevation: 90, offset: Vector(x: 0, y: .12, z: 0), fixedOffset: false, inventorySize: 0.34f, debug: true),
+                Block = AimControl(trackTargets: true, turretAttached: true, turretController: true, primaryTracking: true, rotateRate: 0.05f, elevateRate: 0.05f, minAzimuth: -180, maxAzimuth: 180, minElevation: -70, maxElevation: 90, offset: Vector(x: 0, y: .12, z: 0), fixedOffset: false, inventorySize: 0.34f, debug: false),
                 DeviateShotAngle = 0.4f,
                 AimingTolerance = .5f, // 0 - 180 firing angle
                 EnergyCost = 0.00010001f, //(((EnergyCost * DefaultDamage) * ShotsPerSecond) * BarrelsPerShot) * ShotsPerBarrel
@@ -47,12 +47,12 @@ namespace WeaponThread
                     SkipBarrels = 0,
                     ReloadTime = 360, // Measured in game ticks (6 = 100ms, 60 = 1 seconds, etc..).
                     DelayUntilFire = 0, // Measured in game ticks (6 = 100ms, 60 = 1 seconds, etc..).
-                    HeatPerShot = 0, //heat generated per shot
-                    MaxHeat = 1000000, //max heat before weapon enters cooldown (70% of max heat)
+                    HeatPerShot = 1, //heat generated per shot
+                    MaxHeat = 10000, //max heat before weapon enters cooldown (70% of max heat)
                     Cooldown = .95f, //percent of max heat to be under to start firing again after overheat accepts .2-.95
-                    HeatSinkRate = 1000000, //amount of heat lost per second
+                    HeatSinkRate = 100, //amount of heat lost per second
                     DegradeRof = false, // progressively lower rate of fire after 80% heat threshold (80% of max heat)
-                    ShotsInBurst = 0,
+                    ShotsInBurst = 600,
                     DelayAfterBurst = 0, // Measured in game ticks (6 = 100ms, 60 = 1 seconds, etc..).
                 },
             },
@@ -156,8 +156,8 @@ namespace WeaponThread
                     },
                     Barrel1 = new Particle
                     {
-                        Name = "", // Smoke_LargeGunShot
-                        Color = Color(red: 1, green: 1, blue: 1, alpha: 1),
+                        Name = "EnergyBlast", // Smoke_LargeGunShot
+                        Color = Color(red: 1, green: 5, blue: 1, alpha: 1),
                         Offset = Vector(x: 0, y: -1, z: 0),
                         Extras = Options(loop: true, restart: false, distance: 200, duration: 1, scale: 1f),
                     },
@@ -171,7 +171,7 @@ namespace WeaponThread
                 },
                 Line = new LineDefinition
                 {
-                    Tracer = Base(enable: true, length: 3f, width: 0.05f, color: Color(red: 0.9f, green: 0.9f, blue: 0.9f, alpha: 1)),
+                    Tracer = Base(enable: true, length: 3f, width: 0.05f, color: Color(red: 0.9f, green: 1.9f, blue: 0.9f, alpha: 1)),
                     TracerMaterial = "WeaponLaser", // WeaponLaser, ProjectileTrailLine, WarpBubble, etc..
                     ColorVariance = Random(start: 5f, end: 10f), // multiply the color by random values within range.
                     WidthVariance = Random(start: 0f, end: 0.045f), // adds random value to default width (negatives shrinks width)
@@ -182,18 +182,18 @@ namespace WeaponThread
             {
                 HardPoint = new AudioHardPointDefinition
                 {
-                    FiringSound = "ArcWepShipGatlingShot", // WepShipGatlingShot
+                    FiringSound = "", // WepShipGatlingShot
                     FiringSoundPerShot = true,
                     ReloadSound = "",
                     NoAmmoSound = "",
-                    HardPointRotationSound = "WepTurretGatlingRotate",
-                    BarrelRotationSound = "WepShipGatlingRotation",
+                    HardPointRotationSound = "",
+                    BarrelRotationSound = "",
                 },
 
                 Ammo = new AudioAmmoDefinition
                 {
                     TravelSound = "",
-                    HitSound = "ArcImpMetalMetalCat0",
+                    HitSound = "",
                 }, // Don't edit below this line
             },
         };
