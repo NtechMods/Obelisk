@@ -19,17 +19,17 @@ namespace WeaponThread
             {
                 MountPoints = new[]
                 {
-                    MountPoint(subTypeId: "NtechObelisk", aimPartId:"", muzzlePartId: "elevation_01", azimuthPartId: "azimuth01", elevationPartId: "elevation_01"),
+                    MountPoint(subTypeId: "NtechObelisk", aimPartId:"None", muzzlePartId: "muzzle_barrel_001", azimuthPartId: "None", elevationPartId: "None"),
                 },
-                Barrels = Names("muzzle_barrel_01")
+                Barrels = Names("muzzle_barrel_001")
             },
             HardPoint = new HardPointDefinition
             {
                 WeaponId = "Ntech Obelisk", // name of weapon in terminal
                 AmmoMagazineId = "Blank",
-                Block = AimControl(trackTargets: true, turretAttached: true, turretController: true, primaryTracking: true, rotateRate: 0.05f, elevateRate: 0.05f, minAzimuth: -180, maxAzimuth: 180, minElevation: -70, maxElevation: 90, offset: Vector(x: 0, y: .12, z: 0), fixedOffset: false, inventorySize: 0.34f, debug: false),
+                Block = AimControl(trackTargets: true, turretAttached: false, turretController: false, primaryTracking: true, rotateRate: 0.05f, elevateRate: 0.05f, minAzimuth: -180, maxAzimuth: 180, minElevation: -70, maxElevation: 90, offset: Vector(x: 0, y: .12, z: 0), fixedOffset: false, inventorySize: 0.34f, debug: false),
                 DeviateShotAngle = 0f,
-                AimingTolerance = .5f, // 0 - 180 firing angle
+                AimingTolerance = 180f, // 0 - 180 firing angle
                 EnergyCost = 0.00010001f, //(((EnergyCost * DefaultDamage) * ShotsPerSecond) * BarrelsPerShot) * ShotsPerBarrel
                 Hybrid = false, //projectile based weapon with energy cost
                 EnergyPriority = 0, //  0 = Lowest shares power with shields, 1 = Medium shares power with thrusters and over powers shields, 2 = Highest Does not share power will use all available power until energy requirements met
@@ -159,7 +159,7 @@ namespace WeaponThread
                         Name = "EnergyBlast", // Smoke_LargeGunShot
                         Color = Color(red: 1, green: 5, blue: 1, alpha: 1),
                         Offset = Vector(x: 0, y: -1, z: 0),
-                        Extras = Options(loop: true, restart: false, distance: 500, duration: 1, scale: 3f),
+                        Extras = Options(loop: true, restart: false, distance: 500, duration: 1, scale: 2f),
                     },
                     Barrel2 = new Particle
                     {

@@ -19,24 +19,24 @@ namespace WeaponThread
             {
                 MountPoints = new[]
                 {
-                    MountPoint(subTypeId: "NtechObelisk", aimPartId:"", muzzlePartId: "elevation_02", azimuthPartId: "azimuth02", elevationPartId: "elevation_02"),
+                    MountPoint(subTypeId: "NtechObelisk", aimPartId:"None", muzzlePartId: "muzzle_barrel_002", azimuthPartId: "None", elevationPartId: "None"),
                 },
-                Barrels = Names("muzzle_barrel_02")
+                Barrels = Names("muzzle_barrel_002")
             },
             HardPoint = new HardPointDefinition
             {
                 WeaponId = "Ntech Obelisk", // name of weapon in terminal
                 AmmoMagazineId = "Blank",
-                Block = AimControl(trackTargets: true, turretAttached: true, turretController: true, primaryTracking: false, rotateRate: 0.05f, elevateRate: 0.05f, minAzimuth: -180, maxAzimuth: 180, minElevation: -70, maxElevation: 90, offset: Vector(x: 0, y: .12, z: 0), fixedOffset: false, inventorySize: 0.34f, debug: false),
+                Block = AimControl(trackTargets: true, turretAttached: false, turretController: false, primaryTracking: false, rotateRate: 0.05f, elevateRate: 0.05f, minAzimuth: -180, maxAzimuth: 180, minElevation: -70, maxElevation: 90, offset: Vector(x: 0, y: .12, z: 0), fixedOffset: false, inventorySize: 0.34f, debug: false),
                 DeviateShotAngle = 0f,
-                AimingTolerance = .5f, // 0 - 180 firing angle
+                AimingTolerance = 180f, // 0 - 180 firing angle
                 EnergyCost = 0.00010001f, //(((EnergyCost * DefaultDamage) * ShotsPerSecond) * BarrelsPerShot) * ShotsPerBarrel
                 Hybrid = false, //projectile based weapon with energy cost
                 EnergyPriority = 0, //  0 = Lowest shares power with shields, 1 = Medium shares power with thrusters and over powers shields, 2 = Highest Does not share power will use all available power until energy requirements met
                 RotateBarrelAxis = 0, // 0 = off, 1 = xAxis, 2 = yAxis, 3 = zAxis
                 AimLeadingPrediction = Advanced, // Off, Basic, Accurate, Advanced
                 DelayCeaseFire = 10, // Measured in game ticks (6 = 100ms, 60 = 1 seconds, etc..).
-                GridWeaponCap = 0,// 0 = unlimited, the smallest weapon cap assigned to a subTypeId takes priority.
+                GridWeaponCap = 4,// 0 = unlimited, the smallest weapon cap assigned to a subTypeId takes priority.
                 Ui = Display(rateOfFire: false, damageModifier: false, toggleGuidance: false, enableOverload: false),
 
                 Loading = new AmmoLoading
@@ -159,7 +159,7 @@ namespace WeaponThread
                         Name = "EnergyBlast", // Smoke_LargeGunShot
                         Color = Color(red: 1, green: 5, blue: 1, alpha: 1),
                         Offset = Vector(x: 0, y: -1, z: 0),
-                        Extras = Options(loop: true, restart: false, distance: 500, duration: 1, scale: 3f),
+                        Extras = Options(loop: true, restart: false, distance: 500, duration: 1, scale: 2f),
                     },
                     Barrel2 = new Particle
                     {
