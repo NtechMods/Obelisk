@@ -886,7 +886,7 @@
       <Length>6</Length> <!-- Length of the effect -->
       <DurationMin>1</DurationMin> <!-- minimum duration of effect -->
       <DurationMax>3</DurationMax> <!-- maximum duration of effect -->
-      <DistanceMax>200</DistanceMax>
+      <DistanceMax>800</DistanceMax>
       <Loop>true</Loop> <!-- Loops effect in world true = repeats / false = plays once per initiation -->
       <ParticleGenerations>
 	  

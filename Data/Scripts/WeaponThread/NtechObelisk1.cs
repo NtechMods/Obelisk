@@ -84,7 +84,7 @@ namespace WeaponThread
             Ammo = new AmmoDefinition
             {
                 BaseDamage = 3f,
-                Mass = 1f, // in kilograms
+                Mass = 0f, // in kilograms
                 Health = 0, // 0 = disabled, otherwise how much damage it can take from other trajectiles before dying.
                 BackKickForce = 0f,
                 Shape = Options(shape: Line, diameter: 0), //defines the collision shape of projectile, defaults to visual Line Length
