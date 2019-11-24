@@ -19,7 +19,7 @@
         <SubtypeId>NtechObelisk</SubtypeId>
       </Id>
       <DisplayName>Ntech Obelisk</DisplayName>
-      <Icon>Textures\GUI\Icons\Cubes\fake.dds</Icon>
+      <Icon>Textures\GUI\Icons\Obelisk.dds</Icon>
       <CubeSize>Large</CubeSize>
       <BlockTopology>TriangleMesh</BlockTopology>
       <Size x="1" y="5" z="1" />
@@ -28,11 +28,11 @@
       <UseModelIntersection>true</UseModelIntersection>
       <Components>
         <Component Subtype="SteelPlate" Count="10" />
-        <Component Subtype="Construction" Count="10" />
-        <Component Subtype="LargeTube" Count="8" />
+        <Component Subtype="Construction" Count="100" />
+        <Component Subtype="LargeTube" Count="2" />
 		<Component Subtype="Superconductor" Count="50" />
         <Component Subtype="Computer" Count="300" />
-        <Component Subtype="Construction" Count="10" />
+        <Component Subtype="Construction" Count="20" />
         <Component Subtype="SteelPlate" Count="50" />
       </Components>
       <CriticalComponent Subtype="Computer" Index="0" />
