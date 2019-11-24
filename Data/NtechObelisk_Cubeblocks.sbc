@@ -22,7 +22,7 @@
       <Icon>Textures\GUI\Icons\Obelisk.dds</Icon>
       <CubeSize>Large</CubeSize>
       <BlockTopology>TriangleMesh</BlockTopology>
-      <Size x="1" y="5" z="1" />
+      <Size x="1" y="1" z="5" /> <!-- in blender(x = zy) (y = z) (z = y) -->
       <ModelOffset x="0" y="0" z="0" />
       <Model>Models\Cubes\Nt_Obelisk.mwm</Model>
       <UseModelIntersection>true</UseModelIntersection>
@@ -37,7 +37,7 @@
       </Components>
       <CriticalComponent Subtype="Computer" Index="0" />
       <MountPoints>
-        <MountPoint Side="Bottom" StartX="0" StartY="0" EndX="1" EndY="1" />
+        <MountPoint Side="Back" StartX="0" StartY="0" EndX="1" EndY="1" />
       </MountPoints>
       <BuildProgressModels>
         <Model BuildPercentUpperBound="0.33" File="Models\Cubes\GazerBeamsLB_Constr1.mwm" />
@@ -45,7 +45,7 @@
         <Model BuildPercentUpperBound="1.00" File="Models\Cubes\GazerBeamsLB_Constr3.mwm" />
       </BuildProgressModels>
       <BlockPairName>NtechObeliskTower</BlockPairName>
-      <Description>Designed to be a single defense solution, which carries a multiple target system capable of engaging more than one target at a time.</Description>
+      <Description>Discovered on an alien planet, a relic from long ago. Engineers were able to figure out it's function and replicate it, though unable to replicate it's original alloy, it is comprised of common components and more likely to be damaged than the original which is stored at an unknown location.</Description>
       <MirroringY>Z</MirroringY>
       <MirroringZ>Y</MirroringZ>
       <EdgeType>Light</EdgeType>

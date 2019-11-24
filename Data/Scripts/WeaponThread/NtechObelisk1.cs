@@ -19,7 +19,7 @@ namespace WeaponThread
             {
                 MountPoints = new[]
                 {
-                    MountPoint(subTypeId: "NtechObelisk", aimPartId:"", muzzlePartId: "elevation_01", azimuthPartId: "azimuth01", elevationPartId: "elevation_01"),
+                    MountPoint(subTypeId: "NtechObelisk", aimPartId:"obelisksphere", muzzlePartId: "obelisksphere", azimuthPartId: "None", elevationPartId: "None"),
                 },
                 Barrels = Names("muzzle_barrel_01")
             },
@@ -27,9 +27,9 @@ namespace WeaponThread
             {
                 WeaponId = "Ntech Obelisk", // name of weapon in terminal
                 AmmoMagazineId = "Blank",
-                Block = AimControl(trackTargets: true, turretAttached: true, turretController: true, primaryTracking: true, rotateRate: 0.05f, elevateRate: 0.05f, minAzimuth: -180, maxAzimuth: 30, minElevation: -30, maxElevation: 80, offset: Vector(x: 0, y: .12, z: 0), fixedOffset: false, inventorySize: 0.34f, debug: true),
-                DeviateShotAngle = 0.4f,
-                AimingTolerance = .5f, // 0 - 180 firing angle
+                Block = AimControl(trackTargets: true, turretAttached: false, turretController: false, primaryTracking: true, rotateRate: 0.05f, elevateRate: 0.05f, minAzimuth: -180, maxAzimuth: 30, minElevation: -30, maxElevation: 80, offset: Vector(x: 0, y: .12, z: 0), fixedOffset: false, inventorySize: 0.34f, debug: true),
+                DeviateShotAngle = 150f,
+                AimingTolerance = 180f, // 0 - 180 firing angle
                 EnergyCost = 0.001000001f, //(((EnergyCost * DefaultDamage) * ShotsPerSecond) * BarrelsPerShot) * ShotsPerBarrel
                 Hybrid = false, //projectile based weapon with energy cost
                 EnergyPriority = 0, //  0 = Lowest shares power with shields, 1 = Medium shares power with thrusters and over powers shields, 2 = Highest Does not share power will use all available power until energy requirements met
@@ -37,7 +37,7 @@ namespace WeaponThread
                 AimLeadingPrediction = Advanced, // Off, Basic, Accurate, Advanced
                 DelayCeaseFire = 10, // Measured in game ticks (6 = 100ms, 60 = 1 seconds, etc..).
                 GridWeaponCap = 0,// 0 = unlimited, the smallest weapon cap assigned to a subTypeId takes priority.
-                Ui = Display(rateOfFire: false, damageModifier: false, toggleGuidance: false, enableOverload: false),
+                Ui = Display(rateOfFire: true, damageModifier: false, toggleGuidance: false, enableOverload: true),
 
                 Loading = new AmmoLoading
                 {
@@ -102,7 +102,7 @@ namespace WeaponThread
                 },
                 Beams = new BeamDefinition
                 {
-                    Enable = true,
+                    Enable = false,
                     VirtualBeams = false, // Only one hot beam, but with the effectiveness of the virtual beams combined (better performace)
                     ConvergeBeams = false, // When using virtual beams this option visually converges the beams to the location of the real beam.
                     RotateRealBeam = false, // The real (hot beam) is rotated between all virtual beams, instead of centered between them.
@@ -110,12 +110,12 @@ namespace WeaponThread
                 },
                 Trajectory = new AmmoTrajectory
                 {
-                    Guidance = None,
-                    TargetLossDegree = 180f,
-                    TargetLossTime = 0, // 0 is disabled, Measured in game ticks (6 = 100ms, 60 = 1 seconds, etc..).
-                    AccelPerSec = 0f,
-                    DesiredSpeed = 400f,
-                    MaxTrajectory = 1500f,
+                    Guidance = Smart, // None, Remote, TravelTo, Smart, DetectTravelTo, DetectSmart, DetectFixed
+                    TargetLossDegree = 160f,
+                    TargetLossTime = 60, // 0 is disabled, Measured in game ticks (6 = 100ms, 60 = 1 seconds, etc..).
+                    AccelPerSec = 2000f,
+                    DesiredSpeed = 1000f,
+                    MaxTrajectory = 3500f,
                     SpeedVariance = Random(start: 0, end: 0), // subtracts value from DesiredSpeed
                     RangeVariance = Random(start: 0, end: 0), // subtracts value from MaxTrajectory
                     Smarts = new Smarts
@@ -172,7 +172,7 @@ namespace WeaponThread
                 Line = new LineDefinition
                 {
                     Tracer = Base(enable: true, length: 3f, width: 0.05f, color: Color(red: 0.9f, green: 0.9f, blue: 0.9f, alpha: 1)),
-                    TracerMaterial = "WeaponLaser", // WeaponLaser, ProjectileTrailLine, WarpBubble, etc..
+                    TracerMaterial = "WarpBubble", // WeaponLaser, ProjectileTrailLine, WarpBubble, etc..
                     ColorVariance = Random(start: 5f, end: 10f), // multiply the color by random values within range.
                     WidthVariance = Random(start: 0f, end: 0.045f), // adds random value to default width (negatives shrinks width)
                     Trail = Options(enable: false, material: "ProjectileTrailLine", decayTime: 600, color: Color(red: 8, green: 64, blue: 8, alpha: 8))
