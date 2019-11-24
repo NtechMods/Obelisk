@@ -19,7 +19,7 @@ namespace WeaponThread
             {
                 MountPoints = new[]
                 {
-                    MountPoint(subTypeId: "NtechObelisk", aimPartId:"", muzzlePartId: "elevation_02", azimuthPartId: "azimuth02", elevationPartId: "elevation_02"),
+                    MountPoint(subTypeId: "NtechObelisk", aimPartId:"elevation_02", muzzlePartId: "elevation_02", azimuthPartId: "azimuth02", elevationPartId: "elevation_02"),
                 },
                 Barrels = Names("muzzle_barrel_02")
             },

@@ -22,7 +22,7 @@
       <Icon>Textures\GUI\Icons\Obelisk.dds</Icon>
       <CubeSize>Large</CubeSize>
       <BlockTopology>TriangleMesh</BlockTopology>
-      <Size x="1" y="1" z="5" /> <!-- in blender(x = zy) (y = z) (z = y) -->
+      <Size x="1" y="5" z="1" /> <!-- in blender(x = zy) (y = z) (z = y) -->
       <ModelOffset x="0" y="0" z="0" />
       <Model>Models\Cubes\Nt_Obelisk.mwm</Model>
       <UseModelIntersection>true</UseModelIntersection>
@@ -37,7 +37,7 @@
       </Components>
       <CriticalComponent Subtype="Computer" Index="0" />
       <MountPoints>
-        <MountPoint Side="Back" StartX="0" StartY="0" EndX="1" EndY="1" />
+        <MountPoint Side="Bottom" StartX="0" StartY="0" EndX="1" EndY="1" />
       </MountPoints>
       <BuildProgressModels>
         <Model BuildPercentUpperBound="0.33" File="Models\Cubes\GazerBeamsLB_Constr1.mwm" />
@@ -49,7 +49,7 @@
       <MirroringY>Z</MirroringY>
       <MirroringZ>Y</MirroringZ>
       <EdgeType>Light</EdgeType>
-	  <EmissiveColorPreset>Extended</EmissiveColorPreset>
+	  <EmissiveColorPreset>Obelisk_Emissive</EmissiveColorPreset>
       <BuildTimeSeconds>60</BuildTimeSeconds>
       <WeaponDefinitionId Subtype="NtechObelisk" />
       <InventoryMaxVolume>0.004</InventoryMaxVolume>
