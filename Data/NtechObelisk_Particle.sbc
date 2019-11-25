@@ -879,10 +879,10 @@
    <ParticleEffect xsi:type="MyObjectBuilder_ParticleEffect">
       <Id>
         <TypeId>ParticleEffect</TypeId>
-        <SubtypeId>EnergyBlast</SubtypeId>
+        <SubtypeId>EnergyBubble</SubtypeId>
       </Id>
       <Version>0</Version>
-      <ParticleId>4447</ParticleId> <!-- Must be unique if custom effect -->
+      <ParticleId>4547</ParticleId> <!-- Must be unique if custom effect -->
       <Length>6</Length> <!-- Length of the effect -->
       <DurationMin>1</DurationMin> <!-- minimum duration of effect -->
       <DurationMax>3</DurationMax> <!-- maximum duration of effect -->
