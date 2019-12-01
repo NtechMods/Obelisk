@@ -28,7 +28,7 @@ namespace WeaponThread
                 WeaponId = "Ntech Obelisk", // name of weapon in terminal
                 AmmoMagazineId = "Blank",
                 Block = AimControl(trackTargets: true, turretAttached: true, turretController: true, primaryTracking: true, rotateRate: 0.09f, elevateRate: 0.09f, minAzimuth: -180, maxAzimuth: 180, minElevation: -30, maxElevation: 90, offset: Vector(x: 0, y: .12, z: 0), fixedOffset: false, inventorySize: 0.34f, debug: false),
-                DeviateShotAngle = 0f,
+                DeviateShotAngle = 90f,
                 AimingTolerance = 180f, // 0 - 180 firing angle
                 EnergyCost = 0.001000001f, //(((EnergyCost * DefaultDamage) * ShotsPerSecond) * BarrelsPerShot) * ShotsPerBarrel
                 Hybrid = false, //projectile based weapon with energy cost
@@ -41,13 +41,13 @@ namespace WeaponThread
 
                 Loading = new AmmoLoading
                 {
-                    RateOfFire = 2400,
+                    RateOfFire = 480,
                     BarrelsPerShot = 1,
                     TrajectilesPerBarrel = 1, // Number of Trajectiles per barrel per fire event.
                     SkipBarrels = 0,
-                    ReloadTime = 360, // Measured in game ticks (6 = 100ms, 60 = 1 seconds, etc..).
-                    DelayUntilFire = 120, // Measured in game ticks (6 = 100ms, 60 = 1 seconds, etc..).
-                    HeatPerShot = 1, //heat generated per shot
+                    ReloadTime = 0, // Measured in game ticks (6 = 100ms, 60 = 1 seconds, etc..).
+                    DelayUntilFire = 0, // Measured in game ticks (6 = 100ms, 60 = 1 seconds, etc..).
+                    HeatPerShot = 10, //heat generated per shot
                     MaxHeat = 1000000, //max heat before weapon enters cooldown (70% of max heat)
                     Cooldown = .95f, //percent of max heat to be under to start firing again after overheat accepts .2-.95
                     HeatSinkRate = 1000000, //amount of heat lost per second
@@ -83,9 +83,9 @@ namespace WeaponThread
             },
             Ammo = new AmmoDefinition
             {
-                BaseDamage = 150f,
+                BaseDamage = 1500f,
                 Mass = 1f, // in kilograms
-                Health = 0, // 0 = disabled, otherwise how much damage it can take from other trajectiles before dying.
+                Health = 10, // 0 = disabled, otherwise how much damage it can take from other trajectiles before dying.
                 BackKickForce = 0f,
                 Shape = Options(shape: Sphere, diameter: 1), //defines the collision shape of projectile, defaults to visual Line Length
                 ObjectsHit = Options(maxObjectsHit: 0, countBlocks: false), // 0 = disabled, value determines max objects (and/or blocks) penetrated per hit
@@ -102,7 +102,7 @@ namespace WeaponThread
                 },
                 Beams = new BeamDefinition
                 {
-                    Enable = true,
+                    Enable = false,
                     VirtualBeams = false, // Only one hot beam, but with the effectiveness of the virtual beams combined (better performace)
                     ConvergeBeams = false, // When using virtual beams this option visually converges the beams to the location of the real beam.
                     RotateRealBeam = false, // The real (hot beam) is rotated between all virtual beams, instead of centered between them.
@@ -110,21 +110,21 @@ namespace WeaponThread
                 },
                 Trajectory = new AmmoTrajectory
                 {
-                    Guidance = None, // None, Remote, TravelTo, Smart, DetectTravelTo, DetectSmart, DetectFixed
-                    TargetLossDegree = 160f,
-                    TargetLossTime = 60, // 0 is disabled, Measured in game ticks (6 = 100ms, 60 = 1 seconds, etc..).
+                    Guidance = Smart, // None, Remote, TravelTo, Smart, DetectTravelTo, DetectSmart, DetectFixed
+                    TargetLossDegree = 180f,
+                    TargetLossTime = 0, // 0 is disabled, Measured in game ticks (6 = 100ms, 60 = 1 seconds, etc..).
                     AccelPerSec = 2000f,
-                    DesiredSpeed = 1000f,
-                    MaxTrajectory = 3500f,
+                    DesiredSpeed = 4000f,
+                    MaxTrajectory = 13500f,
                     SpeedVariance = Random(start: 0, end: 0), // subtracts value from DesiredSpeed
                     RangeVariance = Random(start: 0, end: 0), // subtracts value from MaxTrajectory
                     Smarts = new Smarts
                     {
                         Inaccuracy = 0f, // 0 is perfect, hit accuracy will be a random num of meters between 0 and this value.
                         Aggressiveness = 1f, // controls how responsive tracking is.
-                        MaxLateralThrust = 0.3f, // controls how sharp the trajectile may turn
-                        TrackingDelay = 1200, // Measured in line length units traveled.
-                        MaxChaseTime = 2000, // Measured in game ticks (6 = 100ms, 60 = 1 seconds, etc..).
+                        MaxLateralThrust = 0.9f, // controls how sharp the trajectile may turn
+                        TrackingDelay = 0, // Measured in line length units traveled.
+                        MaxChaseTime = 18000, // Measured in game ticks (6 = 100ms, 60 = 1 seconds, etc..).
                         OverideTarget = true, // when set to true ammo picks its own target, does not use hardpoints.
                     },
                     Mines = Options(detectRadius: 200, deCloakRadius: 100, fieldTime: 1800, cloak: true, persist: false),
@@ -135,43 +135,43 @@ namespace WeaponThread
 
             Graphics = new GraphicDefinition
             {
-                ModelName = "",
+                ModelName = "\\Models\\Ammo\\AmmoOrb.mwm",
                 VisualProbability = 1f,
                 ShieldHitDraw = true,
                 Particles = new ParticleDefinition
                 {
                     Ammo = new Particle
                     {
-                        Name = "",
-                        Color = Color(red: 128, green: 0, blue: 0, alpha: 32),
-                        Offset = Vector(x: 0, y: -1, z: 0),
-                        Extras = Options(loop: true, restart: false, distance: 5000, duration: 1, scale: 1)
+                        Name = "EnergyBubble",
+                        Color = Color(red: 10, green: 20, blue: 25, alpha: 3),
+                        Offset = Vector(x: 0, y: 0, z: 0),
+                        Extras = Options(loop: true, restart: false, distance: 5000, duration: 1, scale: 3)
                     },
                     Hit = new Particle
                     {
                         Name = "MaterialHit_Metal",
-                        Color = Color(red: 1, green: 1, blue: 1, alpha: 1),
+                        Color = Color(red: 10, green: 20, blue: 25, alpha: 1),
                         Offset = Vector(x: 0, y: 0, z: 0),
                         Extras = Options(loop: false, restart: false, distance: 5000, duration: 1, scale: 1.0f),
                     },
                     Barrel1 = new Particle
                     {
-                        Name = "EnergyBubble", // Smoke_LargeGunShot
-                        Color = Color(red: 3, green: 7, blue: 9, alpha: 1),
+                        Name = "", // Smoke_LargeGunShot
+                        Color = Color(red: 10, green: 20, blue: 25, alpha: 1),
                         Offset = Vector(x: 0, y: 0, z: 0),
-                        Extras = Options(loop: true, restart: false, distance: 800, duration: 1, scale: 1f),
+                        Extras = Options(loop: true, restart: false, distance: 800, duration: 2, scale: 1f),
                     },
                     Barrel2 = new Particle
                     {
-                        Name = "",//Muzzle_Flash_Large
-                        Color = Color(red: 1, green: 1, blue: 1, alpha: 1),
-                        Offset = Vector(x: 0, y: -1, z: 0),
-                        Extras = Options(loop: true, restart: false, distance: 200, duration: 1, scale: 1f),
+                        Name = "EnergyBauble",//Muzzle_Flash_Large
+                        Color = Color(red: 10, green: 20, blue: 25, alpha: 1),
+                        Offset = Vector(x: 0, y: 0, z: 0),
+                        Extras = Options(loop: true, restart: false, distance: 800, duration: 6, scale: 1f),
                     },
                 },
                 Line = new LineDefinition
                 {
-                    Tracer = Base(enable: true, length: 3f, width: 0.05f, color: Color(red: 0.3f, green: 0.7f, blue: 0.9f, alpha: 1)),
+                    Tracer = Base(enable: false, length: 3f, width: 0.05f, color: Color(red: 0.3f, green: 0.7f, blue: 0.9f, alpha: 1)),
                     TracerMaterial = "WeaponLaser", // WeaponLaser, ProjectileTrailLine, WarpBubble, etc..
                     ColorVariance = Random(start: 0f, end: 10f), // multiply the color by random values within range.
                     WidthVariance = Random(start: 0f, end: 0.045f), // adds random value to default width (negatives shrinks width)
