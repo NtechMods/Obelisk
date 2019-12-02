@@ -83,10 +83,10 @@ namespace WeaponThread
             },
             Ammo = new AmmoDefinition
             {
-                BaseDamage = 1500f,
+                BaseDamage = 2500f,
                 Mass = 1f, // in kilograms
                 Health = 10, // 0 = disabled, otherwise how much damage it can take from other trajectiles before dying.
-                BackKickForce = 0f,
+                BackKickForce = 1f,
                 Shape = Options(shape: Sphere, diameter: 1), //defines the collision shape of projectile, defaults to visual Line Length
                 ObjectsHit = Options(maxObjectsHit: 0, countBlocks: false), // 0 = disabled, value determines max objects (and/or blocks) penetrated per hit
                 Shrapnel = Options(baseDamage: 1, fragments: 0, maxTrajectory: 100, noAudioVisual: true, noGuidance: true, shape: HalfMoon),
@@ -112,7 +112,7 @@ namespace WeaponThread
                 {
                     Guidance = Smart, // None, Remote, TravelTo, Smart, DetectTravelTo, DetectSmart, DetectFixed
                     TargetLossDegree = 180f,
-                    TargetLossTime = 0, // 0 is disabled, Measured in game ticks (6 = 100ms, 60 = 1 seconds, etc..).
+                    TargetLossTime = 3600, // 0 is disabled, Measured in game ticks (6 = 100ms, 60 = 1 seconds, etc..).
                     AccelPerSec = 2000f,
                     DesiredSpeed = 4000f,
                     MaxTrajectory = 13500f,
@@ -135,7 +135,7 @@ namespace WeaponThread
 
             Graphics = new GraphicDefinition
             {
-                ModelName = "\\Models\\Ammo\\AmmoOrb.mwm",
+                ModelName = "", // \\Models\\Ammo\\AmmoOrb.mwm
                 VisualProbability = 1f,
                 ShieldHitDraw = true,
                 Particles = new ParticleDefinition
