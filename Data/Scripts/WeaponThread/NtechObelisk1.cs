@@ -131,7 +131,7 @@ namespace WeaponThread
                 },
             },
 
-
+			Animations = MonolithEmissive, //link to animation config
 
             Graphics = new GraphicDefinition
             {
