@@ -40,9 +40,6 @@
         <MountPoint Side="Bottom" StartX="0" StartY="0" EndX="1" EndY="1" />
       </MountPoints>
       <BuildProgressModels>
-        <Model BuildPercentUpperBound="0.33" File="Models\Cubes\GazerBeamsLB_Constr1.mwm" />
-        <Model BuildPercentUpperBound="0.66" File="Models\Cubes\GazerBeamsLB_Constr2.mwm" />
-        <Model BuildPercentUpperBound="1.00" File="Models\Cubes\GazerBeamsLB_Constr3.mwm" />
       </BuildProgressModels>
       <BlockPairName>NtechObeliskTower</BlockPairName>
       <Description>Discovered on an alien planet, a relic from long ago. Engineers were able to figure out it's function and replicate it, though unable to replicate it's original alloy, it is comprised of common components and more likely to be damaged than the original which is stored at an unknown location.</Description>

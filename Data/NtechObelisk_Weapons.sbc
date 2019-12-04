@@ -24,8 +24,8 @@
         <TypeId>BlueprintDefinition</TypeId>
         <SubtypeId>Blank</SubtypeId>
       </Id>
-      <DisplayName>Blank Ammo for Lasers</DisplayName>
-      <Icon>Textures\GUI\Icons\ammo\DeURounds.dds</Icon>
+      <DisplayName>Blank</DisplayName>
+      <Icon>Textures\GUI\Icons\Obelisk.dds</Icon>
       <Prerequisites>
         <Item Amount="1" TypeId="Ingot" SubtypeId="Magnesium" />
 		<Item Amount="1" TypeId="Ingot" SubtypeId="Nickel" />
