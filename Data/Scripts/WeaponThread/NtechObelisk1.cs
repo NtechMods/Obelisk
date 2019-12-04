@@ -85,7 +85,7 @@ namespace WeaponThread
             {
                 BaseDamage = 10000f,
                 Mass = 0.01f, // in kilograms
-                Health = 10000, // 0 = disabled, otherwise how much damage it can take from other trajectiles before dying.
+                Health = 0, // 0 = disabled, otherwise how much damage it can take from other trajectiles before dying.
                 BackKickForce = 1f,
                 Shape = Options(shape: Sphere, diameter: 1), //defines the collision shape of projectile, defaults to visual Line Length
                 ObjectsHit = Options(maxObjectsHit: 1000, countBlocks: false), // 0 = disabled, value determines max objects (and/or blocks) penetrated per hit
