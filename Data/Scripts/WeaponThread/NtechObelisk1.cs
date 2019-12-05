@@ -46,10 +46,10 @@ namespace WeaponThread
                     TrajectilesPerBarrel = 1, // Number of Trajectiles per barrel per fire event.
                     SkipBarrels = 0,
                     ReloadTime = 600, // Measured in game ticks (6 = 100ms, 60 = 1 seconds, etc..).
-                    DelayUntilFire = 300, // Measured in game ticks (6 = 100ms, 60 = 1 seconds, etc..).
-                    HeatPerShot = 2, //heat generated per shot
-                    MaxHeat = 5200, //max heat before weapon enters cooldown (70% of max heat)
-                    Cooldown = .75f, //percent of max heat to be under to start firing again after overheat accepts .2-.95
+                    DelayUntilFire = 120, // Measured in game ticks (6 = 100ms, 60 = 1 seconds, etc..).
+                    HeatPerShot = 1, //heat generated per shot
+                    MaxHeat = 15200, //max heat before weapon enters cooldown (70% of max heat)
+                    Cooldown = .95f, //percent of max heat to be under to start firing again after overheat accepts .2-.95
                     HeatSinkRate = 10, //amount of heat lost per second
                     DegradeRof = false, // progressively lower rate of fire after 80% heat threshold (80% of max heat)
                     ShotsInBurst = 2600,
@@ -88,14 +88,14 @@ namespace WeaponThread
                 Health = 0, // 0 = disabled, otherwise how much damage it can take from other trajectiles before dying.
                 BackKickForce = 1f,
                 Shape = Options(shape: Sphere, diameter: 1), //defines the collision shape of projectile, defaults to visual Line Length
-                ObjectsHit = Options(maxObjectsHit: 1000, countBlocks: false), // 0 = disabled, value determines max objects (and/or blocks) penetrated per hit
+                ObjectsHit = Options(maxObjectsHit: 0, countBlocks: false), // 0 = disabled, value determines max objects (and/or blocks) penetrated per hit
                 Shrapnel = Options(baseDamage: 1, fragments: 0, maxTrajectory: 100, noAudioVisual: true, noGuidance: true, shape: HalfMoon),
 
                 AreaEffect = new AreaDamage
                 {
                     AreaEffect = Disabled, // Disabled = do not use area effect at all, Explosive is keens, Radiant is not.
                     AreaEffectDamage = 0f, // 0 = use spillover from BaseDamage, otherwise use this value.
-                    AreaEffectRadius = 70f,
+                    AreaEffectRadius = 1f,
                     Pulse = Options(interval: 30, pulseChance: 100), // interval measured in game ticks (60 == 1 second)
                     Explosions = Options(noVisuals: true, noSound: true, scale: 1, customParticle: "", customSound: ""),
                     Detonation = Options(detonateOnEnd: false, armOnlyOnHit: true, detonationDamage: 0, detonationRadius: 70),
