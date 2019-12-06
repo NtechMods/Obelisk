@@ -569,9 +569,9 @@ namespace WeaponThread
                                 new RelMove
                                 {
                                     CenterEmpty = "",//Specifiy an empty on the subpart to rotate around
-                                    TicksToMove = 120, //number of ticks to complete motion, 60 = 1 second
+                                    TicksToMove = 60, //number of ticks to complete motion, 60 = 1 second
 
-                                    MovementType = ExpoDecay, // ExpoGrowth (speedsup),  ExpoDecay (slows down), Linear, Delay, Show, Hide
+                                    MovementType = Linear, // ExpoGrowth (speedsup),  ExpoDecay (slows down), Linear, Delay, Show, Hide
                                     EmissiveName = "Monolith_Emissive",//name of defined emissive 
                                     LinearPoints = new[]
                                     {
@@ -639,9 +639,9 @@ namespace WeaponThread
                                 new RelMove
                                 {
                                     CenterEmpty = "",//Specifiy an empty on the subpart to rotate around
-                                    TicksToMove = 120, //number of ticks to complete motion, 60 = 1 second
+                                    TicksToMove = 60, //number of ticks to complete motion, 60 = 1 second
 
-                                    MovementType = ExpoDecay, // ExpoGrowth (speedsup),  ExpoDecay (slows down), Linear, Delay, Show, Hide
+                                    MovementType = Linear, // ExpoGrowth (speedsup),  ExpoDecay (slows down), Linear, Delay, Show, Hide
                                     EmissiveName = "Monolith_Emissive",//name of defined emissive 
                                     LinearPoints = new[]
                                     {
@@ -710,9 +710,9 @@ namespace WeaponThread
                                 new RelMove
                                 {
                                     CenterEmpty = "",//Specifiy an empty on the subpart to rotate around
-                                    TicksToMove = 120, //number of ticks to complete motion, 60 = 1 second
+                                    TicksToMove = 60, //number of ticks to complete motion, 60 = 1 second
 
-                                    MovementType = ExpoDecay, // ExpoGrowth (speedsup),  ExpoDecay (slows down), Linear, Delay, Show, Hide
+                                    MovementType = Linear, // ExpoGrowth (speedsup),  ExpoDecay (slows down), Linear, Delay, Show, Hide
                                     EmissiveName = "Monolith_Emissive",//name of defined emissive 
                                     LinearPoints = new[]
                                     {
@@ -780,9 +780,9 @@ namespace WeaponThread
                                 new RelMove
                                 {
                                     CenterEmpty = "",//Specifiy an empty on the subpart to rotate around
-                                    TicksToMove = 120, //number of ticks to complete motion, 60 = 1 second
+                                    TicksToMove = 60, //number of ticks to complete motion, 60 = 1 second
 
-                                    MovementType = ExpoDecay, // ExpoGrowth (speedsup),  ExpoDecay (slows down), Linear, Delay, Show, Hide
+                                    MovementType = Linear, // ExpoGrowth (speedsup),  ExpoDecay (slows down), Linear, Delay, Show, Hide
                                     EmissiveName = "Monolith_Emissive",//name of defined emissive 
                                     LinearPoints = new[]
                                     {
