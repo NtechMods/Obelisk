@@ -59,7 +59,7 @@ namespace WeaponThread
             Targeting = new TargetingDefinition
             {
                 Threats = Valid(Grids),
-                SubSystems = Priority(Jumping, Thrust, Offense, Power, Production, Any), //define block type targeting order
+                SubSystems = Priority(Power, Thrust, Offense, Utility, Production, Any), //define block type targeting order
                 ClosestFirst = true, // tries to pick closest targets first (blocks on grids, projectiles, etc...).
                 MinimumDiameter = 0, // 0 = unlimited, Minimum radius of threat to engage.
                 MaximumDiameter = 0, // 0 = unlimited, Maximum radius of threat to engage.
@@ -87,7 +87,7 @@ namespace WeaponThread
                 Mass = 0.01f, // in kilograms
                 Health = 0, // 0 = disabled, otherwise how much damage it can take from other trajectiles before dying.
                 BackKickForce = 1f,
-                Shape = Options(shape: Sphere, diameter: 1), //defines the collision shape of projectile, defaults to visual Line Length
+                Shape = Options(shape: Line, diameter: 1), //defines the collision shape of projectile, defaults to visual Line Length
                 ObjectsHit = Options(maxObjectsHit: 0, countBlocks: false), // 0 = disabled, value determines max objects (and/or blocks) penetrated per hit
                 Shrapnel = Options(baseDamage: 1, fragments: 0, maxTrajectory: 100, noAudioVisual: true, noGuidance: true, shape: HalfMoon),
 

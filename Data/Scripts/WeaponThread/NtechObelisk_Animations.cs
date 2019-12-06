@@ -44,6 +44,7 @@ namespace WeaponThread
                     AnimationDelays = Delays(FiringDelay : 0, ReloadingDelay: 0, OverheatedDelay: 0, TrackingDelay: 0, LockedDelay: 0, OnDelay: 0, OffDelay: 0, BurstReloadDelay: 0, OutOfAmmoDelay: 0, PreFireDelay: 0, StopFiringDelay: 0),//Delay before animation starts
                     Reverse = Events(),
                     Loop = Events(),
+                    TriggerOnce = Events(Firing, StopFiring),
                     EventMoveSets = new Dictionary<EventTriggers, RelMove[]>
                     {
                         [Firing] =
@@ -96,6 +97,7 @@ namespace WeaponThread
                     AnimationDelays = Delays(FiringDelay : 0, ReloadingDelay: 0, OverheatedDelay: 0, TrackingDelay: 0, LockedDelay: 0, OnDelay: 0, OffDelay: 0, BurstReloadDelay: 0, OutOfAmmoDelay: 0, PreFireDelay: 0, StopFiringDelay: 0),//Delay before animation starts
                     Reverse = Events(),
                     Loop = Events(),
+                    TriggerOnce = Events(Firing, StopFiring),
                     EventMoveSets = new Dictionary<EventTriggers, RelMove[]>
                     {
                         [Firing] =
@@ -149,6 +151,7 @@ namespace WeaponThread
                     AnimationDelays = Delays(FiringDelay : 0, ReloadingDelay: 0, OverheatedDelay: 0, TrackingDelay: 0, LockedDelay: 0, OnDelay: 0, OffDelay: 0, BurstReloadDelay: 0, OutOfAmmoDelay: 0, PreFireDelay: 0, StopFiringDelay: 0),//Delay before animation starts
                     Reverse = Events(),
                     Loop = Events(),
+                    TriggerOnce = Events(Firing, StopFiring),
                     EventMoveSets = new Dictionary<EventTriggers, RelMove[]>
                     {
                         [Firing] =
@@ -201,6 +204,7 @@ namespace WeaponThread
                     AnimationDelays = Delays(FiringDelay : 0, ReloadingDelay: 0, OverheatedDelay: 0, TrackingDelay: 0, LockedDelay: 0, OnDelay: 0, OffDelay: 0, BurstReloadDelay: 0, OutOfAmmoDelay: 0, PreFireDelay: 0, StopFiringDelay: 0),//Delay before animation starts
                     Reverse = Events(),
                     Loop = Events(),
+                    TriggerOnce = Events(Firing, StopFiring),
                     EventMoveSets = new Dictionary<EventTriggers, RelMove[]>
                     {
                         [Firing] =
@@ -256,6 +260,7 @@ namespace WeaponThread
                     AnimationDelays = Delays(FiringDelay : 0, ReloadingDelay: 0, OverheatedDelay: 0, TrackingDelay: 0, LockedDelay: 0, OnDelay: 0, OffDelay: 0, BurstReloadDelay: 0, OutOfAmmoDelay: 0, PreFireDelay: 0, StopFiringDelay: 0),//Delay before animation starts
                     Reverse = Events(), // (Firing, Overheated)
                     Loop = Events(), // (Firing, Overheated)
+                    TriggerOnce = Events(Firing, StopFiring),
                     EventMoveSets = new Dictionary<EventTriggers, RelMove[]>
                     {
                         [Firing] =
@@ -307,6 +312,7 @@ namespace WeaponThread
                     AnimationDelays = Delays(FiringDelay : 0, ReloadingDelay: 0, OverheatedDelay: 0, TrackingDelay: 0, LockedDelay: 0, OnDelay: 0, OffDelay: 0, BurstReloadDelay: 0, OutOfAmmoDelay: 0, PreFireDelay: 0, StopFiringDelay: 0),//Delay before animation starts
                     Reverse = Events(), // (Firing, Overheated)
                     Loop = Events(), // (Firing, Overheated)
+                    TriggerOnce = Events(Firing, StopFiring),
                     EventMoveSets = new Dictionary<EventTriggers, RelMove[]>
                     {
                         [Firing] =
@@ -359,6 +365,7 @@ namespace WeaponThread
                     AnimationDelays = Delays(FiringDelay : 0, ReloadingDelay: 0, OverheatedDelay: 0, TrackingDelay: 0, LockedDelay: 0, OnDelay: 0, OffDelay: 0, BurstReloadDelay: 0, OutOfAmmoDelay: 0, PreFireDelay: 0, StopFiringDelay: 0),//Delay before animation starts
                     Reverse = Events(), // (Firing, Overheated)
                     Loop = Events(), // (Firing, Overheated)
+                    TriggerOnce = Events(Firing, StopFiring),
                     EventMoveSets = new Dictionary<EventTriggers, RelMove[]>
                     {
                         [Firing] =
@@ -410,6 +417,7 @@ namespace WeaponThread
                     AnimationDelays = Delays(FiringDelay : 0, ReloadingDelay: 0, OverheatedDelay: 0, TrackingDelay: 0, LockedDelay: 0, OnDelay: 0, OffDelay: 0, BurstReloadDelay: 0, OutOfAmmoDelay: 0, PreFireDelay: 0, StopFiringDelay: 0),//Delay before animation starts
                     Reverse = Events(), // (Firing, Overheated)
                     Loop = Events(), // (Firing, Overheated)
+                    TriggerOnce = Events(Firing, StopFiring),
                     EventMoveSets = new Dictionary<EventTriggers, RelMove[]>
                     {
                         [Firing] =
@@ -466,6 +474,7 @@ namespace WeaponThread
                     AnimationDelays = Delays(FiringDelay : 0, ReloadingDelay: 0, OverheatedDelay: 0, TrackingDelay: 0, LockedDelay: 0, OnDelay: 0, OffDelay: 0, BurstReloadDelay: 0, OutOfAmmoDelay: 0, PreFireDelay: 0, StopFiringDelay: 0),//Delay before animation starts
                     Reverse = Events(), // (Firing, Overheated)
                     Loop = Events(), // (Firing, Overheated)
+                    TriggerOnce = Events(Firing, StopFiring),
                     EventMoveSets = new Dictionary<EventTriggers, RelMove[]>
                     {
                         [Firing] =
@@ -735,6 +744,7 @@ namespace WeaponThread
                     AnimationDelays = Delays(FiringDelay : 0, ReloadingDelay: 0, OverheatedDelay: 0, TrackingDelay: 0, LockedDelay: 0, OnDelay: 0, OffDelay: 0, BurstReloadDelay: 0, OutOfAmmoDelay: 0, PreFireDelay: 0, StopFiringDelay: 0),//Delay before animation starts
                     Reverse = Events(), // (Firing, Overheated)
                     Loop = Events(), // (Firing, Overheated)
+                    TriggerOnce = Events(Firing, StopFiring),
                     EventMoveSets = new Dictionary<EventTriggers, RelMove[]>
                     {
                         [Firing] =
