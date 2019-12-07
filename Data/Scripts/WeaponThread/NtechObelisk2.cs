@@ -13,15 +13,15 @@ namespace WeaponThread
 {   // Don't edit above this line
     partial class Weapons
     {
-        WeaponDefinition NtechObelisk1 => new WeaponDefinition
+        WeaponDefinition NtechObelisk2 => new WeaponDefinition
         {
             Assignments = new ModelAssignments
             {
                 MountPoints = new[]
                 {
-                    MountPoint(subTypeId: "NtechObelisk", aimPartId:"elevation_01", muzzlePartId: "elevation_01", azimuthPartId: "azimuth01", elevationPartId: "elevation_01"),
+                    MountPoint(subTypeId: "NtechObelisk", aimPartId:"elevation_02", muzzlePartId: "elevation_02", azimuthPartId: "azimuth02", elevationPartId: "elevation_02"),
                 },
-                Barrels = Names("muzzle_barrel_01")
+                Barrels = Names("muzzle_barrel_02")
             },
             HardPoint = new HardPointDefinition
             {
