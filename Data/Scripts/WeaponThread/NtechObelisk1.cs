@@ -87,7 +87,7 @@ namespace WeaponThread
                 Mass = 0.01f, // in kilograms
                 Health = 0, // 0 = disabled, otherwise how much damage it can take from other trajectiles before dying.
                 BackKickForce = 1f,
-                Shape = Options(shape: Line, diameter: 1), //defines the collision shape of projectile, defaults to visual Line Length
+                Shape = Options(shape: Line, diameter: 4), //defines the collision shape of projectile, defaults to visual Line Length
                 ObjectsHit = Options(maxObjectsHit: 0, countBlocks: false), // 0 = disabled, value determines max objects (and/or blocks) penetrated per hit
                 Shrapnel = Options(baseDamage: 1, fragments: 0, maxTrajectory: 100, noAudioVisual: true, noGuidance: true, shape: HalfMoon),
 
