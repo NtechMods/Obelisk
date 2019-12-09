@@ -36,7 +36,7 @@ namespace WeaponThread
                 RotateBarrelAxis = 0, // 0 = off, 1 = xAxis, 2 = yAxis, 3 = zAxis
                 AimLeadingPrediction = Advanced, // Off, Basic, Accurate, Advanced
                 DelayCeaseFire = 0, // Measured in game ticks (6 = 100ms, 60 = 1 seconds, etc..).
-                GridWeaponCap = 1,// 0 = unlimited, the smallest weapon cap assigned to a subTypeId takes priority.
+                GridWeaponCap = 3,// 0 = unlimited, the smallest weapon cap assigned to a subTypeId takes priority.
                 Ui = Display(rateOfFire: true, damageModifier: false, toggleGuidance: false, enableOverload: true),
 
                 Loading = new AmmoLoading
@@ -46,7 +46,7 @@ namespace WeaponThread
                     TrajectilesPerBarrel = 1, // Number of Trajectiles per barrel per fire event.
                     SkipBarrels = 0,
                     ReloadTime = 600, // Measured in game ticks (6 = 100ms, 60 = 1 seconds, etc..).
-                    DelayUntilFire = 120, // Measured in game ticks (6 = 100ms, 60 = 1 seconds, etc..).
+                    DelayUntilFire = 180, // Measured in game ticks (6 = 100ms, 60 = 1 seconds, etc..).
                     HeatPerShot = 1, //heat generated per shot
                     MaxHeat = 15200, //max heat before weapon enters cooldown (70% of max heat)
                     Cooldown = .95f, //percent of max heat to be under to start firing again after overheat accepts .2-.95

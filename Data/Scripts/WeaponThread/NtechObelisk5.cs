@@ -13,15 +13,15 @@ namespace WeaponThread
 {   // Don't edit above this line
     partial class Weapons
     {
-        WeaponDefinition NtechObelisk1 => new WeaponDefinition
+        WeaponDefinition NtechObelisk5 => new WeaponDefinition
         {
             Assignments = new ModelAssignments
             {
                 MountPoints = new[]
                 {
-                    MountPoint(subTypeId: "NtechObelisk", aimPartId:"elevation_01", muzzlePartId: "elevation_01", azimuthPartId: "Crystal_Top", elevationPartId: "elevation_01"),
+                    MountPoint(subTypeId: "NtechObelisk", aimPartId:"elevation_05", muzzlePartId: "elevation_05", azimuthPartId: "azimuth05", elevationPartId: "elevation_05"),
                 },
-                Barrels = Names("muzzle_barrel_01")
+                Barrels = Names("muzzle_barrel_05")
             },
             HardPoint = new HardPointDefinition
             {
@@ -46,7 +46,7 @@ namespace WeaponThread
                     TrajectilesPerBarrel = 1, // Number of Trajectiles per barrel per fire event.
                     SkipBarrels = 0,
                     ReloadTime = 600, // Measured in game ticks (6 = 100ms, 60 = 1 seconds, etc..).
-                    DelayUntilFire = 120, // Measured in game ticks (6 = 100ms, 60 = 1 seconds, etc..).
+                    DelayUntilFire = 360, // Measured in game ticks (6 = 100ms, 60 = 1 seconds, etc..).
                     HeatPerShot = 1, //heat generated per shot
                     MaxHeat = 15200, //max heat before weapon enters cooldown (70% of max heat)
                     Cooldown = .95f, //percent of max heat to be under to start firing again after overheat accepts .2-.95
