@@ -25,7 +25,7 @@ namespace WeaponThread
             },
             HardPoint = new HardPointDefinition
             {
-                WeaponId = "Ntech Obelisk", // name of weapon in terminal
+                WeaponId = "Ntech Obelisk L4", // name of weapon in terminal
                 AmmoMagazineId = "Blank",
                 Block = AimControl(trackTargets: true, turretAttached: true, turretController: true, primaryTracking: true, rotateRate: 0.09f, elevateRate: 0.09f, minAzimuth: -180, maxAzimuth: 180, minElevation: -70, maxElevation: 90, offset: Vector(x: 0, y: .12, z: 0), fixedOffset: false, inventorySize: 0.34f, debug: false),
                 DeviateShotAngle = 0.1f,
@@ -131,7 +131,7 @@ namespace WeaponThread
                 },
             },
 
-			Animations = MonolithEmissive, //link to animation config
+			Animations = MonolithSecondary, //link to animation config
 
             Graphics = new GraphicDefinition
             {
