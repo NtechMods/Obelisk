@@ -12,7 +12,7 @@ namespace WeaponThread
             Emissives = new []
             {
                 Emissive(
-                    EmissiveName: "Monolith_Emissive", 
+                    EmissiveName: "Emissive", 
                     Colors: new []
                     {
                         Color(red:0, green: 0, blue:0, alpha: 1),//will transitions from one color to the next if more than one
@@ -31,7 +31,7 @@ namespace WeaponThread
                     LeavePreviousOn: true,//true will leave last part at the last setting until end of animation, used with cycleEmissiveParts
                     EmissivePartNames: new []
                     {
-                        "Sheath_Corner", "Sheath_Center", "Nt_Obelisk_CrystalBottom", "Nt_Obelisk_CrystalTop", "Nt_Obelisk_CrystalEdge"
+                        "Emissive"
                     }),
             },
             WeaponAnimationSets = new[]
@@ -57,7 +57,7 @@ namespace WeaponThread
                                     TicksToMove = 120, //number of ticks to complete motion, 60 = 1 second
 
                                     MovementType = ExpoDecay, // ExpoGrowth (speedsup),  ExpoDecay (slows down), Linear, Delay, Show, Hide
-                                    EmissiveName = "Monolith_Emissive",//name of defined emissive 
+                                    EmissiveName = "Emissive",//name of defined emissive 
                                     LinearPoints = new[]
                                     {
                                         Transformation(0, 0, 1.2), //linear movement
@@ -77,7 +77,7 @@ namespace WeaponThread
                                     TicksToMove = 120, //number of ticks to complete motion, 60 = 1 second
 
                                     MovementType = ExpoDecay, // ExpoGrowth (speedsup),  ExpoDecay (slows down), Linear, Delay, Show, Hide
-                                    EmissiveName = "Monolith_Emissive",//name of defined emissive 
+                                    EmissiveName = "Emissive",//name of defined emissive 
                                     LinearPoints = new[]
                                     {
                                         Transformation(0, 0, -1.2), //linear movement
@@ -111,7 +111,7 @@ namespace WeaponThread
                                     TicksToMove = 120, //number of ticks to complete motion, 60 = 1 second
 
                                     MovementType = ExpoDecay, // ExpoGrowth (speedsup),  ExpoDecay (slows down), Linear, Delay, Show, Hide
-                                    EmissiveName = "Monolith_Emissive",//name of defined emissive 
+                                    EmissiveName = "Emissive",//name of defined emissive 
                                     LinearPoints = new[]
                                     {
                                         Transformation(1.2, 0, 0), //linear movement
@@ -130,7 +130,7 @@ namespace WeaponThread
                                     TicksToMove = 120, //number of ticks to complete motion, 60 = 1 second
 
                                     MovementType = ExpoDecay, // ExpoGrowth (speedsup),  ExpoDecay (slows down), Linear, Delay, Show, Hide
-                                    EmissiveName = "Monolith_Emissive",//name of defined emissive 
+                                    EmissiveName = "Emissive",//name of defined emissive 
                                     LinearPoints = new[]
                                     {
                                         Transformation(-1.2, 0, 0), //linear movement
@@ -165,7 +165,7 @@ namespace WeaponThread
                                     TicksToMove = 120, //number of ticks to complete motion, 60 = 1 second
 
                                     MovementType = ExpoDecay, // ExpoGrowth (speedsup),  ExpoDecay (slows down), Linear, Delay, Show, Hide
-                                    EmissiveName = "Monolith_Emissive",//name of defined emissive 
+                                    EmissiveName = "Emissive",//name of defined emissive 
                                     LinearPoints = new[]
                                     {
                                         Transformation(0, 0, -1.2), //linear movement (x=L,R y=U,D z=F,B)
@@ -184,7 +184,7 @@ namespace WeaponThread
                                     TicksToMove = 120, //number of ticks to complete motion, 60 = 1 second
 
                                     MovementType = ExpoDecay, // ExpoGrowth (speedsup),  ExpoDecay (slows down), Linear, Delay, Show, Hide
-                                    EmissiveName = "Monolith_Emissive",//name of defined emissive 
+                                    EmissiveName = "Emissive",//name of defined emissive 
                                     LinearPoints = new[]
                                     {
                                         Transformation(0, 0, 1.2), //linear movement (x=L,R y=U,D z=F,B)
@@ -218,7 +218,7 @@ namespace WeaponThread
                                     TicksToMove = 120, //number of ticks to complete motion, 60 = 1 second
 
                                     MovementType = ExpoDecay, // ExpoGrowth (speedsup),  ExpoDecay (slows down), Linear, Delay, Show, Hide
-                                    EmissiveName = "Monolith_Emissive",//name of defined emissive 
+                                    EmissiveName = "Emissive",//name of defined emissive 
                                     LinearPoints = new[]
                                     {
                                         Transformation(-1.2, 0, 0), //linear movement
@@ -237,7 +237,7 @@ namespace WeaponThread
                                     TicksToMove = 120, //number of ticks to complete motion, 60 = 1 second
 
                                     MovementType = ExpoDecay, // ExpoGrowth (speedsup),  ExpoDecay (slows down), Linear, Delay, Show, Hide
-                                    EmissiveName = "Monolith_Emissive",//name of defined emissive 
+                                    EmissiveName = "Emissive",//name of defined emissive 
                                     LinearPoints = new[]
                                     {
                                         Transformation(1.2, 0, 0), //linear movement
@@ -274,7 +274,7 @@ namespace WeaponThread
                                     TicksToMove = 120, //number of ticks to complete motion, 60 = 1 second
 
                                     MovementType = ExpoDecay, // ExpoGrowth (speedsup),  ExpoDecay (slows down), Linear, Delay, Show, Hide
-                                    EmissiveName = "Monolith_Emissive",//name of defined emissive 
+                                    EmissiveName = "Emissive",//name of defined emissive 
                                     LinearPoints = new[]
                                     {
                                         Transformation(-1, 0, -1), //linear movement x=L,R y=U,D z=F,B
@@ -293,7 +293,7 @@ namespace WeaponThread
                                     TicksToMove = 120, //number of ticks to complete motion, 60 = 1 second
 
                                     MovementType = ExpoDecay, // ExpoGrowth (speedsup),  ExpoDecay (slows down), Linear, Delay, Show, Hide
-                                    EmissiveName = "Monolith_Emissive",//name of defined emissive 
+                                    EmissiveName = "Emissive",//name of defined emissive 
                                     LinearPoints = new[]
                                     {
                                         Transformation(1, 0, 1), //linear movement x=L,R y=U,D z=F,B
@@ -326,7 +326,7 @@ namespace WeaponThread
                                     TicksToMove = 120, //number of ticks to complete motion, 60 = 1 second
 
                                     MovementType = ExpoDecay, // ExpoGrowth (speedsup),  ExpoDecay (slows down), Linear, Delay, Show, Hide
-                                    EmissiveName = "Monolith_Emissive",//name of defined emissive 
+                                    EmissiveName = "Emissive",//name of defined emissive 
                                     LinearPoints = new[]
                                     {
                                         Transformation(-1, 0, 1), //linear movement x=L,R y=U,D z=F,B
@@ -345,7 +345,7 @@ namespace WeaponThread
                                     TicksToMove = 120, //number of ticks to complete motion, 60 = 1 second
 
                                     MovementType = ExpoDecay, // ExpoGrowth (speedsup),  ExpoDecay (slows down), Linear, Delay, Show, Hide
-                                    EmissiveName = "Monolith_Emissive",//name of defined emissive 
+                                    EmissiveName = "Emissive",//name of defined emissive 
                                     LinearPoints = new[]
                                     {
                                         Transformation(1, 0, -1), //linear movement x=L,R y=U,D z=F,B
@@ -379,7 +379,7 @@ namespace WeaponThread
                                     TicksToMove = 120, //number of ticks to complete motion, 60 = 1 second
 
                                     MovementType = ExpoDecay, // ExpoGrowth (speedsup),  ExpoDecay (slows down), Linear, Delay, Show, Hide
-                                    EmissiveName = "Monolith_Emissive",//name of defined emissive 
+                                    EmissiveName = "Emissive",//name of defined emissive 
                                     LinearPoints = new[]
                                     {
                                         Transformation(1, 0, 1), //linear movement x=L,R y=U,D z=F,B
@@ -398,7 +398,7 @@ namespace WeaponThread
                                     TicksToMove = 120, //number of ticks to complete motion, 60 = 1 second
 
                                     MovementType = ExpoDecay, // ExpoGrowth (speedsup),  ExpoDecay (slows down), Linear, Delay, Show, Hide
-                                    EmissiveName = "Monolith_Emissive",//name of defined emissive 
+                                    EmissiveName = "Emissive",//name of defined emissive 
                                     LinearPoints = new[]
                                     {
                                         Transformation(-1, 0, -1), //linear movement x=L,R y=U,D z=F,B
@@ -431,7 +431,7 @@ namespace WeaponThread
                                     TicksToMove = 120, //number of ticks to complete motion, 60 = 1 second
 
                                     MovementType = ExpoDecay, // ExpoGrowth (speedsup),  ExpoDecay (slows down), Linear, Delay, Show, Hide
-                                    EmissiveName = "Monolith_Emissive",//name of defined emissive 
+                                    EmissiveName = "Emissive",//name of defined emissive 
                                     LinearPoints = new[]
                                     {
                                         Transformation(1, 0, -1), //linear movement x=L,R y=U,D z=F,B
@@ -450,7 +450,7 @@ namespace WeaponThread
                                     TicksToMove = 120, //number of ticks to complete motion, 60 = 1 second
 
                                     MovementType = ExpoDecay, // ExpoGrowth (speedsup),  ExpoDecay (slows down), Linear, Delay, Show, Hide
-                                    EmissiveName = "Monolith_Emissive",//name of defined emissive 
+                                    EmissiveName = "Emissive",//name of defined emissive 
                                     LinearPoints = new[]
                                     {
                                         Transformation(-1, 0, 1), //linear movement x=L,R y=U,D z=F,B
@@ -488,7 +488,7 @@ namespace WeaponThread
                                     TicksToMove = 80, //number of ticks to complete motion, 60 = 1 second
 
                                     MovementType = ExpoDecay, // ExpoGrowth (speedsup),  ExpoDecay (slows down), Linear, Delay, Show, Hide
-                                    EmissiveName = "Monolith_Emissive",//name of defined emissive 
+                                    EmissiveName = "Emissive",//name of defined emissive 
                                     LinearPoints = new[]
                                     {
                                         Transformation(0, 4, 0), //linear movement x=L,R y=U,D z=F,B
@@ -508,7 +508,7 @@ namespace WeaponThread
                                     TicksToMove = 80, //number of ticks to complete motion, 60 = 1 second
 
                                     MovementType = ExpoDecay, // ExpoGrowth (speedsup),  ExpoDecay (slows down), Linear, Delay, Show, Hide
-                                    EmissiveName = "Monolith_Emissive",//name of defined emissive 
+                                    EmissiveName = "Emissive",//name of defined emissive 
                                     LinearPoints = new[]
                                     {
                                         Transformation(0, -4, 0), //linear movement x=L,R y=U,D z=F,B
@@ -543,7 +543,7 @@ namespace WeaponThread
                                     TicksToMove = 120, //number of ticks to complete motion, 60 = 1 second
 
                                     MovementType = ExpoDecay, // ExpoGrowth (speedsup),  ExpoDecay (slows down), Linear, Delay, Show, Hide
-                                    EmissiveName = "Monolith_Emissive",//name of defined emissive 
+                                    EmissiveName = "Emissive",//name of defined emissive 
                                     LinearPoints = new[]
                                     {
                                         Transformation(0, 2, 0), //linear movement x=L,R y=U,D z=F,B
@@ -563,7 +563,7 @@ namespace WeaponThread
                                     TicksToMove = 120, //number of ticks to complete motion, 60 = 1 second
 
                                     MovementType = ExpoDecay, // ExpoGrowth (speedsup),  ExpoDecay (slows down), Linear, Delay, Show, Hide
-                                    EmissiveName = "Monolith_Emissive",//name of defined emissive 
+                                    EmissiveName = "Emissive",//name of defined emissive 
                                     LinearPoints = new[]
                                     {
                                         Transformation(0, -2, 0), //linear movement x=L,R y=U,D z=F,B

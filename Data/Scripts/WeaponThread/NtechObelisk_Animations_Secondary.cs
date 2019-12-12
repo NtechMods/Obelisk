@@ -12,7 +12,7 @@ namespace WeaponThread
             Emissives = new []
             {
                 Emissive(
-                    EmissiveName: "Monolith_Emissive1", 
+                    EmissiveName: "Monolith_Emissive", 
                     Colors: new []
                     {
                         Color(red:0, green: 0, blue:0, alpha: 1),//will transitions from one color to the next if more than one
@@ -31,7 +31,7 @@ namespace WeaponThread
                     LeavePreviousOn: true,//true will leave last part at the last setting until end of animation, used with cycleEmissiveParts
                     EmissivePartNames: new []
                     {
-                        "Sheath_Corner", "Sheath_Center", "Nt_Obelisk_CrystalBottom", "Nt_Obelisk_CrystalTop", "Nt_Obelisk_CrystalEdge"
+                        "Monolith_Emissive"
                     }),
             },
             WeaponAnimationSets = new[]

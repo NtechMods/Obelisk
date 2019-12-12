@@ -4,23 +4,59 @@
     <Sound>
       <Id>
         <TypeId>AudioDefinition</TypeId>
-        <SubtypeId>ObeliskCharge</SubtypeId>
+        <SubtypeId>ObeliskChargeStart</SubtypeId>
       </Id>
       <Category>WEP_TURR</Category>
-      <MaxDistance>1000</MaxDistance>
+      <MaxDistance>300</MaxDistance>
+      <PitchVariation>50</PitchVariation>
+      <VolumeVariation>0.2</VolumeVariation>
+      <Volume>0.9</Volume>
+	  <Loopable>false</Loopable>
+      <Waves>
+        <Wave Type="D2">
+          <Start>Audio\WEP\ObeliskStart_S.wav</Start>
+        </Wave>
+        <Wave Type="D3">
+          <Start>Audio\WEP\ObeliskStart_M.wav</Start>
+        </Wave>
+      </Waves>
+    </Sound>
+	    <Sound>
+      <Id>
+        <TypeId>AudioDefinition</TypeId>
+        <SubtypeId>ObeliskChargeLoop</SubtypeId>
+      </Id>
+      <Category>WEP_TURR</Category>
+      <MaxDistance>300</MaxDistance>
       <PitchVariation>50</PitchVariation>
       <VolumeVariation>0.2</VolumeVariation>
       <Volume>0.9</Volume>
 	  <Loopable>true</Loopable>
       <Waves>
         <Wave Type="D2">
-          <Start>Audio\WEP\ObeliskStart_S.wav</Start>
           <Loop>Audio\WEP\ObeliskLoop_S.wav</Loop>
+        </Wave>
+        <Wave Type="D3">
+          <Loop>Audio\WEP\ObeliskStart_M.wav</Loop>
+        </Wave>
+      </Waves>
+    </Sound>
+	<Sound>
+      <Id>
+        <TypeId>AudioDefinition</TypeId>
+        <SubtypeId>ObeliskChargeEnd</SubtypeId>
+      </Id>
+      <Category>WEP_TURR</Category>
+      <MaxDistance>300</MaxDistance>
+      <PitchVariation>50</PitchVariation>
+      <VolumeVariation>0.2</VolumeVariation>
+      <Volume>0.9</Volume>
+	  <Loopable>false</Loopable>
+      <Waves>
+        <Wave Type="D2">
           <End>Audio\WEP\ObeliskEnd_S.wav</End>
         </Wave>
         <Wave Type="D3">
-          <Start>Audio\WEP\ObeliskStart_M.wav</Start>
-          <Loop>Audio\WEP\ObeliskStart_M.wav</Loop>
           <End>Audio\WEP\ObeliskStart_M.wav</End>
         </Wave>
       </Waves>

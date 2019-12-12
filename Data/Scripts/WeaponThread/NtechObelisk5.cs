@@ -182,7 +182,7 @@ namespace WeaponThread
             {
                 HardPoint = new AudioHardPointDefinition
                 {
-                    FiringSound = "ObeliskCharge", // WepShipGatlingShot
+                    FiringSound = "", // WepShipGatlingShot
                     FiringSoundPerShot = false,
                     ReloadSound = "",
                     NoAmmoSound = "",

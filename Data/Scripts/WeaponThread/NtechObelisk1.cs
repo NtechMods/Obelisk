@@ -33,7 +33,7 @@ namespace WeaponThread
                 EnergyCost = 0.00000001f, //(((EnergyCost * DefaultDamage) * ShotsPerSecond) * BarrelsPerShot) * ShotsPerBarrel
                 Hybrid = false, //projectile based weapon with energy cost
                 EnergyPriority = 2, //  0 = Lowest shares power with shields, 1 = Medium shares power with thrusters and over powers shields, 2 = Highest Does not share power will use all available power until energy requirements met
-                RotateBarrelAxis = 0, // 0 = off, 1 = xAxis, 2 = yAxis, 3 = zAxis
+                RotateBarrelAxis = 1, // 0 = off, 1 = xAxis, 2 = yAxis, 3 = zAxis
                 AimLeadingPrediction = Advanced, // Off, Basic, Accurate, Advanced
                 DelayCeaseFire = 0, // Measured in game ticks (6 = 100ms, 60 = 1 seconds, etc..).
                 GridWeaponCap = 3,// 0 = unlimited, the smallest weapon cap assigned to a subTypeId takes priority.
@@ -41,7 +41,7 @@ namespace WeaponThread
 
                 Loading = new AmmoLoading
                 {
-                    RateOfFire = 2600,
+                    RateOfFire = 10,
                     BarrelsPerShot = 1,
                     TrajectilesPerBarrel = 1, // Number of Trajectiles per barrel per fire event.
                     SkipBarrels = 0,
@@ -58,7 +58,7 @@ namespace WeaponThread
             },
             Targeting = new TargetingDefinition
             {
-                Threats = Valid(Grids),
+                Threats = Valid(Grids), // Projectiles, Characters, Grids, Neutrals, Meteors, Other(No meaning yet)
                 SubSystems = Priority(Power, Thrust, Offense, Utility, Production, Any), //define block type targeting order
                 ClosestFirst = true, // tries to pick closest targets first (blocks on grids, projectiles, etc...).
                 MinimumDiameter = 0, // 0 = unlimited, Minimum radius of threat to engage.
@@ -102,7 +102,7 @@ namespace WeaponThread
                 },
                 Beams = new BeamDefinition
                 {
-                    Enable = true,
+                    Enable = false,
                     VirtualBeams = false, // Only one hot beam, but with the effectiveness of the virtual beams combined (better performace)
                     ConvergeBeams = false, // When using virtual beams this option visually converges the beams to the location of the real beam.
                     RotateRealBeam = false, // The real (hot beam) is rotated between all virtual beams, instead of centered between them.
@@ -110,11 +110,11 @@ namespace WeaponThread
                 },
                 Trajectory = new AmmoTrajectory
                 {
-                    Guidance = None, // None, Remote, TravelTo, Smart, DetectTravelTo, DetectSmart, DetectFixed
+                    Guidance = DetectFixed, // None, Remote, TravelTo, Smart, DetectTravelTo, DetectSmart, DetectFixed
                     TargetLossDegree = 180f,
                     TargetLossTime = 0, // 0 is disabled, Measured in game ticks (6 = 100ms, 60 = 1 seconds, etc..).
                     AccelPerSec = 0f,
-                    DesiredSpeed = 10f,
+                    DesiredSpeed = 0f,
                     MaxTrajectory = 10000f,
                     SpeedVariance = Random(start: 0, end: 0), // subtracts value from DesiredSpeed
                     RangeVariance = Random(start: 0, end: 0), // subtracts value from MaxTrajectory
@@ -182,12 +182,12 @@ namespace WeaponThread
             {
                 HardPoint = new AudioHardPointDefinition
                 {
-                    FiringSound = "ObeliskCharge", // WepShipGatlingShot
-                    FiringSoundPerShot = false,
+                    FiringSound = "ObeliskChargeStart", // WepShipGatlingShot
+                    FiringSoundPerShot = true,
                     ReloadSound = "",
                     NoAmmoSound = "",
                     HardPointRotationSound = "",
-                    BarrelRotationSound = "",
+                    BarrelRotationSound = "ObeliskChargeLoop",
                 },
 
                 Ammo = new AudioAmmoDefinition
