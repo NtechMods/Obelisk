@@ -114,7 +114,7 @@ namespace WeaponThread
                     TargetLossDegree = 180f,
                     TargetLossTime = 0, // 0 is disabled, Measured in game ticks (6 = 100ms, 60 = 1 seconds, etc..).
                     AccelPerSec = 0f,
-                    DesiredSpeed = 0f,
+                    DesiredSpeed = 5f,
                     MaxTrajectory = 10000f,
                     SpeedVariance = Random(start: 0, end: 0), // subtracts value from DesiredSpeed
                     RangeVariance = Random(start: 0, end: 0), // subtracts value from MaxTrajectory
@@ -135,14 +135,14 @@ namespace WeaponThread
 
             Graphics = new GraphicDefinition
             {
-                ModelName = "", // \\Models\\Ammo\\AmmoOrb.mwm
+                ModelName = "\\Models\\Ammo\\AmmoOrb.mwm", // \\Models\\Ammo\\AmmoOrb.mwm
                 VisualProbability = 1f,
                 ShieldHitDraw = true,
                 Particles = new ParticleDefinition
                 {
                     Ammo = new Particle
                     {
-                        Name = "", // EnergyBubble
+                        Name = "EnergyBubble", // EnergyBubble
                         Color = Color(red: 10, green: 20, blue: 25, alpha: 3),
                         Offset = Vector(x: 0, y: 0, z: 0),
                         Extras = Options(loop: true, restart: false, distance: 5000, duration: 1, scale: 3)
