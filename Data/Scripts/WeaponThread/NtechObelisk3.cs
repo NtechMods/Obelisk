@@ -156,7 +156,7 @@ namespace WeaponThread
                     },
                     Barrel1 = new Particle
                     {
-                        Name = "EnergyBauble", // Smoke_LargeGunShot
+                        Name = "WelderContactPoint", // Smoke_LargeGunShot
                         Color = Color(red: 10, green: 20, blue: 25, alpha: 1),
                         Offset = Vector(x: 0, y: 0, z: 0),
                         Extras = Options(loop: true, restart: false, distance: 800, duration: 2, scale: 1f),
@@ -182,7 +182,7 @@ namespace WeaponThread
             {
                 HardPoint = new AudioHardPointDefinition
                 {
-                    FiringSound = "", // WepShipGatlingShot
+                    FiringSound = "ObeliskChargeLoop", // WepShipGatlingShot
                     FiringSoundPerShot = false,
                     ReloadSound = "",
                     NoAmmoSound = "",

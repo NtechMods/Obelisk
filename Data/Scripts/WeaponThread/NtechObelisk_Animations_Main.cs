@@ -16,7 +16,7 @@ namespace WeaponThread
                     Colors: new []
                     {
                         Color(red:0, green: 0, blue:0, alpha: 1),//will transitions from one color to the next if more than one
-                        Color(red:100, green: 200, blue:255, alpha: 1),
+                        Color(red:10, green: 20, blue:255, alpha: 1),
                     }, 
                     IntensityFrom:0, //starting intensity, can be 0.0-1.0 or 1.0-0.0, setting both from and to, to the same value will stay at that value
                     IntensityTo:1, 

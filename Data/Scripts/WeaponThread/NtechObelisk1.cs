@@ -33,7 +33,7 @@ namespace WeaponThread
                 EnergyCost = 0.00000001f, //(((EnergyCost * DefaultDamage) * ShotsPerSecond) * BarrelsPerShot) * ShotsPerBarrel
                 Hybrid = false, //projectile based weapon with energy cost
                 EnergyPriority = 2, //  0 = Lowest shares power with shields, 1 = Medium shares power with thrusters and over powers shields, 2 = Highest Does not share power will use all available power until energy requirements met
-                RotateBarrelAxis = 1, // 0 = off, 1 = xAxis, 2 = yAxis, 3 = zAxis
+                RotateBarrelAxis = 0, // 0 = off, 1 = xAxis, 2 = yAxis, 3 = zAxis
                 AimLeadingPrediction = Advanced, // Off, Basic, Accurate, Advanced
                 DelayCeaseFire = 0, // Measured in game ticks (6 = 100ms, 60 = 1 seconds, etc..).
                 GridWeaponCap = 3,// 0 = unlimited, the smallest weapon cap assigned to a subTypeId takes priority.
@@ -135,7 +135,7 @@ namespace WeaponThread
 
             Graphics = new GraphicDefinition
             {
-                ModelName = "\\Models\\Ammo\\AmmoOrb.mwm", // \\Models\\Ammo\\AmmoOrb.mwm
+                ModelName = "", // \\Models\\Ammo\\AmmoOrb.mwm
                 VisualProbability = 1f,
                 ShieldHitDraw = true,
                 Particles = new ParticleDefinition
@@ -143,9 +143,9 @@ namespace WeaponThread
                     Ammo = new Particle
                     {
                         Name = "EnergyBubble", // EnergyBubble
-                        Color = Color(red: 10, green: 20, blue: 25, alpha: 3),
+                        Color = Color(red: 10, green: 20, blue: 25, alpha: 1.0f),
                         Offset = Vector(x: 0, y: 0, z: 0),
-                        Extras = Options(loop: true, restart: false, distance: 5000, duration: 1, scale: 3)
+                        Extras = Options(loop: true, restart: false, distance: 5000, duration: 1, scale: 0.4f)
                     },
                     Hit = new Particle
                     {
@@ -156,7 +156,7 @@ namespace WeaponThread
                     },
                     Barrel1 = new Particle
                     {
-                        Name = "EnergyBauble", // Smoke_LargeGunShot
+                        Name = "WelderContactPoint", // Smoke_LargeGunShot
                         Color = Color(red: 10, green: 20, blue: 25, alpha: 1),
                         Offset = Vector(x: 0, y: 0, z: 0),
                         Extras = Options(loop: true, restart: false, distance: 800, duration: 2, scale: 1f),
@@ -171,11 +171,11 @@ namespace WeaponThread
                 },
                 Line = new LineDefinition
                 {
-                    Tracer = Base(enable: true, length: 3f, width: 0.05f, color: Color(red: 10f, green: 20f, blue: 25.5f, alpha: 1)),
+                    Tracer = Base(enable: false, length: 3f, width: 0.05f, color: Color(red: 10f, green: 20f, blue: 25.5f, alpha: 1)),
                     TracerMaterial = "WeaponLaser", // WeaponLaser, ProjectileTrailLine, WarpBubble, etc..
                     ColorVariance = Random(start: 0f, end: 10f), // multiply the color by random values within range.
                     WidthVariance = Random(start: 0f, end: 0.045f), // adds random value to default width (negatives shrinks width)
-                    Trail = Options(enable: true, material: "ProjectileTrailLine", decayTime: 600, color: Color(red: 10, green: 20, blue: 25, alpha: 8))
+                    Trail = Options(enable: false, material: "ProjectileTrailLine", decayTime: 600, color: Color(red: 10, green: 20, blue: 25, alpha: 8))
                 },
             },
             Audio = new AudioDefinition
