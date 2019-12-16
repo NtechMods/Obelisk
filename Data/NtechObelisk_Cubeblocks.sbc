@@ -57,6 +57,7 @@
 	  <AiEnabled>false</AiEnabled>
       <IdleRotation>false</IdleRotation>
       <MaxFov>1.04719755</MaxFov>
+      <PrimarySound>ObeliskChargeLoop</PrimarySound>
       <EmissiveColorPreset>Default</EmissiveColorPreset>
       <PCU>225</PCU>
     </Definition>
