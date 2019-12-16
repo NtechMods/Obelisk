@@ -280,6 +280,20 @@ namespace WeaponThread
                                     Rotation = Transformation(0, 0, 0), //degrees
                                     RotAroundCenter = Transformation(0, 0, 0), //degrees, rotates around CenterEmpty
                                 },
+								new RelMove
+                                {
+                                    CenterEmpty = "",//Specifiy an empty on the subpart to rotate around
+                                    TicksToMove = 0, //number of ticks to complete motion, 60 = 1 second
+
+                                    MovementType = Delay, // ExpoGrowth (speedsup),  ExpoDecay (slows down), Linear, Delay, Show, Hide
+                                    EmissiveName = "Emissive",//name of defined emissive 
+                                    LinearPoints = new[]
+                                    {
+                                        Transformation(0, 0, 0), //linear movement x=L,R y=U,D z=F,B
+                                    },
+                                    Rotation = Transformation(0, 0, 0), //degrees
+                                    RotAroundCenter = Transformation(0, 0, 0), //degrees, rotates around CenterEmpty
+                                },
 								
                             },
 						[StopFiring] =

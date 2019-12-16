@@ -277,7 +277,7 @@ namespace WeaponThread
                                     EmissiveName = "Monolith_Emissive",//name of defined emissive 
                                     LinearPoints = new[]
                                     {
-                                        Transformation(-1, 0, -1), //linear movement x=L,R y=U,D z=F,B
+                                        Transformation(-1, -1, -1), //linear movement x=L,R y=U,D z=F,B
                                     },
                                     Rotation = Transformation(0, 0, 0), //degrees
                                     RotAroundCenter = Transformation(0, 0, 0), //degrees, rotates around CenterEmpty
@@ -296,7 +296,7 @@ namespace WeaponThread
                                     EmissiveName = "Monolith_Emissive",//name of defined emissive 
                                     LinearPoints = new[]
                                     {
-                                        Transformation(1, 0, 1), //linear movement x=L,R y=U,D z=F,B
+                                        Transformation(1, 1, 1), //linear movement x=L,R y=U,D z=F,B
                                     },
                                     Rotation = Transformation(0, 0, 0), //degrees
                                     RotAroundCenter = Transformation(0, 0, 0), //degrees, rotates around CenterEmpty
@@ -329,7 +329,7 @@ namespace WeaponThread
                                     EmissiveName = "Monolith_Emissive",//name of defined emissive 
                                     LinearPoints = new[]
                                     {
-                                        Transformation(-1, 0, 1), //linear movement x=L,R y=U,D z=F,B
+                                        Transformation(-1, -1, 1), //linear movement x=L,R y=U,D z=F,B
                                     },
                                     Rotation = Transformation(0, 0, 0), //degrees
                                     RotAroundCenter = Transformation(0, 0, 0), //degrees, rotates around CenterEmpty
@@ -348,7 +348,7 @@ namespace WeaponThread
                                     EmissiveName = "Monolith_Emissive",//name of defined emissive 
                                     LinearPoints = new[]
                                     {
-                                        Transformation(1, 0, -1), //linear movement x=L,R y=U,D z=F,B
+                                        Transformation(1, 1, -1), //linear movement x=L,R y=U,D z=F,B
                                     },
                                     Rotation = Transformation(0, 0, 0), //degrees
                                     RotAroundCenter = Transformation(0, 0, 0), //degrees, rotates around CenterEmpty
@@ -382,7 +382,7 @@ namespace WeaponThread
                                     EmissiveName = "Monolith_Emissive",//name of defined emissive 
                                     LinearPoints = new[]
                                     {
-                                        Transformation(1, 0, 1), //linear movement x=L,R y=U,D z=F,B
+                                        Transformation(1, -1, 1), //linear movement x=L,R y=U,D z=F,B
                                     },
                                     Rotation = Transformation(0, 0, 0), //degrees
                                     RotAroundCenter = Transformation(0, 0, 0), //degrees, rotates around CenterEmpty
@@ -401,7 +401,7 @@ namespace WeaponThread
                                     EmissiveName = "Monolith_Emissive",//name of defined emissive 
                                     LinearPoints = new[]
                                     {
-                                        Transformation(-1, 0, -1), //linear movement x=L,R y=U,D z=F,B
+                                        Transformation(-1, 1, -1), //linear movement x=L,R y=U,D z=F,B
                                     },
                                     Rotation = Transformation(0, 0, 0), //degrees
                                     RotAroundCenter = Transformation(0, 0, 0), //degrees, rotates around CenterEmpty
@@ -434,7 +434,7 @@ namespace WeaponThread
                                     EmissiveName = "Monolith_Emissive",//name of defined emissive 
                                     LinearPoints = new[]
                                     {
-                                        Transformation(1, 0, -1), //linear movement x=L,R y=U,D z=F,B
+                                        Transformation(1, -1, -1), //linear movement x=L,R y=U,D z=F,B
                                     },
                                     Rotation = Transformation(0, 0, 0), //degrees
                                     RotAroundCenter = Transformation(0, 0, 0), //degrees, rotates around CenterEmpty
@@ -453,7 +453,7 @@ namespace WeaponThread
                                     EmissiveName = "Monolith_Emissive",//name of defined emissive 
                                     LinearPoints = new[]
                                     {
-                                        Transformation(-1, 0, 1), //linear movement x=L,R y=U,D z=F,B
+                                        Transformation(-1, 1, 1), //linear movement x=L,R y=U,D z=F,B
                                     },
                                     Rotation = Transformation(0, 0, 0), //degrees
                                     RotAroundCenter = Transformation(0, 0, 0), //degrees, rotates around CenterEmpty

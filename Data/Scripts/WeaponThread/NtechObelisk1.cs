@@ -88,7 +88,7 @@ namespace WeaponThread
                 Health = 0, // 0 = disabled, otherwise how much damage it can take from other trajectiles before dying.
                 BackKickForce = 1f,
                 Shape = Options(shape: Sphere, diameter: 1), //defines the collision shape of projectile, defaults to visual Line Length
-                ObjectsHit = Options(maxObjectsHit: 10000, countBlocks: false), // 0 = disabled, value determines max objects (and/or blocks) penetrated per hit
+                ObjectsHit = Options(maxObjectsHit: 100000, countBlocks: false), // 0 = disabled, value determines max objects (and/or blocks) penetrated per hit
                 Shrapnel = Options(baseDamage: 1, fragments: 0, maxTrajectory: 100, noAudioVisual: true, noGuidance: true, shape: HalfMoon),
 
                 AreaEffect = new AreaDamage
@@ -123,7 +123,7 @@ namespace WeaponThread
                         Inaccuracy = 20f, // 0 is perfect, hit accuracy will be a random num of meters between 0 and this value.
                         Aggressiveness = 1f, // controls how responsive tracking is.
                         MaxLateralThrust = 0.9f, // controls how sharp the trajectile may turn
-                        TrackingDelay = 4, // Measured in line length units traveled.
+                        TrackingDelay = 12, // Measured in line length units traveled.
                         MaxChaseTime = 18000, // Measured in game ticks (6 = 100ms, 60 = 1 seconds, etc..).
                         OverideTarget = true, // when set to true ammo picks its own target, does not use hardpoints.
                     },
