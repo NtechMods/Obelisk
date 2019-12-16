@@ -15,7 +15,7 @@ namespace WeaponThread
                     EmissiveName: "Monolith_Emissive", 
                     Colors: new []
                     {
-                        Color(red:0, green: 0, blue:0, alpha: 1),//will transitions from one color to the next if more than one
+                        Color(red:0.1f, green: 0.1f, blue:0.1f, alpha: 1),//will transitions from one color to the next if more than one
                         Color(red:.1f, green: .2f, blue:2.5f, alpha: 1),
 						Color(red:.05f, green: .1f, blue:1.25f, alpha: 1),
                         Color(red:.1f, green: .2f, blue:2.5f, alpha: 1),

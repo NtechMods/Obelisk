@@ -28,7 +28,7 @@ namespace WeaponThread
                 WeaponId = "Ntech Obelisk L1", // name of weapon in terminal
                 AmmoMagazineId = "Blank",
                 Block = AimControl(trackTargets: true, turretAttached: true, turretController: true, primaryTracking: true, rotateRate: 0.09f, elevateRate: 0.09f, minAzimuth: -180, maxAzimuth: 180, minElevation: -70, maxElevation: 90, offset: Vector(x: 0, y: .12, z: 0), fixedOffset: false, inventorySize: 0.34f, debug: false),
-                DeviateShotAngle = 100f,
+                DeviateShotAngle = 180f,
                 AimingTolerance = 180f, // 0 - 180 firing angle
                 EnergyCost = 0.00000001f, //(((EnergyCost * DefaultDamage) * ShotsPerSecond) * BarrelsPerShot) * ShotsPerBarrel
                 Hybrid = false, //projectile based weapon with energy cost
@@ -41,18 +41,18 @@ namespace WeaponThread
 
                 Loading = new AmmoLoading
                 {
-                    RateOfFire = 120,
+                    RateOfFire = 600,
                     BarrelsPerShot = 1,
                     TrajectilesPerBarrel = 1, // Number of Trajectiles per barrel per fire event.
                     SkipBarrels = 0,
                     ReloadTime = 600, // Measured in game ticks (6 = 100ms, 60 = 1 seconds, etc..).
                     DelayUntilFire = 120, // Measured in game ticks (6 = 100ms, 60 = 1 seconds, etc..).
                     HeatPerShot = 1, //heat generated per shot
-                    MaxHeat = 15200, //max heat before weapon enters cooldown (70% of max heat)
+                    MaxHeat = 35200, //max heat before weapon enters cooldown (70% of max heat)
                     Cooldown = .95f, //percent of max heat to be under to start firing again after overheat accepts .2-.95
                     HeatSinkRate = 10, //amount of heat lost per second
                     DegradeRof = false, // progressively lower rate of fire after 80% heat threshold (80% of max heat)
-                    ShotsInBurst = 120,
+                    ShotsInBurst = 600,
                     DelayAfterBurst = 0, // Measured in game ticks (6 = 100ms, 60 = 1 seconds, etc..).
                 },
             },
@@ -113,15 +113,15 @@ namespace WeaponThread
                     Guidance = Smart, // None, Remote, TravelTo, Smart, DetectTravelTo, DetectSmart, DetectFixed
                     TargetLossDegree = 180f,
                     TargetLossTime = 0, // 0 is disabled, Measured in game ticks (6 = 100ms, 60 = 1 seconds, etc..).
-                    AccelPerSec = 3f,
-                    DesiredSpeed = 80f,
-                    MaxTrajectory = 10000f,
+                    AccelPerSec = 70f,
+                    DesiredSpeed = 800f,
+                    MaxTrajectory = 1000f,
                     SpeedVariance = Random(start: 0, end: 0), // subtracts value from DesiredSpeed
                     RangeVariance = Random(start: 0, end: 0), // subtracts value from MaxTrajectory
                     Smarts = new Smarts
                     {
-                        Inaccuracy = 20f, // 0 is perfect, hit accuracy will be a random num of meters between 0 and this value.
-                        Aggressiveness = 1f, // controls how responsive tracking is.
+                        Inaccuracy = 0f, // 0 is perfect, hit accuracy will be a random num of meters between 0 and this value.
+                        Aggressiveness = 0.7f, // controls how responsive tracking is.
                         MaxLateralThrust = 0.9f, // controls how sharp the trajectile may turn
                         TrackingDelay = 12, // Measured in line length units traveled.
                         MaxChaseTime = 18000, // Measured in game ticks (6 = 100ms, 60 = 1 seconds, etc..).
@@ -131,7 +131,7 @@ namespace WeaponThread
                 },
             },
 
-			Animations = MonolithMain, //link to animation config
+			Animations = MonolithSecondary, MonolithMain, //link to animation config
 
             Graphics = new GraphicDefinition
             {
