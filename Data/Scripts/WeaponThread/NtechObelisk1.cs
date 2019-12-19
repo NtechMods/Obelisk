@@ -131,7 +131,7 @@ namespace WeaponThread
                 },
             },
 
-			Animations = MonolithSecondary, MonolithMain, //link to animation config
+			Animations = MonolithMain, //link to animation config
 
             Graphics = new GraphicDefinition
             {
