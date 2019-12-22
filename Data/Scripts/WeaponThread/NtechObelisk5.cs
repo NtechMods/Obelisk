@@ -114,7 +114,7 @@ namespace WeaponThread
                     TargetLossDegree = 180f,
                     TargetLossTime = 0, // 0 is disabled, Measured in game ticks (6 = 100ms, 60 = 1 seconds, etc..).
                     AccelPerSec = 0f,
-                    DesiredSpeed = 10f,
+                    DesiredSpeed = 0f,
                     MaxTrajectory = 10000f,
                     SpeedVariance = Random(start: 0, end: 0), // subtracts value from DesiredSpeed
                     RangeVariance = Random(start: 0, end: 0), // subtracts value from MaxTrajectory
@@ -171,11 +171,11 @@ namespace WeaponThread
                 },
                 Line = new LineDefinition
                 {
-                    Tracer = Base(enable: true, length: 3f, width: 0.05f, color: Color(red: 10f, green: 20f, blue: 25.5f, alpha: 1)),
-                    TracerMaterial = "WeaponLaser", // WeaponLaser, ProjectileTrailLine, WarpBubble, etc..
+                    Tracer = Base(enable: true, length: .5f, width: 0.05f, color: Color(red: 10f, green: 20f, blue: 25.5f, alpha: 1)),
+                    TracerMaterial = "ProjectileTrailLine", // WeaponLaser, ProjectileTrailLine, WarpBubble, etc..
                     ColorVariance = Random(start: 0f, end: 10f), // multiply the color by random values within range.
                     WidthVariance = Random(start: 0f, end: 0.045f), // adds random value to default width (negatives shrinks width)
-                    Trail = Options(enable: true, material: "ProjectileTrailLine", decayTime: 600, color: Color(red: 10, green: 20, blue: 25, alpha: 8))
+                    Trail = Options(enable: true, material: "ProjectileTrailLine", decayTime: 120, color: Color(red: 10, green: 20, blue: 25, alpha: 8))
                 },
             },
             Audio = new AudioDefinition

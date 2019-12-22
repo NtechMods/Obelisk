@@ -28,7 +28,7 @@ namespace WeaponThread
                 WeaponId = "Ntech Obelisk L1", // name of weapon in terminal
                 AmmoMagazineId = "Blank",
                 Block = AimControl(trackTargets: true, turretAttached: true, turretController: true, primaryTracking: true, rotateRate: 0.09f, elevateRate: 0.09f, minAzimuth: -180, maxAzimuth: 180, minElevation: -70, maxElevation: 90, offset: Vector(x: 0, y: .12, z: 0), fixedOffset: false, inventorySize: 0.34f, debug: false),
-                DeviateShotAngle = 0f,
+                DeviateShotAngle = 180f,
                 AimingTolerance = 180f, // 0 - 180 firing angle
                 EnergyCost = 0.00000001f, //(((EnergyCost * DefaultDamage) * ShotsPerSecond) * BarrelsPerShot) * ShotsPerBarrel
                 Hybrid = false, //projectile based weapon with energy cost
@@ -41,7 +41,7 @@ namespace WeaponThread
 
                 Loading = new AmmoLoading
                 {
-                    RateOfFire = 1,
+                    RateOfFire = 30,
                     BarrelsPerShot = 1,
                     TrajectilesPerBarrel = 1, // Number of Trajectiles per barrel per fire event.
                     SkipBarrels = 0,
@@ -52,8 +52,8 @@ namespace WeaponThread
                     Cooldown = .95f, //percent of max heat to be under to start firing again after overheat accepts .2-.95
                     HeatSinkRate = 10, //amount of heat lost per second
                     DegradeRof = false, // progressively lower rate of fire after 80% heat threshold (80% of max heat)
-                    ShotsInBurst = 1,
-                    DelayAfterBurst = 3600, // Measured in game ticks (6 = 100ms, 60 = 1 seconds, etc..).
+                    ShotsInBurst = 30,
+                    DelayAfterBurst = 0, // Measured in game ticks (6 = 100ms, 60 = 1 seconds, etc..).
                 },
             },
             Targeting = new TargetingDefinition
@@ -83,9 +83,9 @@ namespace WeaponThread
             },
             Ammo = new AmmoDefinition
             {
-                BaseDamage = 10000f,
+                BaseDamage = 10f,
                 Mass = 0.01f, // in kilograms
-                Health = 0, // 0 = disabled, otherwise how much damage it can take from other trajectiles before dying.
+                Health = 10000, // 0 = disabled, otherwise how much damage it can take from other trajectiles before dying.
                 BackKickForce = 1f,
                 Shape = Options(shape: Sphere, diameter: 1), //defines the collision shape of projectile, defaults to visual Line Length
                 ObjectsHit = Options(maxObjectsHit: 1000000, countBlocks: false), // 0 = disabled, value determines max objects (and/or blocks) penetrated per hit
@@ -94,10 +94,10 @@ namespace WeaponThread
                 AreaEffect = new AreaDamage
                 {
                     AreaEffect = Radiant, // Disabled = do not use area effect at all, Explosive is keens, Radiant is not.
-                    AreaEffectDamage = 0f, // 0 = use spillover from BaseDamage, otherwise use this value.
-                    AreaEffectRadius = 50f,
+                    AreaEffectDamage = 10f, // 0 = use spillover from BaseDamage, otherwise use this value.
+                    AreaEffectRadius = 100f,
                     Pulse = Options(interval: 30, pulseChance: 100), // interval measured in game ticks (60 == 1 second)
-                    Explosions = Options(noVisuals: false, noSound: true, scale: 1, customParticle: "EnergyBauble", customSound: ""),
+                    Explosions = Options(noVisuals: true, noSound: true, scale: 1, customParticle: "", customSound: ""),
                     Detonation = Options(detonateOnEnd: false, armOnlyOnHit: false, detonationDamage: 0, detonationRadius: 70),
                 },
                 Beams = new BeamDefinition
@@ -110,12 +110,12 @@ namespace WeaponThread
                 },
                 Trajectory = new AmmoTrajectory
                 {
-                    Guidance = TravelTo, // None, Remote, TravelTo, Smart, DetectTravelTo, DetectSmart, DetectFixed
+                    Guidance = Smart, // None, Remote, TravelTo, Smart, DetectTravelTo, DetectSmart, DetectFixed
                     TargetLossDegree = 180f,
                     TargetLossTime = 0, // 0 is disabled, Measured in game ticks (6 = 100ms, 60 = 1 seconds, etc..).
-                    AccelPerSec = 70f,
-                    DesiredSpeed = 800f,
-                    MaxTrajectory = 5f,
+                    AccelPerSec = 10f,
+                    DesiredSpeed = 100f,
+                    MaxTrajectory = 1000f,
                     SpeedVariance = Random(start: 0, end: 0), // subtracts value from DesiredSpeed
                     RangeVariance = Random(start: 0, end: 0), // subtracts value from MaxTrajectory
                     Smarts = new Smarts
@@ -123,11 +123,11 @@ namespace WeaponThread
                         Inaccuracy = 0f, // 0 is perfect, hit accuracy will be a random num of meters between 0 and this value.
                         Aggressiveness = 0.7f, // controls how responsive tracking is.
                         MaxLateralThrust = 0.9f, // controls how sharp the trajectile may turn
-                        TrackingDelay = 12, // Measured in line length units traveled.
+                        TrackingDelay = 10, // Measured in line length units traveled.
                         MaxChaseTime = 18000, // Measured in game ticks (6 = 100ms, 60 = 1 seconds, etc..).
                         OverideTarget = true, // when set to true ammo picks its own target, does not use hardpoints.
                     },
-                    Mines = Options(detectRadius: 200, deCloakRadius: 100, fieldTime: 1800, cloak: true, persist: false),
+                    Mines = Options(detectRadius: 200, deCloakRadius: 100, fieldTime: 1800, cloak: true, persist: true),
                 },
             },
 
