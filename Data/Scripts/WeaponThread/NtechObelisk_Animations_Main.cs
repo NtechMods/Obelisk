@@ -45,6 +45,7 @@ namespace WeaponThread
                     Reverse = Events(), // (Firing, Overheated)
                     Loop = Events(), // (Firing, Overheated)
                     TriggerOnce = Events(Tracking, StopTracking),
+					ResetEmissives = Events(Tracking, StopTracking),
                     EventMoveSets = new Dictionary<EventTriggers, RelMove[]>
                     {
                         [Tracking] =
@@ -128,6 +129,7 @@ namespace WeaponThread
                     Reverse = Events(), // (Firing, Overheated)
                     Loop = Events(), // (Firing, Overheated)
                     TriggerOnce = Events(Tracking, StopTracking),
+					ResetEmissives = Events(Tracking),
                     EventMoveSets = new Dictionary<EventTriggers, RelMove[]>
                     {
                         [Tracking] =
