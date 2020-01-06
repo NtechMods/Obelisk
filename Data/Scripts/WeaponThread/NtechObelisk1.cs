@@ -25,9 +25,9 @@ namespace WeaponThread
             },
             HardPoint = new HardPointDefinition
             {
-                WeaponId = "Ntech Obelisk L1", // name of weapon in terminal
+                WeaponId = "Ntech Obelisk Drones", // name of weapon in terminal
                 AmmoMagazineId = "Blank",
-                Block = AimControl(trackTargets: true, turretAttached: true, turretController: true, primaryTracking: true, rotateRate: 0.09f, elevateRate: 0.09f, minAzimuth: -180, maxAzimuth: 180, minElevation: -70, maxElevation: 90, offset: Vector(x: 0, y: .12, z: 0), fixedOffset: false, inventorySize: 0.34f, debug: false),
+                Block = AimControl(trackTargets: true, turretAttached: false, turretController: false, primaryTracking: false, rotateRate: 0, elevateRate: 0, minAzimuth: 0, maxAzimuth: 0, minElevation: 0, maxElevation: 0, offset: Vector(x: 0, y: .12, z: 0), fixedOffset: false, inventorySize: 0.34f, debug: false),
                 DeviateShotAngle = 180f,
                 AimingTolerance = 180f, // 0 - 180 firing angle
                 EnergyCost = 0.00000001f, //(((EnergyCost * DefaultDamage) * ShotsPerSecond) * BarrelsPerShot) * ShotsPerBarrel
@@ -45,7 +45,7 @@ namespace WeaponThread
                     BarrelsPerShot = 1,
                     TrajectilesPerBarrel = 1, // Number of Trajectiles per barrel per fire event.
                     SkipBarrels = 0,
-                    ReloadTime = 600, // Measured in game ticks (6 = 100ms, 60 = 1 seconds, etc..).
+                    ReloadTime = 0, // Measured in game ticks (6 = 100ms, 60 = 1 seconds, etc..).
                     DelayUntilFire = 360, // Measured in game ticks (6 = 100ms, 60 = 1 seconds, etc..).
                     HeatPerShot = 1, //heat generated per shot
                     MaxHeat = 35200, //max heat before weapon enters cooldown (70% of max heat)
@@ -83,22 +83,22 @@ namespace WeaponThread
             },
             Ammo = new AmmoDefinition
             {
-                BaseDamage = 10f,
+                BaseDamage = 100f,
                 Mass = 0.01f, // in kilograms
                 Health = 10000, // 0 = disabled, otherwise how much damage it can take from other trajectiles before dying.
                 BackKickForce = 1f,
                 Shape = Options(shape: Sphere, diameter: 1), //defines the collision shape of projectile, defaults to visual Line Length
-                ObjectsHit = Options(maxObjectsHit: 1000000, countBlocks: false), // 0 = disabled, value determines max objects (and/or blocks) penetrated per hit
+                ObjectsHit = Options(maxObjectsHit: 0, countBlocks: false), // 0 = disabled, value determines max objects (and/or blocks) penetrated per hit
                 Shrapnel = Options(baseDamage: 1, fragments: 0, maxTrajectory: 100, noAudioVisual: true, noGuidance: true, shape: HalfMoon),
 
                 AreaEffect = new AreaDamage
                 {
                     AreaEffect = Radiant, // Disabled = do not use area effect at all, Explosive is keens, Radiant is not.
-                    AreaEffectDamage = 10f, // 0 = use spillover from BaseDamage, otherwise use this value.
-                    AreaEffectRadius = 100f,
+                    AreaEffectDamage = 0, // 0 = use spillover from BaseDamage, otherwise use this value.
+                    AreaEffectRadius = 2.5f,
                     Pulse = Options(interval: 30, pulseChance: 100), // interval measured in game ticks (60 == 1 second)
-                    Explosions = Options(noVisuals: true, noSound: true, scale: 1, customParticle: "", customSound: ""),
-                    Detonation = Options(detonateOnEnd: false, armOnlyOnHit: false, detonationDamage: 0, detonationRadius: 70),
+                    Explosions = Options(noVisuals: false, noSound: true, scale: 1, customParticle: "", customSound: ""),
+                    Detonation = Options(detonateOnEnd: true, armOnlyOnHit: false, detonationDamage: 1000, detonationRadius: 2.5f),
                 },
                 Beams = new BeamDefinition
                 {

@@ -25,11 +25,11 @@ namespace WeaponThread
             },
             HardPoint = new HardPointDefinition
             {
-                WeaponId = "Ntech Obelisk L5", // name of weapon in terminal
+                WeaponId = "Ntech Obelisk L4", // name of weapon in terminal
                 AmmoMagazineId = "Blank",
-                Block = AimControl(trackTargets: true, turretAttached: true, turretController: true, primaryTracking: true, rotateRate: 0.09f, elevateRate: 0.09f, minAzimuth: -180, maxAzimuth: 180, minElevation: -70, maxElevation: 90, offset: Vector(x: 0, y: .12, z: 0), fixedOffset: false, inventorySize: 0.34f, debug: false),
+                Block = AimControl(trackTargets: true, turretAttached: true, turretController: true, primaryTracking: false, rotateRate: 0.09f, elevateRate: 0.09f, minAzimuth: -180, maxAzimuth: 180, minElevation: -70, maxElevation: 90, offset: Vector(x: 0, y: .12, z: 0), fixedOffset: false, inventorySize: 0.34f, debug: true),
                 DeviateShotAngle = 0.1f,
-                AimingTolerance = 180f, // 0 - 180 firing angle
+                AimingTolerance = 1f, // 0 - 180 firing angle
                 EnergyCost = 0.00000001f, //(((EnergyCost * DefaultDamage) * ShotsPerSecond) * BarrelsPerShot) * ShotsPerBarrel
                 Hybrid = false, //projectile based weapon with energy cost
                 EnergyPriority = 2, //  0 = Lowest shares power with shields, 1 = Medium shares power with thrusters and over powers shields, 2 = Highest Does not share power will use all available power until energy requirements met
@@ -41,18 +41,18 @@ namespace WeaponThread
 
                 Loading = new AmmoLoading
                 {
-                    RateOfFire = 2600,
+                    RateOfFire = 3600,
                     BarrelsPerShot = 1,
                     TrajectilesPerBarrel = 1, // Number of Trajectiles per barrel per fire event.
                     SkipBarrels = 0,
-                    ReloadTime = 600, // Measured in game ticks (6 = 100ms, 60 = 1 seconds, etc..).
-                    DelayUntilFire = 360, // Measured in game ticks (6 = 100ms, 60 = 1 seconds, etc..).
+                    ReloadTime = 0, // Measured in game ticks (6 = 100ms, 60 = 1 seconds, etc..).
+                    DelayUntilFire = 100, // Measured in game ticks (6 = 100ms, 60 = 1 seconds, etc..).
                     HeatPerShot = 1, //heat generated per shot
                     MaxHeat = 15200, //max heat before weapon enters cooldown (70% of max heat)
                     Cooldown = .95f, //percent of max heat to be under to start firing again after overheat accepts .2-.95
                     HeatSinkRate = 100, //amount of heat lost per second
                     DegradeRof = false, // progressively lower rate of fire after 80% heat threshold (80% of max heat)
-                    ShotsInBurst = 2600,
+                    ShotsInBurst = 0,
                     DelayAfterBurst = 0, // Measured in game ticks (6 = 100ms, 60 = 1 seconds, etc..).
                 },
             },
@@ -83,7 +83,7 @@ namespace WeaponThread
             },
             Ammo = new AmmoDefinition
             {
-                BaseDamage = 10f,
+                BaseDamage = 100f,
                 Mass = 0.01f, // in kilograms
                 Health = 0, // 0 = disabled, otherwise how much damage it can take from other trajectiles before dying.
                 BackKickForce = 1f,
@@ -131,7 +131,7 @@ namespace WeaponThread
                 },
             },
 
-			Animations = MonolithEdgeCrystals, //link to animation config
+            Animations = MonolithEdgeCrystals4, //link to animation config
 
             Graphics = new GraphicDefinition
             {
@@ -171,11 +171,12 @@ namespace WeaponThread
                 },
                 Line = new LineDefinition
                 {
-                    Tracer = Base(enable: true, length: .5f, width: 0.05f, color: Color(red: 10f, green: 20f, blue: 25.5f, alpha: 1)),
-                    TracerMaterial = "ProjectileTrailLine", // WeaponLaser, ProjectileTrailLine, WarpBubble, etc..
-                    ColorVariance = Random(start: 0f, end: 10f), // multiply the color by random values within range.
-                    WidthVariance = Random(start: 0f, end: 0.045f), // adds random value to default width (negatives shrinks width)
-                    Trail = Options(enable: true, material: "ProjectileTrailLine", decayTime: 120, color: Color(red: 10, green: 20, blue: 25, alpha: 8))
+                    Tracer = Base(enable: true, length: 1f, width: 0.03f, color: Color(red: 10f, green: 20f, blue: 25.5f, alpha: 1)),
+                    TracerMaterial = "WeaponLaser", // WeaponLaser, ProjectileTrailLine, WarpBubble, etc..
+                    ColorVariance = Random(start: 0.75f, end: 1f), // multiply the color by random values within range.
+                    WidthVariance = Random(start: 0f, end: -0.02f), // adds random value to default width (negatives shrinks width)
+                    Trail = Options(enable: false, material: "WeaponLaser", decayTime: 60, color: Color(red: 16, green: 16, blue: 64, alpha: 8)),
+                    OffsetEffect = Options(maxOffset: 0, minLength: .1, maxLength: 2), // 0 offset value disables this effect
                 },
             },
             Audio = new AudioDefinition
