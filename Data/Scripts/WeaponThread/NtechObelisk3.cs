@@ -83,7 +83,7 @@ namespace WeaponThread
             },
             Ammo = new AmmoDefinition
             {
-                BaseDamage = 100f,
+                BaseDamage = 10f,
                 Mass = 0.01f, // in kilograms
                 Health = 0, // 0 = disabled, otherwise how much damage it can take from other trajectiles before dying.
                 BackKickForce = 1f,

@@ -27,7 +27,7 @@ namespace WeaponThread
             {
                 WeaponId = "Ntech Obelisk L4", // name of weapon in terminal
                 AmmoMagazineId = "Blank",
-                Block = AimControl(trackTargets: true, turretAttached: true, turretController: true, primaryTracking: false, rotateRate: 0.09f, elevateRate: 0.09f, minAzimuth: -180, maxAzimuth: 180, minElevation: -70, maxElevation: 90, offset: Vector(x: 0, y: .12, z: 0), fixedOffset: false, inventorySize: 0.34f, debug: true),
+                Block = AimControl(trackTargets: true, turretAttached: true, turretController: true, primaryTracking: false, rotateRate: 0.09f, elevateRate: 0.09f, minAzimuth: -180, maxAzimuth: 180, minElevation: -70, maxElevation: 90, offset: Vector(x: 0, y: .12, z: 0), fixedOffset: false, inventorySize: 0.34f, debug: false),
                 DeviateShotAngle = 0.1f,
                 AimingTolerance = 1f, // 0 - 180 firing angle
                 EnergyCost = 0.00000001f, //(((EnergyCost * DefaultDamage) * ShotsPerSecond) * BarrelsPerShot) * ShotsPerBarrel
@@ -83,7 +83,7 @@ namespace WeaponThread
             },
             Ammo = new AmmoDefinition
             {
-                BaseDamage = 100f,
+                BaseDamage = 10f,
                 Mass = 0.01f, // in kilograms
                 Health = 0, // 0 = disabled, otherwise how much damage it can take from other trajectiles before dying.
                 BackKickForce = 1f,
