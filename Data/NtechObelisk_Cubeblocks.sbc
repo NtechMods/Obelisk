@@ -2,7 +2,7 @@
 <Definitions xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
   <ResearchBlocks>
     <ResearchBlock xsi:type="ResearchBlock">
-      <Id Type="MyObjectBuilder_LargeMissileTurret" Subtype="NtechObelisk" />
+      <Id Type="MyObjectBuilder_ConveyorSorter" Subtype="NtechObelisk" />
       <UnlockedByGroups>
         <GroupSubtype>4</GroupSubtype>
       </UnlockedByGroups>
@@ -66,7 +66,7 @@
   </CubeBlocks>
    <BlockPositions>
       <BlockPosition>
-      <Name>OctoBeamLaser</Name>
+      <Name>NtechObeliskTower</Name>
       <Position>
         <X>9</X>
         <Y>9</Y>
@@ -75,7 +75,6 @@
  </BlockPositions>
   <BlueprintClassEntries>
    
-    <Entry Class="LargeBlocks" BlueprintSubtypeId="GazerBeamsLB" />
-    <Entry Class="SmallBlocks" BlueprintSubtypeId="GazerBeamsSB" />
+    <Entry Class="LargeBlocks" BlueprintSubtypeId="NtechObelisk" />
   </BlueprintClassEntries>
 </Definitions>
