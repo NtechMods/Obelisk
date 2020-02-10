@@ -61,7 +61,7 @@ namespace WeaponThread
                                     EmissiveName = "Emissive",//name of defined emissive 
                                     LinearPoints = new[]
                                     {
-                                        Transformation(-0.6, 4.6, 0.6), //linear movement x=L,R y=U,D z=F,B
+                                        Transformation(, 4.6, ), //linear movement x=L,R y=U,D z=F,B
                                     },
                                     Rotation = Transformation(0, 0, 0), //degrees
                                     RotAroundCenter = Transformation(0, 0, 0), //degrees, rotates around CenterEmpty
@@ -98,7 +98,7 @@ namespace WeaponThread
                                     EmissiveName = "Emissive",//name of defined emissive 
                                     LinearPoints = new[]
                                     {
-                                        Transformation(0.6, -4.6, -0.6), //linear movement x=L,R y=U,D z=F,B
+                                        Transformation(, -4.6, ), //linear movement x=L,R y=U,D z=F,B
                                     },
                                     Rotation = Transformation(0, 0, 0), //degrees
                                     RotAroundCenter = Transformation(0, 0, 0), //degrees, rotates around CenterEmpty

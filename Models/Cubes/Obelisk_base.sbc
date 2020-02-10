@@ -3,12 +3,12 @@
 	<CubeBlocks>
 		<Definition>
 			<Id>
-				<TypeId>PLACEHOLDER</TypeId>
+				<TypeId>CubeBlock</TypeId>
 				<SubtypeId>Obelisk_base</SubtypeId>
 			</Id>
 			<DisplayName>DisplayName_Obelisk_base</DisplayName>
 			<Description>Description_Obelisk_base</Description>
-			<Icon>PLACEHOLDER</Icon>
+			<Icon>Textures\GUI\Icons\AstronautBackpack.dds</Icon>
 			<CubeSize>Large</CubeSize>
 			<BlockTopology>TriangleMesh</BlockTopology>
 			<Size x="1" y="1" z="1"/>
