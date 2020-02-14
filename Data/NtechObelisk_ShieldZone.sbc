@@ -8,7 +8,7 @@
     <!-- DisplayTextId must be UNIQUE! Searches for the text from MyTexts.resx -->
     <Definition xsi:type="MyObjectBuilder_SafeZoneTexturesDefinition">
         <Id Type="MyObjectBuilder_SafeZoneTexturesDefinition" Subtype="EnergyField" />
-        <DisplayTextId>SafeZone_Texture_EnergyField</DisplayTextId>
+        <DisplayTextId>EnergyField</DisplayTextId>
         <Alphamask>Textures\Models\Environment\plasmawave_alphamask.DDS</Alphamask>
         <NormalGloss>Textures\Models\Environment\plasmawave_ng.DDS</NormalGloss>
     </Definition>
