@@ -113,9 +113,9 @@ namespace WeaponThread
                     Guidance = Smart, // None, Remote, TravelTo, Smart, DetectTravelTo, DetectSmart, DetectFixed
                     TargetLossDegree = 180f,
                     TargetLossTime = 0, // 0 is disabled, Measured in game ticks (6 = 100ms, 60 = 1 seconds, etc..).
-                    AccelPerSec = 10f,
-                    DesiredSpeed = 100f,
-                    MaxTrajectory = 1000f,
+                    AccelPerSec = 30f,
+                    DesiredSpeed = 300f,
+                    MaxTrajectory = 10000f,
                     SpeedVariance = Random(start: 0, end: 0), // subtracts value from DesiredSpeed
                     RangeVariance = Random(start: 0, end: 0), // subtracts value from MaxTrajectory
                     Smarts = new Smarts
@@ -145,7 +145,7 @@ namespace WeaponThread
                         Name = "EnergyBubble", // EnergyBubble
                         Color = Color(red: 10, green: 20, blue: 25, alpha: 1.2f),
                         Offset = Vector(x: 0, y: 0, z: 0),
-                        Extras = Options(loop: true, restart: false, distance: 5000, duration: 1, scale: 0.4f)
+                        Extras = Options(loop: true, restart: false, distance: 5000, duration: 1, scale: 0.9f)
                     },
                     Hit = new Particle
                     {
@@ -159,7 +159,7 @@ namespace WeaponThread
                         Name = "WelderContactPoint", // Smoke_LargeGunShot
                         Color = Color(red: 10, green: 20, blue: 25, alpha: 1),
                         Offset = Vector(x: 0, y: 0, z: 0),
-                        Extras = Options(loop: true, restart: false, distance: 800, duration: 2, scale: 1f),
+                        Extras = Options(loop: true, restart: false, distance: 800, duration: 2, scale: 3f),
                     },
                     Barrel2 = new Particle
                     {

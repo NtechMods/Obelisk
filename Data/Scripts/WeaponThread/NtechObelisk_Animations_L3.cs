@@ -63,7 +63,7 @@ namespace WeaponThread
                                     {
                                         Transformation(0, 0, 0), //linear movement x=L,R y=U,D z=F,B
                                     },
-                                    Rotation = Transformation(0, 0, 0), //degrees
+                                    Rotation = Transformation(0.2f, 0, 0.2f), //degrees
                                     RotAroundCenter = Transformation(0, 0, 0), //degrees, rotates around CenterEmpty
                                 },
                             },
@@ -100,7 +100,7 @@ namespace WeaponThread
                                     {
                                         Transformation(0, 0, 0), //linear movement x=L,R y=U,D z=F,B
                                     },
-                                    Rotation = Transformation(0, 0, 0), //degrees
+                                    Rotation = Transformation(-0.2f, 0, -0.2f), //degrees
                                     RotAroundCenter = Transformation(0, 0, 0), //degrees, rotates around CenterEmpty
                                 },
                             },

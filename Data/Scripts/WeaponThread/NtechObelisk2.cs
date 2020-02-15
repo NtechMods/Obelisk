@@ -27,8 +27,8 @@ namespace WeaponThread
             {
                 WeaponId = "Ntech Obelisk L1", // name of weapon in terminal
                 AmmoMagazineId = "Blank",
-                Block = AimControl(trackTargets: true, turretAttached: true, turretController: true, primaryTracking: true, rotateRate: 0.09f, elevateRate: 0.09f, minAzimuth: -180, maxAzimuth: 180, minElevation: -70, maxElevation: 90, offset: Vector(x: 0, y: 0, z: 0), fixedOffset: false, inventorySize: 0.34f, debug: true),
-                DeviateShotAngle = 0.1f,
+                Block = AimControl(trackTargets: true, turretAttached: true, turretController: true, primaryTracking: true, rotateRate: 0.09f, elevateRate: 0.09f, minAzimuth: -180, maxAzimuth: 180, minElevation: -70, maxElevation: 90, offset: Vector(x: 0, y: 0, z: 0), fixedOffset: false, inventorySize: 0.34f, debug: false),
+                DeviateShotAngle = 0f,
                 AimingTolerance = 180f, // 0 - 180 firing angle
                 EnergyCost = 0.00000001f, //(((EnergyCost * DefaultDamage) * ShotsPerSecond) * BarrelsPerShot) * ShotsPerBarrel
                 Hybrid = false, //projectile based weapon with energy cost
@@ -156,7 +156,7 @@ namespace WeaponThread
                     },
                     Barrel1 = new Particle
                     {
-                        Name = "WelderContactPoint", // Smoke_LargeGunShot
+                        Name = "CrystalBeamSpawn", // Smoke_LargeGunShot
                         Color = Color(red: 10, green: 20, blue: 25, alpha: 1),
                         Offset = Vector(x: 0, y: 0, z: 0),
                         Extras = Options(loop: true, restart: false, distance: 800, duration: 2, scale: 1f),
