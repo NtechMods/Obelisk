@@ -27,7 +27,7 @@ namespace WeaponThread
             {
                 WeaponId = "Ntech Obelisk Drones", // name of weapon in terminal
                 AmmoMagazineId = "Blank",
-                Block = AimControl(trackTargets: true, turretAttached: false, turretController: false, primaryTracking: false, rotateRate: 0, elevateRate: 0, minAzimuth: 0, maxAzimuth: 0, minElevation: 0, maxElevation: 0, offset: Vector(x: 0, y: .12, z: 0), fixedOffset: false, inventorySize: 0.34f, debug: true),
+                Block = AimControl(trackTargets: true, turretAttached: false, turretController: false, primaryTracking: false, rotateRate: 0, elevateRate: 0, minAzimuth: 0, maxAzimuth: 0, minElevation: 0, maxElevation: 0, offset: Vector(x: 0, y: .12, z: 0), fixedOffset: false, inventorySize: 0.34f, debug: false),
                 DeviateShotAngle = 180f,
                 AimingTolerance = 180f, // 0 - 180 firing angle
                 EnergyCost = 0.00000001f, //(((EnergyCost * DefaultDamage) * ShotsPerSecond) * BarrelsPerShot) * ShotsPerBarrel
