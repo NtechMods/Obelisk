@@ -1,7 +1,5 @@
-using System.Collections.Generic;
-using static WeaponThread.Session.EventTriggers;
-using static WeaponThread.Session.RelMove.MoveType;
-using static WeaponThread.Session;
+
+using static WeaponThread.WeaponStructure;
 using System.Collections.Generic;
 using static WeaponThread.WeaponStructure.PartAnimationSetDef.EventTriggers;
 using static WeaponThread.WeaponStructure.RelMove.MoveType;
