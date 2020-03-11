@@ -1,15 +1,15 @@
-
-using static WeaponThread.WeaponStructure;
 using System.Collections.Generic;
-using static WeaponThread.WeaponStructure.PartAnimationSetDef.EventTriggers;
-using static WeaponThread.WeaponStructure.RelMove.MoveType;
-using static WeaponThread.Session;
-
+using static WeaponThread.WeaponStructure;
+using static WeaponThread.WeaponStructure.WeaponDefinition;
+using static WeaponThread.WeaponStructure.WeaponDefinition.AnimationDef;
+using static WeaponThread.WeaponStructure.WeaponDefinition.AnimationDef.PartAnimationSetDef.EventTriggers;
+using static WeaponThread.WeaponStructure.WeaponDefinition.AnimationDef.RelMove.MoveType;
+using static WeaponThread.WeaponStructure.WeaponDefinition.AnimationDef.RelMove;
 namespace WeaponThread
 { // Don't edit above this line
     partial class Weapons
     {
-        private AnimationDefinition MonolithMain => new AnimationDefinition
+        private AnimationDef MonolithMain => new AnimationDef
         {
             Emissives = new []
             {
@@ -62,7 +62,7 @@ namespace WeaponThread
                     Loop = Events(Firing), // (Firing, Overheated)
                     TriggerOnce = Events(Tracking, StopTracking, Firing, StopFiring),
                     ResetEmissives = Events(StopTracking),
-                    EventMoveSets = new Dictionary<EventTriggers, RelMove[]>
+                    EventMoveSets = new Dictionary<PartAnimationSetDef.EventTriggers, RelMove[]>
                     {
                         [Tracking] =
                             new[] //Firing, Reloading, Overheated, Tracking, On, Off, BurstReload, OutOfAmmo, PreFire define a new[] for each
@@ -152,7 +152,7 @@ namespace WeaponThread
                     Loop = Events(Firing), // (Firing, Overheated)
                     TriggerOnce = Events(Tracking, StopTracking, Firing),
                     ResetEmissives = Events(StopTracking),
-                    EventMoveSets = new Dictionary<EventTriggers, RelMove[]>
+                    EventMoveSets = new Dictionary<PartAnimationSetDef.EventTriggers, RelMove[]>
                     {
                         [Tracking] =
                             new[] //Firing, Reloading, Overheated, Tracking, On, Off, BurstReload, OutOfAmmo, PreFire define a new[] for each
@@ -226,7 +226,7 @@ namespace WeaponThread
                     Loop = Events(TurnOn),
                     TriggerOnce = Events(Tracking, StopTracking),
                     ResetEmissives = Events(TurnOff, StopTracking),
-                    EventMoveSets = new Dictionary<EventTriggers, RelMove[]>
+                    EventMoveSets = new Dictionary<PartAnimationSetDef.EventTriggers, RelMove[]>
                     {
                         [Tracking] =
                             new[] //Firing, Reloading, Overheated, Tracking, TurnOn, TurnOff, BurstReload, OutOfAmmo, PreFire define a new[] for each
@@ -311,7 +311,7 @@ namespace WeaponThread
                     Loop = Events(TurnOn),
                     TriggerOnce = Events(Tracking, StopTracking),
                     ResetEmissives = Events(TurnOff, StopTracking),
-                    EventMoveSets = new Dictionary<EventTriggers, RelMove[]>
+                    EventMoveSets = new Dictionary<PartAnimationSetDef.EventTriggers, RelMove[]>
                     {
                         [Tracking] =
                             new[] //Firing, Reloading, Overheated, Tracking, On, Off, BurstReload, OutOfAmmo, PreFire define a new[] for each
@@ -395,7 +395,7 @@ namespace WeaponThread
                     Loop = Events(TurnOn),
                     TriggerOnce = Events(Tracking, StopTracking),
                     ResetEmissives = Events(TurnOff, StopTracking),
-                    EventMoveSets = new Dictionary<EventTriggers, RelMove[]>
+                    EventMoveSets = new Dictionary<PartAnimationSetDef.EventTriggers, RelMove[]>
                     {
                         [Tracking] =
                             new[] //Firing, Reloading, Overheated, Tracking, On, Off, BurstReload, OutOfAmmo, PreFire define a new[] for each
@@ -479,7 +479,7 @@ namespace WeaponThread
                     Loop = Events(TurnOn),
                     TriggerOnce = Events(Tracking, StopTracking),
                     ResetEmissives = Events(TurnOff, StopTracking),
-                    EventMoveSets = new Dictionary<EventTriggers, RelMove[]>
+                    EventMoveSets = new Dictionary<PartAnimationSetDef.EventTriggers, RelMove[]>
                     {
                         [Tracking] =
                             new[] //Firing, Reloading, Overheated, Tracking, On, Off, BurstReload, OutOfAmmo, PreFire define a new[] for each
@@ -567,7 +567,7 @@ namespace WeaponThread
                     Loop = Events(TurnOn), // (Firing, Overheated)
                     TriggerOnce = Events(Tracking, StopTracking),
                     ResetEmissives = Events(StopTracking),
-                    EventMoveSets = new Dictionary<EventTriggers, RelMove[]>
+                    EventMoveSets = new Dictionary<PartAnimationSetDef.EventTriggers, RelMove[]>
                     {
                         [Tracking] =
                             new[] //Firing, Reloading, Overheated, Tracking, On, Off, BurstReload, OutOfAmmo, PreFire define a new[] for each
@@ -619,7 +619,7 @@ namespace WeaponThread
                     Loop = Events(TurnOn), // (Firing, Overheated)
                     TriggerOnce = Events(Tracking, StopTracking),
                     ResetEmissives = Events(StopTracking),
-                    EventMoveSets = new Dictionary<EventTriggers, RelMove[]>
+                    EventMoveSets = new Dictionary<PartAnimationSetDef.EventTriggers, RelMove[]>
                     {
                         [Tracking] =
                             new[] //Firing, Reloading, Overheated, Tracking, On, Off, BurstReload, OutOfAmmo, PreFire define a new[] for each
@@ -671,7 +671,7 @@ namespace WeaponThread
                     Loop = Events(TurnOn), // (Firing, Overheated)
                     TriggerOnce = Events(Tracking, StopTracking),
                     ResetEmissives = Events(StopTracking),
-                    EventMoveSets = new Dictionary<EventTriggers, RelMove[]>
+                    EventMoveSets = new Dictionary<PartAnimationSetDef.EventTriggers, RelMove[]>
                     {
                         [Tracking] =
                             new[] //Firing, Reloading, Overheated, Tracking, On, Off, BurstReload, OutOfAmmo, PreFire define a new[] for each
@@ -723,7 +723,7 @@ namespace WeaponThread
                     Loop = Events(TurnOn), // (Firing, Overheated)
                     TriggerOnce = Events(Tracking, StopTracking),
                     ResetEmissives = Events(StopTracking),
-                    EventMoveSets = new Dictionary<EventTriggers, RelMove[]>
+                    EventMoveSets = new Dictionary<PartAnimationSetDef.EventTriggers, RelMove[]>
                     {
                         [Tracking] =
                             new[] //Firing, Reloading, Overheated, Tracking, On, Off, BurstReload, OutOfAmmo, PreFire define a new[] for each

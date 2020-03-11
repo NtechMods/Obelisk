@@ -1,15 +1,15 @@
-
 using System.Collections.Generic;
 using static WeaponThread.WeaponStructure;
-using static WeaponThread.WeaponStructure.PartAnimationSetDef.EventTriggers;
-using static WeaponThread.WeaponStructure.RelMove.MoveType;
-using static WeaponThread.Session;
-
+using static WeaponThread.WeaponStructure.WeaponDefinition;
+using static WeaponThread.WeaponStructure.WeaponDefinition.AnimationDef;
+using static WeaponThread.WeaponStructure.WeaponDefinition.AnimationDef.PartAnimationSetDef.EventTriggers;
+using static WeaponThread.WeaponStructure.WeaponDefinition.AnimationDef.RelMove.MoveType;
+using static WeaponThread.WeaponStructure.WeaponDefinition.AnimationDef.RelMove;
 namespace WeaponThread
 { // Don't edit above this line
     partial class Weapons
     {
-        private AnimationDefinition MonolithEdgeCrystals3 => new AnimationDefinition
+        private AnimationDef MonolithEdgeCrystals3 => new AnimationDef
         {
             Emissives = new []
             {
@@ -48,7 +48,7 @@ namespace WeaponThread
                     Loop = Events(Firing), // (Firing, Overheated)
                     TriggerOnce = Events(PreFire, StopFiring, Firing),
                     ResetEmissives = Events(StopFiring),
-                    EventMoveSets = new Dictionary<EventTriggers, RelMove[]>
+                    EventMoveSets = new Dictionary<PartAnimationSetDef.EventTriggers, RelMove[]>
                     {
                         [PreFire] =
                             new[] //Firing, Reloading, Overheated, Tracking, On, Off, BurstReload, OutOfAmmo, PreFire define a new[] for each
