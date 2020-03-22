@@ -70,7 +70,7 @@ namespace WeaponThread
                     TurretAttached = true,
                     TurretController = true,
                     PrimaryTracking = true,
-                    LockOnFocus = true,
+                    LockOnFocus = false,
                 },
                 HardWare = new HardwareDef
                 {
@@ -124,7 +124,7 @@ namespace WeaponThread
                 {
                     Barrel1 = new ParticleDef
                     {
-                        Name = "CrystalBeamSpawn", // Smoke_LargeGunShot
+                        Name = "LaserImpactParticle", // Smoke_LargeGunShot
                         Color = Color(red: 10, green: 20, blue: 25, alpha: 1.2f),
                         Offset = Vector(x: 0, y: 0, z: 0),
                         Extras = new ParticleOptionDef
