@@ -67,9 +67,9 @@ namespace WeaponThread
                 Ai = new AiDef
                 {
                     TrackTargets = true,
-                    TurretAttached = false,
-                    TurretController = false,
-                    PrimaryTracking = false,
+                    TurretAttached = true,
+                    TurretController = true,
+                    PrimaryTracking = true,
                     LockOnFocus = false,
                 },
                 HardWare = new HardwareDef
@@ -124,7 +124,7 @@ namespace WeaponThread
                 {
                     Barrel1 = new ParticleDef
                     {
-                        Name = "LaserImpactParticle", // Smoke_LargeGunShot
+                        Name = "obeliskbeamarc", // Smoke_LargeGunShot
                         Color = Color(red: 10, green: 20, blue: 25, alpha: 1.2f),
                         Offset = Vector(x: 0, y: 0, z: 0),
                         Extras = new ParticleOptionDef
