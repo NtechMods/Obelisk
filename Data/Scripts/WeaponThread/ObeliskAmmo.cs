@@ -21,7 +21,7 @@ namespace WeaponThread
             EnergyCost = 0.05f, //(((EnergyCost * DefaultDamage) * ShotsPerSecond) * BarrelsPerShot) * ShotsPerBarrel
             BaseDamage = 5000f,
             Mass = 0.05f, // in kilograms
-            Health = 100000000, // 0 = disabled, otherwise how much damage it can take from other trajectiles before dying.
+            Health = 10000, // 0 = disabled, otherwise how much damage it can take from other trajectiles before dying.
             BackKickForce = 1f,
             HardPointUsable = true, // set to false if this is a shrapnel ammoType and you don't want the turret to be able to select it directly.
 
@@ -136,15 +136,15 @@ namespace WeaponThread
                 TargetLossDegree = 180f,
                 TargetLossTime = 3600, // 0 is disabled, Measured in game ticks (6 = 100ms, 60 = 1 seconds, etc..).
                 MaxLifeTime = 0, // 0 is disabled, Measured in game ticks (6 = 100ms, 60 = 1 seconds, etc..).
-                AccelPerSec = 300f,
-                DesiredSpeed = 300,
-                MaxTrajectory = 7500f,
+                AccelPerSec = 30f,
+                DesiredSpeed = 3,
+                MaxTrajectory = 2000f,
                 FieldTime = 0, // 0 is disabled, a value causes the projectile to come to rest, spawn a field and remain for a time (Measured in game ticks, 60 = 1 second)
-                SpeedVariance = Random(start: 0, end: 0), // subtracts value from DesiredSpeed
+                SpeedVariance = Random(start: 3, end: 30), // subtracts value from DesiredSpeed
                 RangeVariance = Random(start: 0, end: 0), // subtracts value from MaxTrajectory
                 Smarts = new SmartsDef
                 {
-                    Inaccuracy = 0f, // 0 is perfect, hit accuracy will be a random num of meters between 0 and this value.
+                    Inaccuracy = 0.2f, // 0 is perfect, hit accuracy will be a random num of meters between 0 and this value.
                     Aggressiveness = 1f, // controls how responsive tracking is.
                     MaxLateralThrust = 2.9f, // controls how sharp the trajectile may turn
                     TrackingDelay = 20, // Measured in Shape diameter units traveled.
@@ -169,12 +169,12 @@ namespace WeaponThread
                 {
                     Ammo = new ParticleDef
                     {
-                        Name = "ShipWelderArc", //ShipWelderArc
-                        Color = Color(red: 10, green: 20, blue: 25, alpha: 1.2f),
+                        Name = "obeliskbeamarc", //ShipWelderArc
+                        Color = Color(red: 10, green: 20, blue: 25, alpha: 1.5f),
                         Offset = Vector(x: 0, y: 0, z: 0),
                         Extras = new ParticleOptionDef
                         {
-                            Loop = false,
+                            Loop = true,
                             Restart = false,
                             MaxDistance = 5000,
                             MaxDuration = 12,
@@ -213,7 +213,7 @@ namespace WeaponThread
                     },
                     Trail = new TrailDef
                     {
-                        Enable = false,
+                        Enable = true,
                         Material = "WeaponLaser",
                         DecayTime = 128,
                         Color = Color(red: 10, green: 20, blue: 25, alpha: 1.2f),
@@ -364,9 +364,9 @@ namespace WeaponThread
                 TargetLossDegree = 180f,
                 TargetLossTime = 0, // 0 is disabled, Measured in game ticks (6 = 100ms, 60 = 1 seconds, etc..).
                 MaxLifeTime = 0, // 0 is disabled, Measured in game ticks (6 = 100ms, 60 = 1 seconds, etc..).
-                AccelPerSec = 30f,
-                DesiredSpeed = 300,
-                MaxTrajectory = 10000f,
+                AccelPerSec = 0f,
+                DesiredSpeed = 0,
+                MaxTrajectory = 2000f,
                 FieldTime = 0, // 0 is disabled, a value causes the projectile to come to rest, spawn a field and remain for a time (Measured in game ticks, 60 = 1 second)
                 SpeedVariance = Random(start: 0, end: 0), // subtracts value from DesiredSpeed
                 RangeVariance = Random(start: 0, end: 0), // subtracts value from MaxTrajectory

@@ -124,13 +124,13 @@ namespace WeaponThread
                 {
                     Barrel1 = new ParticleDef
                     {
-                        Name = "obeliskbeamarc", // Smoke_LargeGunShot LaserImpactParticle
+                        Name = "EnergyBlast", // Smoke_LargeGunShot LaserImpactParticle
                         Color = Color(red: 10, green: 20, blue: 25, alpha: 1.2f),
                         Offset = Vector(x: 0, y: 0, z: 0),
                         Extras = new ParticleOptionDef
                         {
                             Loop = true,
-                            Restart = false,
+                            Restart = true,
                             MaxDistance = 1000,
                             MaxDuration = 1,
                             Scale = 0.9f,
