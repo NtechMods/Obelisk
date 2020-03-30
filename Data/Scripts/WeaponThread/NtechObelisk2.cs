@@ -156,7 +156,7 @@ namespace WeaponThread
             Ammos = new [] {
                 ObeliskType2
             },
-            //Animations = MonolithEdgeCrystals1,
+            Animations = MonolithEdgeCrystals1,
             // Don't edit below this line
         };
     }
