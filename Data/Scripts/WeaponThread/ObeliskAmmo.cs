@@ -147,9 +147,9 @@ namespace WeaponThread
                     Inaccuracy = 0.2f, // 0 is perfect, hit accuracy will be a random num of meters between 0 and this value.
                     Aggressiveness = 1f, // controls how responsive tracking is.
                     MaxLateralThrust = 2.9f, // controls how sharp the trajectile may turn
-                    TrackingDelay = 20, // Measured in Shape diameter units traveled.
+                    TrackingDelay = 10, // Measured in Shape diameter units traveled.
                     MaxChaseTime = 3600, // Measured in game ticks (6 = 100ms, 60 = 1 seconds, etc..).
-                    OverideTarget = true, // when set to true ammo picks its own target, does not use hardpoint's.
+                    OverideTarget = false, // when set to true ammo picks its own target, does not use hardpoint's.
                 },
                 Mines = new MinesDef
                 {

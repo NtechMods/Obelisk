@@ -1760,7 +1760,7 @@
       <DurationMin>1</DurationMin>
       <DurationMax>0</DurationMax>
       <DistanceMax>1000</DistanceMax>
-      <Loop>false</Loop>
+      <Loop>true</Loop>
       <ParticleGenerations>
         <ParticleGeneration Name="Smoke" Version="2">
           <GenerationType>GPU</GenerationType>
