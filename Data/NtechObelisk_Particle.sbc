@@ -2322,7 +2322,7 @@
       <DurationMin>1</DurationMin>
       <DurationMax>0</DurationMax>
       <DistanceMax>1000</DistanceMax>
-      <Loop>false</Loop>
+      <Loop>true</Loop>
       <ParticleGenerations>
         <ParticleGeneration Name="Lightning01Backup" Version="2">
           <GenerationType>GPU</GenerationType>
@@ -2749,36 +2749,36 @@
                         <Time>0</Time>
                         <ValueVector4>
                           <W>1</W>
-                          <X>0.6104956</X>
-                          <Y>1</Y>
-                          <Z>0.9734455</Z>
+                          <X>1</X>
+                          <Y>2</Y>
+                          <Z>2.5</Z>
                         </ValueVector4>
                       </Key>
                       <Key>
                         <Time>0.4774775</Time>
                         <ValueVector4>
                           <W>1</W>
-                          <X>0.4910209</X>
-                          <Y>1</Y>
-                          <Z>0.9911022</Z>
+                          <X>1</X>
+                          <Y>2</Y>
+                          <Z>2.5</Z>
                         </ValueVector4>
                       </Key>
                       <Key>
                         <Time>0.6200318</Time>
                         <ValueVector4>
                           <W>1</W>
-                          <X>0.5906189</X>
-                          <Y>1</Y>
-                          <Z>0.9911022</Z>
+                          <X>1</X>
+                          <Y>2</Y>
+                          <Z>2.5</Z>
                         </ValueVector4>
                       </Key>
                       <Key>
                         <Time>1</Time>
                         <ValueVector4>
                           <W>1</W>
-                          <X>0.5457246</X>
-                          <Y>1</Y>
-                          <Z>0.9911022</Z>
+                          <X>1</X>
+                          <Y>2</Y>
+                          <Z>2.5</Z>
                         </ValueVector4>
                       </Key>
                     </Keys>
@@ -4314,26 +4314,26 @@
                         <ValueVector4>
                           <W>1</W>
                           <X>1</X>
-                          <Y>0.9913929</Y>
-                          <Z>0.8831797</Z>
+                          <Y>2</Y>
+                          <Z>2.5</Z>
                         </ValueVector4>
                       </Key>
                       <Key>
                         <Time>0.5073473</Time>
                         <ValueVector4>
                           <W>1</W>
-                          <X>0.5906189</X>
-                          <Y>0.9822506</Y>
-                          <Z>0.921582</Z>
+                          <X>1</X>
+                          <Y>2</Y>
+                          <Z>2.5</Z>
                         </ValueVector4>
                       </Key>
                       <Key>
                         <Time>0.6040217</Time>
                         <ValueVector4>
                           <W>0.2745098</W>
-                          <X>0.2506545</X>
-                          <Y>0.08495227</Y>
-                          <Z>0.02146322</Z>
+                          <X>1</X>
+                          <Y>2</Y>
+                          <Z>2.5</Z>
                         </ValueVector4>
                       </Key>
                       <Key>
@@ -4705,8 +4705,8 @@
                         <ValueVector4>
                           <W>1</W>
                           <X>1</X>
-                          <Y>0.9913929</Y>
-                          <Z>0.8831797</Z>
+                          <Y>2</Y>
+                          <Z>2.5</Z>
                         </ValueVector4>
                       </Key>
                       <Key>
@@ -4714,8 +4714,8 @@
                         <ValueVector4>
                           <W>1</W>
                           <X>1</X>
-                          <Y>0.5457246</Y>
-                          <Z>0.2158605</Z>
+                          <Y>2</Y>
+                          <Z>2.5</Z>
                         </ValueVector4>
                       </Key>
                       <Key>
@@ -4723,8 +4723,8 @@
                         <ValueVector4>
                           <W>1</W>
                           <X>1</X>
-                          <Y>0.496933</Y>
-                          <Z>0.3185468</Z>
+                          <Y>2</Y>
+                          <Z>2.5</Z>
                         </ValueVector4>
                       </Key>
                       <Key>
@@ -5096,26 +5096,26 @@
                         <ValueVector4>
                           <W>1</W>
                           <X>1</X>
-                          <Y>0.9913929</Y>
-                          <Z>0.8831797</Z>
+                          <Y>2</Y>
+                          <Z>2.5</Z>
                         </ValueVector4>
                       </Key>
                       <Key>
                         <Time>0.9025862</Time>
                         <ValueVector4>
                           <W>1</W>
-                          <X>0.9046614</X>
-                          <Y>0.496933</Y>
-                          <Z>0.1946178</Z>
+                          <X>1</X>
+                          <Y>2</Y>
+                          <Z>2.5</Z>
                         </ValueVector4>
                       </Key>
                       <Key>
                         <Time>0.9465517</Time>
                         <ValueVector4>
                           <W>1</W>
-                          <X>0.8631573</X>
-                          <Y>0.8631573</Y>
-                          <Z>0.8631573</Z>
+                          <X>1</X>
+                          <Y>2</Y>
+                          <Z>2.5</Z>
                         </ValueVector4>
                       </Key>
                       <Key>
@@ -5330,7 +5330,7 @@
               <ValueFloat>1</ValueFloat>
             </Property>
             <Property Name="Gravity" Type="Float" AnimationType="Const">
-              <ValueFloat>0.8</ValueFloat>
+              <ValueFloat>0</ValueFloat>
             </Property>
             <Property Name="Offset" Type="Vector3" AnimationType="Const">
               <ValueVector3>
@@ -5456,7 +5456,7 @@
               <ValueInt>0</ValueInt>
             </Property>
             <Property Name="Distance scaling factor" Type="Float" AnimationType="Const">
-              <ValueFloat>0.02</ValueFloat>
+              <ValueFloat>0.01</ValueFloat>
             </Property>
           </Properties>
         </ParticleGeneration>
