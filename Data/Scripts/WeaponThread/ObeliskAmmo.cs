@@ -19,7 +19,7 @@ namespace WeaponThread
             AmmoRound = "ObeliskType1",
             HybridRound = false, //AmmoMagazine based weapon with energy cost
             EnergyCost = 0.05f, //(((EnergyCost * DefaultDamage) * ShotsPerSecond) * BarrelsPerShot) * ShotsPerBarrel
-            BaseDamage = 5000f,
+            BaseDamage = 50f,
             Mass = 0.05f, // in kilograms
             Health = 10000, // 0 = disabled, otherwise how much damage it can take from other trajectiles before dying.
             BackKickForce = 1f,
@@ -32,7 +32,7 @@ namespace WeaponThread
             },
             ObjectsHit = new ObjectsHitDef
             {
-                MaxObjectsHit = 0, // 0 = disabled
+                MaxObjectsHit = 1, // 0 = disabled
                 CountBlocks = false, // counts gridBlocks and not just entities hit
             },
 			Shrapnel = new ShrapnelDef
@@ -90,25 +90,25 @@ namespace WeaponThread
             },
             AreaEffect = new AreaDamageDef
             {
-                AreaEffect = Disabled, // Disabled = do not use area effect at all, Explosive, Radiant, AntiSmart, JumpNullField, JumpNullField, EnergySinkField, AnchorField, EmpField, OffenseField, NavField, DotField.
-                AreaEffectDamage = 0f, // 0 = use spillover from BaseDamage, otherwise use this value.
-                AreaEffectRadius = 0f,
+                AreaEffect = DotField, // Disabled = do not use area effect at all, Explosive, Radiant, AntiSmart, JumpNullField, JumpNullField, EnergySinkField, AnchorField, EmpField, OffenseField, NavField, DotField.
+                AreaEffectDamage = 1000f, // 0 = use spillover from BaseDamage, otherwise use this value.
+                AreaEffectRadius = 30f,
                 Pulse = new PulseDef // interval measured in game ticks (60 == 1 second), pulseChance chance (0 - 100) that an entity in field will be hit
                 {
-                    Interval = 60,
-                    PulseChance = 75,
+                    Interval = 180,
+                    PulseChance = 100,
                 },
                 Explosions = new ExplosionDef
                 {
                     NoVisuals = false,
                     NoSound = false,
                     Scale = 1,
-                    CustomParticle = "Energy_Explosion",
+                    CustomParticle = "",
                     CustomSound = "",
                 },
                 Detonation = new DetonateDef
                 {
-                    DetonateOnEnd = true,
+                    DetonateOnEnd = false,
                     ArmOnlyOnHit = false,
                     DetonationDamage = 1000,
                     DetonationRadius = 5,
@@ -132,14 +132,14 @@ namespace WeaponThread
             },
             Trajectory = new TrajectoryDef
             {
-                Guidance = Smart,
+                Guidance = TravelTo,
                 TargetLossDegree = 180f,
-                TargetLossTime = 3600, // 0 is disabled, Measured in game ticks (6 = 100ms, 60 = 1 seconds, etc..).
+                TargetLossTime = 60, // 0 is disabled, Measured in game ticks (6 = 100ms, 60 = 1 seconds, etc..).
                 MaxLifeTime = 600, // 0 is disabled, Measured in game ticks (6 = 100ms, 60 = 1 seconds, etc..).
                 AccelPerSec = 30f,
                 DesiredSpeed = 30,
                 MaxTrajectory = 2000f,
-                FieldTime = 0, // 0 is disabled, a value causes the projectile to come to rest, spawn a field and remain for a time (Measured in game ticks, 60 = 1 second)
+                FieldTime = 1800, // 0 is disabled, a value causes the projectile to come to rest, spawn a field and remain for a time (Measured in game ticks, 60 = 1 second)
                 SpeedVariance = Random(start: 3, end: 30), // subtracts value from DesiredSpeed
                 RangeVariance = Random(start: 0, end: 0), // subtracts value from MaxTrajectory
                 Smarts = new SmartsDef
@@ -148,8 +148,8 @@ namespace WeaponThread
                     Aggressiveness = 1f, // controls how responsive tracking is.
                     MaxLateralThrust = 2.9f, // controls how sharp the trajectile may turn
                     TrackingDelay = 10, // Measured in Shape diameter units traveled.
-                    MaxChaseTime = 3600, // Measured in game ticks (6 = 100ms, 60 = 1 seconds, etc..).
-                    OverideTarget = false, // when set to true ammo picks its own target, does not use hardpoint's.
+                    MaxChaseTime = 60, // Measured in game ticks (6 = 100ms, 60 = 1 seconds, etc..).
+                    OverideTarget = true, // when set to true ammo picks its own target, does not use hardpoint's.
                 },
                 Mines = new MinesDef
                 {
@@ -169,7 +169,7 @@ namespace WeaponThread
                 {
                     Ammo = new ParticleDef
                     {
-                        Name = "obeliskbeamarc", //ShipWelderArc
+                        Name = "CrystalBeamSpawn", //ShipWelderArc
                         Color = Color(red: 10, green: 20, blue: 25, alpha: 1.5f),
                         Offset = Vector(x: 0, y: 0, z: 0),
                         Extras = new ParticleOptionDef
@@ -177,24 +177,24 @@ namespace WeaponThread
                             Loop = true,
                             Restart = false,
                             MaxDistance = 5000,
-                            MaxDuration = 12,
-                            Scale = 1,
+                            MaxDuration = 1,
+                            Scale = 2,
                         },
                     },
                     Hit = new ParticleDef
                     {
-                        Name = "",
+                        Name = "ObeliskDoTField",
                         ApplyToShield = true,
                         ShrinkByDistance = false,
-                        Color = Color(red: 10, green: 1, blue: 0, alpha: 1),
+                        Color = Color(red: 10, green: 20, blue: 25, alpha: 1.5f),
                         Offset = Vector(x: 0, y: 0, z: 0),
                         Extras = new ParticleOptionDef
                         {
                             Loop = false,
                             Restart = false,
                             MaxDistance = 5000,
-                            MaxDuration = 1,
-                            Scale = 1,
+                            MaxDuration = 10,
+                            Scale = 2,
                             HitPlayChance = 1f,
                         },
                     },
@@ -247,7 +247,7 @@ namespace WeaponThread
             AmmoRound = "ObeliskType2",
             HybridRound = false, //AmmoMagazine based weapon with energy cost
             EnergyCost = 2.2f, //(((EnergyCost * DefaultDamage) * ShotsPerSecond) * BarrelsPerShot) * ShotsPerBarrel
-            BaseDamage = 100f,
+            BaseDamage = 10f,
             Mass = 0.01f, // in kilograms
             Health = 10000, // 0 = disabled, otherwise how much damage it can take from other trajectiles before dying.
             BackKickForce = 0f,
@@ -372,12 +372,12 @@ namespace WeaponThread
                 RangeVariance = Random(start: 0, end: 0), // subtracts value from MaxTrajectory
                 Smarts = new SmartsDef
                 {
-                    Inaccuracy = 0f, // 0 is perfect, hit accuracy will be a random num of meters between 0 and this value.
+                    Inaccuracy = 0.1f, // 0 is perfect, hit accuracy will be a random num of meters between 0 and this value.
                     Aggressiveness = 1f, // controls how responsive tracking is.
                     MaxLateralThrust = 0.9f, // controls how sharp the trajectile may turn
                     TrackingDelay = 10, // Measured in Shape diameter units traveled.
                     MaxChaseTime = 18000, // Measured in game ticks (6 = 100ms, 60 = 1 seconds, etc..).
-                    OverideTarget = true, // when set to true ammo picks its own target, does not use hardpoint's.
+                    OverideTarget = false, // when set to true ammo picks its own target, does not use hardpoint's.
                 },
                 Mines = new MinesDef
                 {

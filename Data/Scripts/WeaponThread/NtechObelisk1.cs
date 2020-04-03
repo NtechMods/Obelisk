@@ -45,8 +45,8 @@ namespace WeaponThread
                 ClosestFirst = true, // tries to pick closest targets first (blocks on grids, projectiles, etc...).
                 MinimumDiameter = 0, // 0 = unlimited, Minimum radius of threat to engage.
                 MaximumDiameter = 0, // 0 = unlimited, Maximum radius of threat to engage.
-                TopTargets = 4, // 0 = unlimited, max number of top targets to randomize between.
-                TopBlocks = 4, // 0 = unlimited, max number of blocks to randomize between
+                TopTargets = 0, // 0 = unlimited, max number of top targets to randomize between.
+                TopBlocks = 0, // 0 = unlimited, max number of blocks to randomize between
                 StopTrackingSpeed = 100, // do not track target threats traveling faster than this speed
             },
             HardPoint = new HardPointDef
@@ -69,7 +69,7 @@ namespace WeaponThread
                     TrackTargets = true,
                     TurretAttached = true,
                     TurretController = true,
-                    PrimaryTracking = true,
+                    PrimaryTracking = false,
                     LockOnFocus = false,
                 },
                 HardWare = new HardwareDef
@@ -78,15 +78,15 @@ namespace WeaponThread
                     ElevateRate = 0.09f,
                     MinAzimuth = -180,
                     MaxAzimuth = 180,
-                    MinElevation = -180,
-                    MaxElevation = 180,
+                    MinElevation = -70,
+                    MaxElevation = 90,
                     FixedOffset = false,
                     InventorySize = 0.01f,
                     Offset = Vector(x: 0, y: 0, z: 0),
                 },
                 Other = new OtherDef
                 {
-                    GridWeaponCap = 4,
+                    GridWeaponCap = 1,
                     RotateBarrelAxis = 0,
                     EnergyPriority = 0,
                     MuzzleCheck = false,
@@ -94,7 +94,7 @@ namespace WeaponThread
                 },
                 Loading = new LoadingDef
                 {
-                    RateOfFire = 30,
+                    RateOfFire = 1,
                     BarrelSpinRate = 0, // visual only, 0 disables and uses RateOfFire
                     BarrelsPerShot = 1,
                     TrajectilesPerBarrel = 1, // Number of Trajectiles per barrel per fire event.
@@ -124,8 +124,8 @@ namespace WeaponThread
                 {
                     Barrel1 = new ParticleDef
                     {
-                        Name = "obeliskbeamarc", // Smoke_LargeGunShot
-                        Color = Color(red: 10, green: 20, blue: 25, alpha: 1.2f),
+                        Name = "CrystalBeamSpawn", // Smoke_LargeGunShot
+                        Color = Color(red: 10, green: 20, blue: 25, alpha: 1.6f),
                         Offset = Vector(x: 0, y: 0, z: 0),
                         Extras = new ParticleOptionDef
                         {
@@ -133,7 +133,7 @@ namespace WeaponThread
                             Restart = false,
                             MaxDistance = 1000,
                             MaxDuration = 1,
-                            Scale = 0.9f,
+                            Scale = 4.9f,
                         },
                     },
                     Barrel2 = new ParticleDef
