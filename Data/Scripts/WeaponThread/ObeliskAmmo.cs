@@ -91,7 +91,7 @@ namespace WeaponThread
             AreaEffect = new AreaDamageDef
             {
                 AreaEffect = DotField, // Disabled = do not use area effect at all, Explosive, Radiant, AntiSmart, JumpNullField, JumpNullField, EnergySinkField, AnchorField, EmpField, OffenseField, NavField, DotField.
-                AreaEffectDamage = 1000f, // 0 = use spillover from BaseDamage, otherwise use this value.
+                AreaEffectDamage = 10000f, // 0 = use spillover from BaseDamage, otherwise use this value.
                 AreaEffectRadius = 30f,
                 Pulse = new PulseDef // interval measured in game ticks (60 == 1 second), pulseChance chance (0 - 100) that an entity in field will be hit
                 {
@@ -132,15 +132,15 @@ namespace WeaponThread
             },
             Trajectory = new TrajectoryDef
             {
-                Guidance = TravelTo,
+                Guidance = Smart,
                 TargetLossDegree = 180f,
                 TargetLossTime = 60, // 0 is disabled, Measured in game ticks (6 = 100ms, 60 = 1 seconds, etc..).
-                MaxLifeTime = 600, // 0 is disabled, Measured in game ticks (6 = 100ms, 60 = 1 seconds, etc..).
+                MaxLifeTime = 1800, // 0 is disabled, Measured in game ticks (6 = 100ms, 60 = 1 seconds, etc..).
                 AccelPerSec = 30f,
                 DesiredSpeed = 30,
                 MaxTrajectory = 2000f,
                 FieldTime = 1800, // 0 is disabled, a value causes the projectile to come to rest, spawn a field and remain for a time (Measured in game ticks, 60 = 1 second)
-                SpeedVariance = Random(start: 3, end: 30), // subtracts value from DesiredSpeed
+                SpeedVariance = Random(start: 1, end: 3), // subtracts value from DesiredSpeed
                 RangeVariance = Random(start: 0, end: 0), // subtracts value from MaxTrajectory
                 Smarts = new SmartsDef
                 {
@@ -169,7 +169,7 @@ namespace WeaponThread
                 {
                     Ammo = new ParticleDef
                     {
-                        Name = "CrystalBeamSpawn", //ShipWelderArc
+                        Name = "obeliskbeamarc", //ShipWelderArc
                         Color = Color(red: 10, green: 20, blue: 25, alpha: 1.5f),
                         Offset = Vector(x: 0, y: 0, z: 0),
                         Extras = new ParticleOptionDef

@@ -6514,7 +6514,7 @@
               <ValueVector3>
                 <X>0</X>
                 <Y>0</Y>
-                <Z>0.003</Z> <!-- acceleration speed of effect from emitter -->
+                <Z>-0.013</Z> <!-- acceleration speed of effect from emitter -->
               </ValueVector3>
             </Property>
             <Property Name="Rotation velocity" Type="Float" AnimationType="Const">
@@ -6556,7 +6556,7 @@
               </Keys>
             </Property>
             <Property Name="Life" Type="Float" AnimationType="Const"> <!-- lifespan of each particle -->
-              <ValueFloat>1.6</ValueFloat>
+              <ValueFloat>2.6</ValueFloat>
             </Property>
             <Property Name="Soft particle distance scale" Type="Float" AnimationType="Const">
               <ValueFloat>1</ValueFloat>
