@@ -58,14 +58,14 @@ namespace WeaponThread
                 },
                 Armor = new ArmorDef
                 {
-                    Armor = -1f,
-                    Light = -1f,
-                    Heavy = -1f,
-                    NonArmor = -1f,
+                    Armor = 0f,
+                    Light = 0f,
+                    Heavy = 0f,
+                    NonArmor = 2f,
                 },
                 Shields = new ShieldDef
                 {
-                    Modifier = 60f,
+                    Modifier = 20f,
                     Type = Bypass,
                     BypassModifier = -1f,
                 },
@@ -91,7 +91,7 @@ namespace WeaponThread
             AreaEffect = new AreaDamageDef
             {
                 AreaEffect = DotField, // Disabled = do not use area effect at all, Explosive, Radiant, AntiSmart, JumpNullField, JumpNullField, EnergySinkField, AnchorField, EmpField, OffenseField, NavField, DotField.
-                AreaEffectDamage = 10000f, // 0 = use spillover from BaseDamage, otherwise use this value.
+                AreaEffectDamage = 1000f, // 0 = use spillover from BaseDamage, otherwise use this value.
                 AreaEffectRadius = 30f,
                 Pulse = new PulseDef // interval measured in game ticks (60 == 1 second), pulseChance chance (0 - 100) that an entity in field will be hit
                 {
@@ -108,16 +108,16 @@ namespace WeaponThread
                 },
                 Detonation = new DetonateDef
                 {
-                    DetonateOnEnd = false,
+                    DetonateOnEnd = true,
                     ArmOnlyOnHit = false,
-                    DetonationDamage = 1000,
-                    DetonationRadius = 5,
+                    DetonationDamage = 10,
+                    DetonationRadius = 30,
                 },
                 EwarFields = new EwarFieldsDef
                 {
-                    Duration = 600,
+                    Duration = 1200,
                     StackDuration = true,
-                    Depletable = true,
+                    Depletable = false,
                     MaxStacks = 1,
                     TriggerRange = 5f,
                 },
@@ -135,11 +135,11 @@ namespace WeaponThread
                 Guidance = Smart,
                 TargetLossDegree = 180f,
                 TargetLossTime = 60, // 0 is disabled, Measured in game ticks (6 = 100ms, 60 = 1 seconds, etc..).
-                MaxLifeTime = 1800, // 0 is disabled, Measured in game ticks (6 = 100ms, 60 = 1 seconds, etc..).
+                MaxLifeTime = 1200, // 0 is disabled, Measured in game ticks (6 = 100ms, 60 = 1 seconds, etc..).
                 AccelPerSec = 30f,
                 DesiredSpeed = 30,
                 MaxTrajectory = 2000f,
-                FieldTime = 1800, // 0 is disabled, a value causes the projectile to come to rest, spawn a field and remain for a time (Measured in game ticks, 60 = 1 second)
+                FieldTime = 1200, // 0 is disabled, a value causes the projectile to come to rest, spawn a field and remain for a time (Measured in game ticks, 60 = 1 second)
                 SpeedVariance = Random(start: 1, end: 3), // subtracts value from DesiredSpeed
                 RangeVariance = Random(start: 0, end: 0), // subtracts value from MaxTrajectory
                 Smarts = new SmartsDef
@@ -150,13 +150,14 @@ namespace WeaponThread
                     TrackingDelay = 10, // Measured in Shape diameter units traveled.
                     MaxChaseTime = 60, // Measured in game ticks (6 = 100ms, 60 = 1 seconds, etc..).
                     OverideTarget = true, // when set to true ammo picks its own target, does not use hardpoint's.
+					MaxTargets = 1,
                 },
                 Mines = new MinesDef
                 {
-                    DetectRadius = 200,
-                    DeCloakRadius = 100,
-                    FieldTime = 1800,
-                    Cloak = true,
+                    DetectRadius = 1,
+                    DeCloakRadius = 1,
+                    FieldTime = 0,
+                    Cloak = false,
                     Persist = false,
                 },
             },
@@ -193,7 +194,7 @@ namespace WeaponThread
                             Loop = false,
                             Restart = false,
                             MaxDistance = 5000,
-                            MaxDuration = 10,
+                            MaxDuration = 8,
                             Scale = 2,
                             HitPlayChance = 1f,
                         },
@@ -213,7 +214,7 @@ namespace WeaponThread
                     },
                     Trail = new TrailDef
                     {
-                        Enable = true,
+                        Enable = false,
                         Material = "WeaponLaser",
                         DecayTime = 128,
                         Color = Color(red: 10, green: 20, blue: 25, alpha: 1.2f),
@@ -224,7 +225,7 @@ namespace WeaponThread
                     },
                     OffsetEffect = new OffsetEffectDef
                     {
-                        MaxOffset = 0,// 0 offset value disables this effect
+                        MaxOffset = 20,// 0 offset value disables this effect
                         MinLength = 5f,
                         MaxLength = 15,
                     },

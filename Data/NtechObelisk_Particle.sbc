@@ -6463,7 +6463,7 @@
               <Keys>
                 <Key>
                   <Time>0</Time>
-                  <ValueFloat>.98</ValueFloat> <!-- distance between inner edge and outer edge of particles -->
+                  <ValueFloat>.08</ValueFloat> <!-- distance between inner edge and outer edge of particles -->
                 </Key>
               </Keys>
             </Property>
@@ -6498,7 +6498,7 @@
               <Keys>
                 <Key>
                   <Time>0</Time>
-                  <ValueFloat>20</ValueFloat>
+                  <ValueFloat>19</ValueFloat>
                 </Key>
               </Keys>
             </Property>
@@ -6506,7 +6506,7 @@
               <Keys>
                 <Key>
                   <Time>1</Time>
-                  <ValueFloat>20</ValueFloat>
+                  <ValueFloat>19</ValueFloat>
                 </Key>
               </Keys>
             </Property>
@@ -6514,7 +6514,7 @@
               <ValueVector3>
                 <X>0</X>
                 <Y>0</Y>
-                <Z>-0.013</Z> <!-- acceleration speed of effect from emitter -->
+                <Z>-0.003</Z> <!-- acceleration speed of effect from emitter -->
               </ValueVector3>
             </Property>
             <Property Name="Rotation velocity" Type="Float" AnimationType="Const">
