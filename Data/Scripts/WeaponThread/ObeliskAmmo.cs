@@ -18,8 +18,8 @@ namespace WeaponThread
             AmmoMagazine = "Energy",
             AmmoRound = "ObeliskType1",
             HybridRound = false, //AmmoMagazine based weapon with energy cost
-            EnergyCost = 0.05f, //(((EnergyCost * DefaultDamage) * ShotsPerSecond) * BarrelsPerShot) * ShotsPerBarrel
-            BaseDamage = 50f,
+            EnergyCost = 0.15f, //(((EnergyCost * DefaultDamage) * ShotsPerSecond) * BarrelsPerShot) * ShotsPerBarrel
+            BaseDamage = 500f,
             Mass = 0.05f, // in kilograms
             Health = 10000, // 0 = disabled, otherwise how much damage it can take from other trajectiles before dying.
             BackKickForce = 1f,
@@ -28,11 +28,11 @@ namespace WeaponThread
             Shape = new ShapeDef //defines the collision shape of projectile, defaults line and visual Line Length if set to 0
             {
                 Shape = SphereShape,
-                Diameter = 1,
+                Diameter = 2,
             },
             ObjectsHit = new ObjectsHitDef
             {
-                MaxObjectsHit = 1, // 0 = disabled
+                MaxObjectsHit = 5, // 0 = disabled
                 CountBlocks = false, // counts gridBlocks and not just entities hit
             },
 			Shrapnel = new ShrapnelDef
@@ -58,9 +58,9 @@ namespace WeaponThread
                 },
                 Armor = new ArmorDef
                 {
-                    Armor = 0f,
-                    Light = 0f,
-                    Heavy = 0f,
+                    Armor = 0.4f,
+                    Light = 0.4f,
+                    Heavy = 0.1f,
                     NonArmor = 2f,
                 },
                 Shields = new ShieldDef
@@ -90,9 +90,9 @@ namespace WeaponThread
             },
             AreaEffect = new AreaDamageDef
             {
-                AreaEffect = DotField, // Disabled = do not use area effect at all, Explosive, Radiant, AntiSmart, JumpNullField, JumpNullField, EnergySinkField, AnchorField, EmpField, OffenseField, NavField, DotField.
-                AreaEffectDamage = 1000f, // 0 = use spillover from BaseDamage, otherwise use this value.
-                AreaEffectRadius = 30f,
+                AreaEffect = Radiant, // Disabled = do not use area effect at all, Explosive, Radiant, AntiSmart, JumpNullField, JumpNullField, EnergySinkField, AnchorField, EmpField, OffenseField, NavField, DotField.
+                AreaEffectDamage = 200f, // 0 = use spillover from BaseDamage, otherwise use this value.
+                AreaEffectRadius = 6f,
                 Pulse = new PulseDef // interval measured in game ticks (60 == 1 second), pulseChance chance (0 - 100) that an entity in field will be hit
                 {
                     Interval = 180,
@@ -110,8 +110,8 @@ namespace WeaponThread
                 {
                     DetonateOnEnd = true,
                     ArmOnlyOnHit = false,
-                    DetonationDamage = 10,
-                    DetonationRadius = 30,
+                    DetonationDamage = 100,
+                    DetonationRadius = 10,
                 },
                 EwarFields = new EwarFieldsDef
                 {
@@ -134,23 +134,23 @@ namespace WeaponThread
             {
                 Guidance = Smart,
                 TargetLossDegree = 180f,
-                TargetLossTime = 60, // 0 is disabled, Measured in game ticks (6 = 100ms, 60 = 1 seconds, etc..).
+                TargetLossTime = 1800, // 0 is disabled, Measured in game ticks (6 = 100ms, 60 = 1 seconds, etc..).
                 MaxLifeTime = 1200, // 0 is disabled, Measured in game ticks (6 = 100ms, 60 = 1 seconds, etc..).
                 AccelPerSec = 30f,
-                DesiredSpeed = 30,
+                DesiredSpeed = 70,
                 MaxTrajectory = 2000f,
-                FieldTime = 1200, // 0 is disabled, a value causes the projectile to come to rest, spawn a field and remain for a time (Measured in game ticks, 60 = 1 second)
+                FieldTime = 0, // 0 is disabled, a value causes the projectile to come to rest, spawn a field and remain for a time (Measured in game ticks, 60 = 1 second)
                 SpeedVariance = Random(start: 1, end: 3), // subtracts value from DesiredSpeed
                 RangeVariance = Random(start: 0, end: 0), // subtracts value from MaxTrajectory
                 Smarts = new SmartsDef
                 {
-                    Inaccuracy = 0.2f, // 0 is perfect, hit accuracy will be a random num of meters between 0 and this value.
+                    Inaccuracy = 0f, // 0 is perfect, hit accuracy will be a random num of meters between 0 and this value.
                     Aggressiveness = 1f, // controls how responsive tracking is.
-                    MaxLateralThrust = 2.9f, // controls how sharp the trajectile may turn
+                    MaxLateralThrust = 100.9f, // controls how sharp the trajectile may turn
                     TrackingDelay = 10, // Measured in Shape diameter units traveled.
-                    MaxChaseTime = 60, // Measured in game ticks (6 = 100ms, 60 = 1 seconds, etc..).
+                    MaxChaseTime = 1200, // Measured in game ticks (6 = 100ms, 60 = 1 seconds, etc..).
                     OverideTarget = true, // when set to true ammo picks its own target, does not use hardpoint's.
-					MaxTargets = 1,
+					MaxTargets = 10,
                 },
                 Mines = new MinesDef
                 {
@@ -163,7 +163,7 @@ namespace WeaponThread
             },
             AmmoGraphics = new GraphicDef
             {
-                ModelName = "\\Models\\Ammo\\CrystalAmmo.mwm",
+                ModelName = "", // \\Models\\Ammo\\CrystalAmmo.mwm
                 VisualProbability = 1f,
                 ShieldHitDraw = true,
                 Particles = new AmmoParticleDef
@@ -178,13 +178,13 @@ namespace WeaponThread
                             Loop = true,
                             Restart = false,
                             MaxDistance = 5000,
-                            MaxDuration = 1,
+                            MaxDuration = 20,
                             Scale = 2,
                         },
                     },
                     Hit = new ParticleDef
                     {
-                        Name = "ObeliskDoTField",
+                        Name = "obeliskbeamarc",
                         ApplyToShield = true,
                         ShrinkByDistance = false,
                         Color = Color(red: 10, green: 20, blue: 25, alpha: 1.5f),
@@ -214,20 +214,20 @@ namespace WeaponThread
                     },
                     Trail = new TrailDef
                     {
-                        Enable = false,
+                        Enable = true,
                         Material = "WeaponLaser",
-                        DecayTime = 128,
+                        DecayTime = 50,
                         Color = Color(red: 10, green: 20, blue: 25, alpha: 1.2f),
                         Back = false,
-                        CustomWidth = 0,
+                        CustomWidth = 0.2f,
                         UseWidthVariance = false,
                         UseColorFade = true,
                     },
                     OffsetEffect = new OffsetEffectDef
                     {
-                        MaxOffset = 20,// 0 offset value disables this effect
-                        MinLength = 5f,
-                        MaxLength = 15,
+                        MaxOffset = 0,// 0 offset value disables this effect
+                        MinLength = 1f,
+                        MaxLength = 5,
                     },
                 },
             },

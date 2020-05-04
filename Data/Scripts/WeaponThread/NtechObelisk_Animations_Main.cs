@@ -17,15 +17,15 @@ namespace WeaponThread
                     EmissiveName: "Emissive", 
                     Colors: new []
                     {
-                        Color(red: 0.1f, green: 0.1f, blue:1.25f, alpha: 0.1f),//will transitions from one color to the next if more than one
-                        Color(red: 0.2f, green: 0.2f, blue:2.50f, alpha: 0.2f),
-						Color(red: 0.4f, green: 0.4f, blue:5.00f, alpha: 0.4f),
-                        Color(red: 0.8f, green: 0.8f, blue:10.0f, alpha: 0.8f),
-						Color(red: 1.6f, green: 1.6f, blue:20.0f, alpha: 1.0f),
-                        Color(red: 0.8f, green: 0.8f, blue:10.0f, alpha: 0.8f),
-						Color(red: 0.4f, green: 0.4f, blue:5.00f, alpha: 0.4f),
-                        Color(red: 0.2f, green: 0.2f, blue:2.50f, alpha: 0.2f),
-						Color(red: 0.1f, green: 0.1f, blue:1.25f, alpha: 0.1f),
+                        Color(red:0.1f, green: 0.1f, blue:0.1f, alpha: 1),//will transitions from one color to the next if more than one
+                        Color(red:.1f, green: .2f, blue:2.5f, alpha: 1),
+						Color(red:.05f, green: .1f, blue:1.25f, alpha: 1),
+                        Color(red:.1f, green: .2f, blue:2.5f, alpha: 1),
+						Color(red:.05f, green: .1f, blue:1.25f, alpha: 1),
+                        Color(red:.1f, green: .2f, blue:2.5f, alpha: 1),
+						Color(red:.05f, green: .1f, blue:1.25f, alpha: 1),
+                        Color(red:.1f, green: .2f, blue:2.5f, alpha: 1),
+						Color(red:.05f, green: .1f, blue:1.25f, alpha: 1),
                     }, 
                     IntensityFrom:0, //starting intensity, can be 0.0-1.0 or 1.0-0.0, setting both from and to, to the same value will stay at that value
                     IntensityTo:1, 
@@ -34,20 +34,6 @@ namespace WeaponThread
                     EmissivePartNames: new []
                     {
                         "Emissive"
-                    }),
-                Emissive(
-                    EmissiveName: "Monolith_Emissive",
-                    Colors: new []
-                    {
-                        Color(red: 0.1f, green: 0.1f, blue:1.25f, alpha: 0.1f),
-                    },
-                    IntensityFrom:1, //starting intensity, can be 0.0-1.0 or 1.0-0.0, setting both from and to, to the same value will stay at that value
-                    IntensityTo:1,
-                    CycleEmissiveParts: false,//whether to cycle from one part to the next, while also following the Intensity Range, or set all parts at the same time to the same value
-                    LeavePreviousOn: false,//true will leave last part at the last setting until end of animation, used with cycleEmissiveParts
-                    EmissivePartNames: new []
-                    {
-                        "Monolith"
                     }),
             },
             WeaponAnimationSets = new[]
@@ -61,7 +47,7 @@ namespace WeaponThread
                     Reverse = Events(StopFiring), // (Firing, Overheated)
                     Loop = Events(Firing), // (Firing, Overheated)
                     TriggerOnce = Events(TurnOn, TurnOff),
-                    ResetEmissives = Events(TurnOff),
+                    ResetEmissives = Events(StopTracking, StopFiring, TurnOff),
                     EventMoveSets = new Dictionary<PartAnimationSetDef.EventTriggers, RelMove[]>
                     {
                         [TurnOff] =
@@ -71,7 +57,7 @@ namespace WeaponThread
                                 new RelMove
                                 {
                                     CenterEmpty = "",//Specifiy an empty on the subpart to rotate around
-                                    TicksToMove = 60, //number of ticks to complete motion, 60 = 1 second
+                                    TicksToMove = 90, //number of ticks to complete motion, 60 = 1 second
 
                                     MovementType = ExpoDecay, // ExpoGrowth (speedsup),  ExpoDecay (slows down), Linear, Delay, Show, Hide
                                     EmissiveName = "Emissive",//name of defined emissive 
@@ -90,7 +76,7 @@ namespace WeaponThread
                                 new RelMove
                                 {
                                     CenterEmpty = "",//Specifiy an empty on the subpart to rotate around
-                                    TicksToMove = 60, //number of ticks to complete motion, 60 = 1 second
+                                    TicksToMove = 80, //number of ticks to complete motion, 60 = 1 second
 
                                     MovementType = ExpoDecay, // ExpoGrowth (speedsup),  ExpoDecay (slows down), Linear, Delay, Show, Hide
                                     EmissiveName = "Emissive",//name of defined emissive 
@@ -115,7 +101,7 @@ namespace WeaponThread
                     Reverse = Events(StopFiring), // (Firing, Overheated)
                     Loop = Events(Firing), // (Firing, Overheated)
                     TriggerOnce = Events(TurnOn, TurnOff),
-                    ResetEmissives = Events(TurnOff),
+                    ResetEmissives = Events(StopTracking, StopFiring, TurnOff),
                     EventMoveSets = new Dictionary<PartAnimationSetDef.EventTriggers, RelMove[]>
                     {
                         [TurnOn] =
@@ -127,8 +113,8 @@ namespace WeaponThread
                                     CenterEmpty = "",//Specifiy an empty on the subpart to rotate around
                                     TicksToMove = 120, //number of ticks to complete motion, 60 = 1 second
 
-                                    MovementType = ExpoDecay, // ExpoGrowth (speedsup),  ExpoDecay (slows down), Linear, Delay, Show, Hide
-                                    EmissiveName = "",//name of defined emissive 
+                                    MovementType = ExpoGrowth, // ExpoGrowth (speedsup),  ExpoDecay (slows down), Linear, Delay, Show, Hide
+                                    EmissiveName = "Emissive",//name of defined emissive 
                                     LinearPoints = new[]
                                     {
                                         Transformation(0, 0.80, 0), //linear movement x=L,R y=U,D z=F,B
@@ -144,10 +130,10 @@ namespace WeaponThread
                                 new RelMove
                                 {
                                     CenterEmpty = "",//Specifiy an empty on the subpart to rotate around
-                                    TicksToMove = 110, //number of ticks to complete motion, 60 = 1 second
+                                    TicksToMove = 80, //number of ticks to complete motion, 60 = 1 second
 
                                     MovementType = ExpoDecay, // ExpoGrowth (speedsup),  ExpoDecay (slows down), Linear, Delay, Show, Hide
-                                    EmissiveName = "",//name of defined emissive 
+                                    EmissiveName = "Emissive",//name of defined emissive 
                                     LinearPoints = new[]
                                     {
                                         Transformation(0, -0.80, 0), //linear movement x=L,R y=U,D z=F,B

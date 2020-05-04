@@ -52,7 +52,7 @@ namespace WeaponThread
             HardPoint = new HardPointDef
             {
                 WeaponName = "Ntech Obelisk DoT Field", // name of weapon in terminal
-                DeviateShotAngle = 0f,
+                DeviateShotAngle = 90f,
                 AimingTolerance = 4f, // 0 - 180 firing angle
                 AimLeadingPrediction = Advanced, // Off, Basic, Accurate, Advanced
                 DelayCeaseFire = 0, // Measured in game ticks (6 = 100ms, 60 = 1 seconds, etc..).
@@ -86,7 +86,7 @@ namespace WeaponThread
                 },
                 Other = new OtherDef
                 {
-                    GridWeaponCap = 2,
+                    GridWeaponCap = 0,
                     RotateBarrelAxis = 0,
                     EnergyPriority = 0,
                     MuzzleCheck = false,
@@ -94,7 +94,7 @@ namespace WeaponThread
                 },
                 Loading = new LoadingDef
                 {
-                    RateOfFire = 2,
+                    RateOfFire = 26,
                     BarrelSpinRate = 0, // visual only, 0 disables and uses RateOfFire
                     BarrelsPerShot = 1,
                     TrajectilesPerBarrel = 1, // Number of Trajectiles per barrel per fire event.

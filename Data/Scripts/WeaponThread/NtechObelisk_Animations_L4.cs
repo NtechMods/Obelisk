@@ -47,7 +47,7 @@ namespace WeaponThread
                     Reverse = Events(), // (Firing, Overheated)
                     Loop = Events(Firing), // (Firing, Overheated)
                     TriggerOnce = Events(PreFire, StopFiring, Firing),
-                    ResetEmissives = Events(StopFiring),
+                    ResetEmissives = Events(StopTracking, StopFiring, TurnOff),
                     EventMoveSets = new Dictionary<PartAnimationSetDef.EventTriggers, RelMove[]>
                     {
                         

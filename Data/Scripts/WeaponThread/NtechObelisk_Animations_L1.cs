@@ -47,7 +47,7 @@ namespace WeaponThread
                     Reverse = Events(), // (Firing, Overheated)
                     Loop = Events(Firing), // (Firing, Overheated)
                     TriggerOnce = Events(PreFire, StopFiring, Firing),
-                    ResetEmissives = Events(StopFiring),
+                    ResetEmissives = Events(StopTracking, StopFiring, TurnOff),
                     EventMoveSets = new Dictionary<PartAnimationSetDef.EventTriggers, RelMove[]>
                     {
                         
@@ -78,7 +78,7 @@ namespace WeaponThread
                                     CenterEmpty = "",//Specifiy an empty on the subpart to rotate around
                                     TicksToMove = 100, //number of ticks to complete motion, 60 = 1 second
 
-                                    MovementType = ExpoDecay, // ExpoGrowth (speedsup),  ExpoDecay (slows down), Linear, Delay, Show, Hide
+                                    MovementType = Delay, // ExpoGrowth (speedsup),  ExpoDecay (slows down), Linear, Delay, Show, Hide
                                     EmissiveName = "Emissive",//name of defined emissive 
                                     LinearPoints = new[]
                                     {
