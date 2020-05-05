@@ -40,7 +40,7 @@ namespace WeaponThread
                 },
                 SubSystems = new[]
                 {
-                    Power, Thrust, Utility, Offense, Production, Any, // subsystems the gun targets
+                    Power, Offense, // subsystems the gun targets
                 },
                 ClosestFirst = false, // tries to pick closest targets first (blocks on grids, projectiles, etc...).
                 MinimumDiameter = 0, // 0 = unlimited, Minimum radius of threat to engage.
@@ -51,10 +51,10 @@ namespace WeaponThread
             },
             HardPoint = new HardPointDef
             {
-                WeaponName = "Ntech Obelisk DoT Field", // name of weapon in terminal
-                DeviateShotAngle = 90f,
-                AimingTolerance = 4f, // 0 - 180 firing angle
-                AimLeadingPrediction = Advanced, // Off, Basic, Accurate, Advanced
+                WeaponName = "Obelisk Embers", // name of weapon in terminal
+                DeviateShotAngle = 100f,
+                AimingTolerance = 1f, // 0 - 180 firing angle
+                AimLeadingPrediction = Off, // Off, Basic, Accurate, Advanced
                 DelayCeaseFire = 0, // Measured in game ticks (6 = 100ms, 60 = 1 seconds, etc..).
 
                 Ui = new UiDef
@@ -69,7 +69,7 @@ namespace WeaponThread
                     TrackTargets = true,
                     TurretAttached = true,
                     TurretController = true,
-                    PrimaryTracking = false,
+                    PrimaryTracking = true,
                     LockOnFocus = false,
                 },
                 HardWare = new HardwareDef
@@ -94,13 +94,13 @@ namespace WeaponThread
                 },
                 Loading = new LoadingDef
                 {
-                    RateOfFire = 26,
+                    RateOfFire = 60,
                     BarrelSpinRate = 0, // visual only, 0 disables and uses RateOfFire
                     BarrelsPerShot = 1,
-                    TrajectilesPerBarrel = 1, // Number of Trajectiles per barrel per fire event.
+                    TrajectilesPerBarrel = 5, // Number of Trajectiles per barrel per fire event.
                     SkipBarrels = 0,
                     ReloadTime = 0, // Measured in game ticks (6 = 100ms, 60 = 1 seconds, etc..).
-                    DelayUntilFire = 360, // Measured in game ticks (6 = 100ms, 60 = 1 seconds, etc..).
+                    DelayUntilFire = 60, // Measured in game ticks (6 = 100ms, 60 = 1 seconds, etc..).
                     HeatPerShot = 12000, //heat generated per shot
                     MaxHeat = 24000, //max heat before weapon enters cooldown (70% of max heat)
                     Cooldown = .95f, //percent of max heat to be under to start firing again after overheat accepts .2-.95
@@ -112,12 +112,12 @@ namespace WeaponThread
                 },
                 Audio = new HardPointAudioDef
                 {
-                    PreFiringSound = "",
-                    FiringSound = "ObeliskChargeStart", // subtype name from sbc
+                    PreFiringSound = "ObeliskChargeStart",
+                    FiringSound = "ObeliskChargeEnd", // subtype name from sbc
                     FiringSoundPerShot = true,
                     ReloadSound = "",
                     NoAmmoSound = "",
-                    HardPointRotationSound = "ObeliskChargeLoop",
+                    HardPointRotationSound = "",
                     BarrelRotationSound = "",
                 },
                 Graphics = new HardPointParticleDef

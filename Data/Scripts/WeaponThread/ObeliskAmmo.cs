@@ -19,7 +19,7 @@ namespace WeaponThread
             AmmoRound = "ObeliskType1",
             HybridRound = false, //AmmoMagazine based weapon with energy cost
             EnergyCost = 0.15f, //(((EnergyCost * DefaultDamage) * ShotsPerSecond) * BarrelsPerShot) * ShotsPerBarrel
-            BaseDamage = 500f,
+            BaseDamage = 1500f,
             Mass = 0.05f, // in kilograms
             Health = 10000, // 0 = disabled, otherwise how much damage it can take from other trajectiles before dying.
             BackKickForce = 1f,
@@ -58,9 +58,9 @@ namespace WeaponThread
                 },
                 Armor = new ArmorDef
                 {
-                    Armor = 0.4f,
-                    Light = 0.4f,
-                    Heavy = 0.1f,
+                    Armor = 1.4f,
+                    Light = 1.7f,
+                    Heavy = 0.8f,
                     NonArmor = 2f,
                 },
                 Shields = new ShieldDef
@@ -77,8 +77,8 @@ namespace WeaponThread
                     {
                         new CustomBlocksDef
                         {
-                            SubTypeId = "Test1",
-                            Modifier = -1f,
+                            SubTypeId = "NtechObelisk",
+                            Modifier = 3f,
                         },
                         new CustomBlocksDef
                         {
@@ -92,7 +92,7 @@ namespace WeaponThread
             {
                 AreaEffect = Radiant, // Disabled = do not use area effect at all, Explosive, Radiant, AntiSmart, JumpNullField, JumpNullField, EnergySinkField, AnchorField, EmpField, OffenseField, NavField, DotField.
                 AreaEffectDamage = 200f, // 0 = use spillover from BaseDamage, otherwise use this value.
-                AreaEffectRadius = 6f,
+                AreaEffectRadius = 10f,
                 Pulse = new PulseDef // interval measured in game ticks (60 == 1 second), pulseChance chance (0 - 100) that an entity in field will be hit
                 {
                     Interval = 180,
@@ -136,8 +136,8 @@ namespace WeaponThread
                 TargetLossDegree = 180f,
                 TargetLossTime = 1800, // 0 is disabled, Measured in game ticks (6 = 100ms, 60 = 1 seconds, etc..).
                 MaxLifeTime = 1200, // 0 is disabled, Measured in game ticks (6 = 100ms, 60 = 1 seconds, etc..).
-                AccelPerSec = 30f,
-                DesiredSpeed = 70,
+                AccelPerSec = 1000f,
+                DesiredSpeed = 777,
                 MaxTrajectory = 2000f,
                 FieldTime = 0, // 0 is disabled, a value causes the projectile to come to rest, spawn a field and remain for a time (Measured in game ticks, 60 = 1 second)
                 SpeedVariance = Random(start: 1, end: 3), // subtracts value from DesiredSpeed
@@ -146,8 +146,8 @@ namespace WeaponThread
                 {
                     Inaccuracy = 0f, // 0 is perfect, hit accuracy will be a random num of meters between 0 and this value.
                     Aggressiveness = 1f, // controls how responsive tracking is.
-                    MaxLateralThrust = 100.9f, // controls how sharp the trajectile may turn
-                    TrackingDelay = 10, // Measured in Shape diameter units traveled.
+                    MaxLateralThrust = 200f, // controls how sharp the trajectile may turn
+                    TrackingDelay = 5, // Measured in Shape diameter units traveled.
                     MaxChaseTime = 1200, // Measured in game ticks (6 = 100ms, 60 = 1 seconds, etc..).
                     OverideTarget = true, // when set to true ammo picks its own target, does not use hardpoint's.
 					MaxTargets = 10,
@@ -248,7 +248,7 @@ namespace WeaponThread
             AmmoRound = "ObeliskType2",
             HybridRound = false, //AmmoMagazine based weapon with energy cost
             EnergyCost = 2.2f, //(((EnergyCost * DefaultDamage) * ShotsPerSecond) * BarrelsPerShot) * ShotsPerBarrel
-            BaseDamage = 10f,
+            BaseDamage = 50f,
             Mass = 0.01f, // in kilograms
             Health = 10000, // 0 = disabled, otherwise how much damage it can take from other trajectiles before dying.
             BackKickForce = 0f,

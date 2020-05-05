@@ -36,11 +36,11 @@ namespace WeaponThread
             {
                 Threats = new[]
                 {
-                    Grids, Characters, Projectiles, Meteors, // threats percieved automatically without changing menu settings
+                    Grids, // threats percieved automatically without changing menu settings
                 },
                 SubSystems = new[]
                 {
-                    Power, Thrust, Utility, Offense, Production, Any, // subsystems the gun targets
+                    Power, // subsystems the gun targets
                 },
                 ClosestFirst = false, // tries to pick closest targets first (blocks on grids, projectiles, etc...).
                 MinimumDiameter = 0, // 0 = unlimited, Minimum radius of threat to engage.
@@ -51,7 +51,7 @@ namespace WeaponThread
             },
             HardPoint = new HardPointDef
             {
-                WeaponName = "Ntech Obelisk L3", // name of weapon in terminal
+                WeaponName = "Obelisk Laser 3", // name of weapon in terminal
                 DeviateShotAngle = 0f,
                 AimingTolerance = 180f, // 0 - 180 firing angle
                 AimLeadingPrediction = Advanced, // Off, Basic, Accurate, Advanced
@@ -86,7 +86,7 @@ namespace WeaponThread
                 },
                 Other = new OtherDef
                 {
-                    GridWeaponCap = 5,
+                    GridWeaponCap = 0,
                     RotateBarrelAxis = 0,
                     EnergyPriority = 0,
                     MuzzleCheck = false,

@@ -10,7 +10,7 @@
       <MaxDistance>300</MaxDistance>
       <PitchVariation>50</PitchVariation>
       <VolumeVariation>0.2</VolumeVariation>
-      <Volume>0.9</Volume>
+      <Volume>0.6</Volume>
 	  <Loopable>false</Loopable>
       <Waves>
         <Wave Type="D2">
@@ -30,14 +30,14 @@
       <MaxDistance>300</MaxDistance>
       <PitchVariation>50</PitchVariation>
       <VolumeVariation>0.2</VolumeVariation>
-      <Volume>0.9</Volume>
+      <Volume>0.8</Volume>
 	  <Loopable>true</Loopable>
       <Waves>
         <Wave Type="D2">
-          <Loop>Audio\WEP\ObeliskLoop_S.wav</Loop>
+          <Start>Audio\WEP\ObeliskLoop_S.wav</Start>
         </Wave>
         <Wave Type="D3">
-          <Loop>Audio\WEP\ObeliskStart_M.wav</Loop>
+          <Start>Audio\WEP\ObeliskLoop_M.wav</Start>
         </Wave>
       </Waves>
     </Sound>
@@ -50,14 +50,14 @@
       <MaxDistance>300</MaxDistance>
       <PitchVariation>50</PitchVariation>
       <VolumeVariation>0.2</VolumeVariation>
-      <Volume>0.9</Volume>
+      <Volume>0.8</Volume>
 	  <Loopable>false</Loopable>
       <Waves>
         <Wave Type="D2">
-          <End>Audio\WEP\ObeliskEnd_S.wav</End>
+          <Start>Audio\WEP\ObeliskEnd_S.wav</Start>
         </Wave>
         <Wave Type="D3">
-          <End>Audio\WEP\ObeliskStart_M.wav</End>
+          <Start>Audio\WEP\ObeliskEnd_M.wav</Start>
         </Wave>
       </Waves>
     </Sound>
