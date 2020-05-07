@@ -36,7 +36,7 @@ namespace WeaponThread
             {
                 Threats = new[]
                 {
-                    Grids, // threats percieved automatically without changing menu settings
+                    Grids, Projectiles, Meteors, Characters, // threats percieved automatically without changing menu settings
                 },
                 SubSystems = new[]
                 {

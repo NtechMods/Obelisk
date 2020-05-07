@@ -36,7 +36,7 @@ namespace WeaponThread
             {
                 Threats = new[]
                 {
-                    Grids,  // threats percieved automatically without changing menu settings
+                    Grids, Projectiles, Meteors, Characters, // threats percieved automatically without changing menu settings
                 },
                 SubSystems = new[]
                 {
@@ -124,7 +124,7 @@ namespace WeaponThread
                 {
                     Barrel1 = new ParticleDef
                     {
-                        Name = "CrystalBeamSpawn", // Smoke_LargeGunShot LaserImpactParticle
+                        Name = "CrystalArc", // Smoke_LargeGunShot LaserImpactParticle
                         Color = Color(red: 10, green: 20, blue: 25, alpha: 1.2f),
                         Offset = Vector(x: 0, y: 0, z: 0),
                         Extras = new ParticleOptionDef
@@ -138,9 +138,9 @@ namespace WeaponThread
                     },
                     Barrel2 = new ParticleDef
                     {
-                        Name = "",//Muzzle_Flash_Large
+                        Name = "CrystalBeamSpawn",//Muzzle_Flash_Large
                         Color = Color(red: 10, green: 20, blue: 25, alpha: 1),
-                        Offset = Vector(x: 0, y: 0, z: 0),
+                        Offset = Vector(x: 0, y: -1.0, z: 0),
                         Extras = new ParticleOptionDef
                         {
                             Loop = true,
