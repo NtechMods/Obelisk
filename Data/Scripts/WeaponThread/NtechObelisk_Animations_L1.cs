@@ -97,12 +97,12 @@ namespace WeaponThread
                                     CenterEmpty = "",//Specifiy an empty on the subpart to rotate around
                                     TicksToMove = 100, //number of ticks to complete motion, 60 = 1 second
 
-                                    MovementType = ExpoGrowth, // ExpoGrowth (speedsup),  ExpoDecay (slows down), Linear, Delay, Show, Hide
+                                    MovementType = ExpoDecay, // ExpoGrowth (speedsup),  ExpoDecay (slows down), Linear, Delay, Show, Hide
                                     EmissiveName = "Emissive",//name of defined emissive 
                                     LinearPoints = new[]{
-                                        Transformation(-0.45f, 2.1, 0.45f)
+                                        Transformation(-1.56f, 3.8, 1.56f)
                                     },
-                                    Rotation = Transformation(0, 0, 0), //degrees
+                                    Rotation = Transformation(5, 0, 5), //degrees
                                     RotAroundCenter = Transformation(0, 0, 0), //degrees, rotates around CenterEmpty
                                 },
                             },
@@ -115,13 +115,13 @@ namespace WeaponThread
                                     CenterEmpty = "",//Specifiy an empty on the subpart to rotate around
                                     TicksToMove = 100, //number of ticks to complete motion, 60 = 1 second
 
-                                    MovementType = ExpoDecay, // ExpoGrowth (speedsup),  ExpoDecay (slows down), Linear, Delay, Show, Hide
+                                    MovementType = ExpoGrowth, // ExpoGrowth (speedsup),  ExpoDecay (slows down), Linear, Delay, Show, Hide
                                     EmissiveName = "Emissive",//name of defined emissive 
                                     LinearPoints = new[]
                                     {
-                                        Transformation(0.45f, -2.1, -0.45f), //linear movement x=L,R y=U,D z=F,B
+                                        Transformation(1.56f, -3.8, -1.56f), //linear movement x=L,R y=U,D z=F,B
                                     },
-                                    Rotation = Transformation(0f, 0, 0f), //degrees
+                                    Rotation = Transformation(-5f, 0, -5f), //degrees
                                     RotAroundCenter = Transformation(0, 0, 0), //degrees, rotates around CenterEmpty
                                 },
                             },						
