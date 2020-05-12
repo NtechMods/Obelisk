@@ -3906,9 +3906,9 @@
       </Id>
       <Version>1</Version>
       <ParticleId>22415</ParticleId>
-      <Length>3</Length>
+      <Length>5</Length>
       <DurationMin>2</DurationMin>
-      <DurationMax>3</DurationMax>
+      <DurationMax>5</DurationMax>
       <DistanceMax>500</DistanceMax>
       <Loop>true</Loop>
       <ParticleGenerations>
@@ -4027,8 +4027,8 @@
             </Property>
             <Property Name="Direction" Type="Vector3" AnimationType="Const">
               <ValueVector3>
-                <X>0</X>
-                <Y>1</Y>
+                <X>1</X>
+                <Y>0</Y>
                 <Z>0</Z>
               </ValueVector3>
             </Property>
@@ -4129,7 +4129,7 @@
               </Keys>
             </Property>
             <Property Name="Life" Type="Float" AnimationType="Const">
-              <ValueFloat>3</ValueFloat>
+              <ValueFloat>2</ValueFloat>
             </Property>
             <Property Name="Soft particle distance scale" Type="Float" AnimationType="Const">
               <ValueFloat>1</ValueFloat>
@@ -4194,7 +4194,7 @@
             <Property Name="Offset" Type="Vector3" AnimationType="Const">
               <ValueVector3>
                 <X>0</X>
-                <Y>-3</Y>
+                <Y>-1</Y>
                 <Z>0</Z>
               </ValueVector3>
             </Property>
@@ -4222,7 +4222,7 @@
             <Property Name="Angle" Type="Vector3" AnimationType="Const">
               <ValueVector3>
                 <X>0</X>
-                <Y>0</Y>
+                <Y>90</Y>
                 <Z>180</Z>
               </ValueVector3>
             </Property>
@@ -4329,7 +4329,7 @@
                   <Time>0</Time>
                   <ValueVector3>
                     <X>0</X>
-                    <Y>-1</Y>
+                    <Y>-2</Y>
                     <Z>1</Z>
                   </ValueVector3>
                 </Key>

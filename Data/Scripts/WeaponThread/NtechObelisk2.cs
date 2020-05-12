@@ -124,7 +124,7 @@ namespace WeaponThread
                 {
                     Barrel1 = new ParticleDef
                     {
-                        Name = "ElectricDischarge1", // Smoke_LargeGunShot LaserImpactParticle
+                        Name = "CrystalBeamSpawn", // Smoke_LargeGunShot LaserImpactParticle
                         Color = Color(red: 10, green: 20, blue: 25, alpha: 1.2f),
                         Offset = Vector(x: 0, y: 0, z: 0),
                         Extras = new ParticleOptionDef
@@ -138,7 +138,7 @@ namespace WeaponThread
                     },
                     Barrel2 = new ParticleDef
                     {
-                        Name = "CrystalBeamSpawn",//Muzzle_Flash_Large
+                        Name = "",//Muzzle_Flash_Large
                         Color = Color(red: 10, green: 20, blue: 25, alpha: 1),
                         Offset = Vector(x: 0, y: 0, z: 0),
                         Extras = new ParticleOptionDef

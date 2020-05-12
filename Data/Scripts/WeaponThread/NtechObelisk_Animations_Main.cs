@@ -7,6 +7,26 @@ using static WeaponThread.WeaponStructure.WeaponDefinition.AnimationDef.RelMove.
 using static WeaponThread.WeaponStructure.WeaponDefinition.AnimationDef.RelMove;
 namespace WeaponThread
 { // Don't edit above this line
+
+
+
+
+        /// Possible Events ///
+        
+        //Reloading,
+        //Firing,
+        //Tracking,
+        //Overheated,
+        //TurnOn,
+        //TurnOff,
+        //BurstReload,
+        //OutOfAmmo,
+        //PreFire,
+        //EmptyOnGameLoad,
+        //StopFiring,
+        //StopTracking
+		
+		
     partial class Weapons
     {
         private AnimationDef MonolithMain => new AnimationDef
@@ -36,6 +56,37 @@ namespace WeaponThread
                         "Emissive"
                     }),
             },
+			
+			
+			EventParticles = new Dictionary<PartAnimationSetDef.EventTriggers, EventParticle[]>
+            {
+                [TurnOn] = new[]
+                {
+                    new EventParticle
+                    {
+                        EmptyName = "subpart_Crystal_Top",
+                        StartDelay = 0, //ticks 60 = 1 second
+                        LoopDelay = 0, //ticks 60 = 1 second
+                        Particle = new ParticleDef
+                        {
+                            Name = "ElectricDischarge",
+                            Color = Color(red: 10f, green: 20f, blue: 25f, alpha: 1),
+                            Extras = new ParticleOptionDef
+                            {
+                                Loop = true,
+                                Restart = false,
+                                MaxDistance = 200, //meters
+                                MaxDuration = 320, //ticks 60 = 1 second
+                                Scale = 1,
+                            }
+                        }
+                    },
+                },
+				
+				
+            },
+			
+					
             WeaponAnimationSets = new[]
             {
                 new PartAnimationSetDef()
