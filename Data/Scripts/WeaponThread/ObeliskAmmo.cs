@@ -247,8 +247,8 @@ namespace WeaponThread
             AmmoMagazine = "Energy",
             AmmoRound = "ObeliskType2",
             HybridRound = false, //AmmoMagazine based weapon with energy cost
-            EnergyCost = 2.2f, //(((EnergyCost * DefaultDamage) * ShotsPerSecond) * BarrelsPerShot) * ShotsPerBarrel
-            BaseDamage = 50f,
+            EnergyCost = 1.2f, //(((EnergyCost * DefaultDamage) * ShotsPerSecond) * BarrelsPerShot) * ShotsPerBarrel
+            BaseDamage = 100f,
             Mass = 0.01f, // in kilograms
             Health = 10000, // 0 = disabled, otherwise how much damage it can take from other trajectiles before dying.
             BackKickForce = 0f,
@@ -354,7 +354,7 @@ namespace WeaponThread
             Beams = new BeamDef
             {
                 Enable = true,
-                VirtualBeams = false, // Only one hot beam, but with the effectiveness of the virtual beams combined (better performace)
+                VirtualBeams = true, // Only one hot beam, but with the effectiveness of the virtual beams combined (better performace)
                 ConvergeBeams = false, // When using virtual beams this option visually converges the beams to the location of the real beam.
                 RotateRealBeam = false, // The real (hot beam) is rotated between all virtual beams, instead of centered between them.
                 OneParticle = true, // Only spawn one particle hit per beam weapon.
@@ -373,9 +373,9 @@ namespace WeaponThread
                 RangeVariance = Random(start: 0, end: 0), // subtracts value from MaxTrajectory
                 Smarts = new SmartsDef
                 {
-                    Inaccuracy = 0.1f, // 0 is perfect, hit accuracy will be a random num of meters between 0 and this value.
+                    Inaccuracy = 0.01f, // 0 is perfect, hit accuracy will be a random num of meters between 0 and this value.
                     Aggressiveness = 1f, // controls how responsive tracking is.
-                    MaxLateralThrust = 0.9f, // controls how sharp the trajectile may turn
+                    MaxLateralThrust = 0f, // controls how sharp the trajectile may turn
                     TrackingDelay = 10, // Measured in Shape diameter units traveled.
                     MaxChaseTime = 18000, // Measured in game ticks (6 = 100ms, 60 = 1 seconds, etc..).
                     OverideTarget = false, // when set to true ammo picks its own target, does not use hardpoint's.
