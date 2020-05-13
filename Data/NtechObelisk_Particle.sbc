@@ -3899,6 +3899,11 @@
       <ParticleLights />
 	  <ParticleSounds />
 	 </ParticleEffect>
+	 
+	 
+<!--electric bolts for crystals -->
+	 
+	 
      <ParticleEffect xsi:type="MyObjectBuilder_ParticleEffect">
       <Id>
         <TypeId>ParticleEffect</TypeId>
@@ -3906,9 +3911,9 @@
       </Id>
       <Version>1</Version>
       <ParticleId>22415</ParticleId>
-      <Length>5</Length>
+      <Length>2</Length>
       <DurationMin>2</DurationMin>
-      <DurationMax>5</DurationMax>
+      <DurationMax>2</DurationMax>
       <DistanceMax>500</DistanceMax>
       <Loop>true</Loop>
       <ParticleGenerations>
@@ -4194,7 +4199,7 @@
             <Property Name="Offset" Type="Vector3" AnimationType="Const">
               <ValueVector3>
                 <X>0</X>
-                <Y>-1</Y>
+                <Y>-2.3</Y>
                 <Z>0</Z>
               </ValueVector3>
             </Property>
@@ -4229,7 +4234,7 @@
             <Property Name="Angle var" Type="Vector3" AnimationType="Const">
               <ValueVector3>
                 <X>0</X>
-                <Y>0</Y>
+                <Y>180</Y>
                 <Z>0</Z>
               </ValueVector3>
             </Property>
@@ -4329,8 +4334,8 @@
                   <Time>0</Time>
                   <ValueVector3>
                     <X>0</X>
-                    <Y>-2</Y>
-                    <Z>1</Z>
+                    <Y>-5</Y>
+                    <Z>0</Z>
                   </ValueVector3>
                 </Key>
               </Keys>

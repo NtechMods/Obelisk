@@ -65,19 +65,19 @@ namespace WeaponThread
                     new EventParticle
                     {
                         EmptyName = "subpart_Crystal_Top",
-                        StartDelay = 0, //ticks 60 = 1 second
+                        StartDelay = 60, //ticks 60 = 1 second
                         LoopDelay = 0, //ticks 60 = 1 second
                         Particle = new ParticleDef
                         {
                             Name = "ElectricDischarge",
-                            Color = Color(red: 10f, green: 20f, blue: 25f, alpha: 1),
+                            Color = Color(red: 1.0f, green: 2.0f, blue: 25f, alpha: 1),
                             Extras = new ParticleOptionDef
                             {
                                 Loop = true,
                                 Restart = false,
                                 MaxDistance = 200, //meters
-                                MaxDuration = 320, //ticks 60 = 1 second
-                                Scale = 1,
+                                MaxDuration = 180, //ticks 60 = 1 second
+                                Scale = 0.8f,
                             }
                         }
                     },
