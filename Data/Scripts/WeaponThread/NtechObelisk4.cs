@@ -45,8 +45,8 @@ namespace WeaponThread
                 ClosestFirst = false, // tries to pick closest targets first (blocks on grids, projectiles, etc...).
                 MinimumDiameter = 0, // 0 = unlimited, Minimum radius of threat to engage.
                 MaximumDiameter = 0, // 0 = unlimited, Maximum radius of threat to engage.
-                TopTargets = 0, // 0 = unlimited, max number of top targets to randomize between.
-                TopBlocks = 0, // 0 = unlimited, max number of blocks to randomize between
+                TopTargets = 10, // 0 = unlimited, max number of top targets to randomize between.
+                TopBlocks = 10, // 0 = unlimited, max number of blocks to randomize between
                 StopTrackingSpeed = 100, // do not track target threats traveling faster than this speed
             },
             HardPoint = new HardPointDef
@@ -54,12 +54,12 @@ namespace WeaponThread
                 WeaponName = "Obelisk Laser 3", // name of weapon in terminal
                 DeviateShotAngle = 0f,
                 AimingTolerance = 180f, // 0 - 180 firing angle
-                AimLeadingPrediction = Advanced, // Off, Basic, Accurate, Advanced
+                AimLeadingPrediction = Accurate, // Off, Basic, Accurate, Advanced
                 DelayCeaseFire = 0, // Measured in game ticks (6 = 100ms, 60 = 1 seconds, etc..).
 
                 Ui = new UiDef
                 {
-                    RateOfFire = true,
+                    RateOfFire = false,
                     DamageModifier = false,
                     ToggleGuidance = false,
                     EnableOverload =  true,

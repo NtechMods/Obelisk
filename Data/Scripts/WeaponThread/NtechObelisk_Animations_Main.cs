@@ -60,7 +60,7 @@ namespace WeaponThread
 			
 			EventParticles = new Dictionary<PartAnimationSetDef.EventTriggers, EventParticle[]>
             {
-                [TurnOn] = new[]
+                [PreFire] = new[]
                 {
                     new EventParticle
                     {
@@ -91,7 +91,7 @@ namespace WeaponThread
                         LoopDelay = 0, //ticks 60 = 1 second
                         Particle = new ParticleDef
                         {
-                            Name = "ElectricDischarge",
+                            Name = "ElectricDischarge1",
                             Color = Color(red: 1.0f, green: 2.0f, blue: 25f, alpha: 1),
                             Extras = new ParticleOptionDef
                             {
@@ -109,7 +109,86 @@ namespace WeaponThread
 					
                 },
 				
+				[Firing] = new[]
+                {
+					new EventParticle
+                    {
+                        EmptyName = "Electricity_Part2",
+                        StartDelay = 0, //ticks 60 = 1 second
+                        LoopDelay = 0, //ticks 60 = 1 second
+                        Particle = new ParticleDef
+                        {
+                            Name = "ElectricDischarge2",
+                            Color = Color(red: 1.0f, green: 2.0f, blue: 25f, alpha: 1),
+                            Extras = new ParticleOptionDef
+                            {
+                                Loop = true,
+                                Restart = false,
+                                MaxDistance = 200, //meters
+                                MaxDuration = 180, //ticks 60 = 1 second
+                                Scale = 0.7f,
+                            }
+                        }
+                    },
+					
+					
+					
+					
+                },
 				
+				[Firing] = new[]
+                {
+					new EventParticle
+                    {
+                        EmptyName = "Electricity_Part3",
+                        StartDelay = 0, //ticks 60 = 1 second
+                        LoopDelay = 0, //ticks 60 = 1 second
+                        Particle = new ParticleDef
+                        {
+                            Name = "ElectricDischarge3",
+                            Color = Color(red: 1.0f, green: 2.0f, blue: 25f, alpha: 1),
+                            Extras = new ParticleOptionDef
+                            {
+                                Loop = true,
+                                Restart = false,
+                                MaxDistance = 200, //meters
+                                MaxDuration = 180, //ticks 60 = 1 second
+                                Scale = 0.7f,
+                            }
+                        }
+                    },
+					
+					
+					
+					
+                },
+				
+				[Firing] = new[]
+                {
+					new EventParticle
+                    {
+                        EmptyName = "Electricity_Part4",
+                        StartDelay = 0, //ticks 60 = 1 second
+                        LoopDelay = 0, //ticks 60 = 1 second
+                        Particle = new ParticleDef
+                        {
+                            Name = "ElectricDischarge4",
+                            Color = Color(red: 1.0f, green: 2.0f, blue: 25f, alpha: 1),
+                            Extras = new ParticleOptionDef
+                            {
+                                Loop = true,
+                                Restart = false,
+                                MaxDistance = 200, //meters
+                                MaxDuration = 180, //ticks 60 = 1 second
+                                Scale = 0.7f,
+                            }
+                        }
+                    },
+					
+					
+					
+					
+                },
             },
 			
 					
