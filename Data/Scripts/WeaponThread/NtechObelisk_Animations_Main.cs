@@ -64,7 +64,8 @@ namespace WeaponThread
                 {
                     new EventParticle
                     {
-                        EmptyName = "subpart_Crystal_Top",
+                        EmptyNames = Names("subpart_Crystal_Top"),
+						MuzzleNames = Names("muzzle_barrel_01"),
                         StartDelay = 60, //ticks 60 = 1 second
                         LoopDelay = 0, //ticks 60 = 1 second
                         Particle = new ParticleDef
@@ -86,7 +87,8 @@ namespace WeaponThread
                 {
 					new EventParticle
                     {
-                        EmptyName = "Electricity_Part1",
+                        EmptyNames = Names("Electricity_Part1"),
+						MuzzleNames = Names("muzzle_barrel_02"),
                         StartDelay = 0, //ticks 60 = 1 second
                         LoopDelay = 0, //ticks 60 = 1 second
                         Particle = new ParticleDef
@@ -113,7 +115,8 @@ namespace WeaponThread
                 {
 					new EventParticle
                     {
-                        EmptyName = "Electricity_Part2",
+                        EmptyNames = Names("Electricity_Part2"),
+						MuzzleNames = Names("muzzle_barrel_03"),
                         StartDelay = 0, //ticks 60 = 1 second
                         LoopDelay = 0, //ticks 60 = 1 second
                         Particle = new ParticleDef
@@ -140,7 +143,8 @@ namespace WeaponThread
                 {
 					new EventParticle
                     {
-                        EmptyName = "Electricity_Part3",
+                        EmptyNames = Names("Electricity_Part3"),
+						MuzzleNames = Names("muzzle_barrel_04"),
                         StartDelay = 0, //ticks 60 = 1 second
                         LoopDelay = 0, //ticks 60 = 1 second
                         Particle = new ParticleDef
@@ -167,7 +171,8 @@ namespace WeaponThread
                 {
 					new EventParticle
                     {
-                        EmptyName = "Electricity_Part4",
+                        EmptyNames = Names("Electricity_Part4"),
+						MuzzleNames = Names("muzzle_barrel_05"),
                         StartDelay = 0, //ticks 60 = 1 second
                         LoopDelay = 0, //ticks 60 = 1 second
                         Particle = new ParticleDef
