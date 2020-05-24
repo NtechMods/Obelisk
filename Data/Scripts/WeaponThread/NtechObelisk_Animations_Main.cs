@@ -87,13 +87,13 @@ namespace WeaponThread
                 {
 					new EventParticle
                     {
-                        EmptyNames = Names("Electricity_Part1"),
-						MuzzleNames = Names("muzzle_barrel_02"),
+                        EmptyNames = Names("subpart_Crystal_Top"),
+						MuzzleNames = Names("muzzle_barrel_01"),
                         StartDelay = 0, //ticks 60 = 1 second
                         LoopDelay = 0, //ticks 60 = 1 second
                         Particle = new ParticleDef
                         {
-                            Name = "ElectricDischarge1",
+                            Name = "ElectricDischarge",
                             Color = Color(red: 1.0f, green: 2.0f, blue: 25f, alpha: 1),
                             Extras = new ParticleOptionDef
                             {
@@ -115,13 +115,13 @@ namespace WeaponThread
                 {
 					new EventParticle
                     {
-                        EmptyNames = Names("Electricity_Part2"),
+                        EmptyNames = Names("subpart_Crystal_Top"),
 						MuzzleNames = Names("muzzle_barrel_03"),
                         StartDelay = 0, //ticks 60 = 1 second
                         LoopDelay = 0, //ticks 60 = 1 second
                         Particle = new ParticleDef
                         {
-                            Name = "ElectricDischarge2",
+                            Name = "ElectricDischarge",
                             Color = Color(red: 1.0f, green: 2.0f, blue: 25f, alpha: 1),
                             Extras = new ParticleOptionDef
                             {
@@ -143,13 +143,13 @@ namespace WeaponThread
                 {
 					new EventParticle
                     {
-                        EmptyNames = Names("Electricity_Part3"),
+                        EmptyNames = Names("subpart_Crystal_Top"),
 						MuzzleNames = Names("muzzle_barrel_04"),
                         StartDelay = 0, //ticks 60 = 1 second
                         LoopDelay = 0, //ticks 60 = 1 second
                         Particle = new ParticleDef
                         {
-                            Name = "ElectricDischarge3",
+                            Name = "ElectricDischarge",
                             Color = Color(red: 1.0f, green: 2.0f, blue: 25f, alpha: 1),
                             Extras = new ParticleOptionDef
                             {
@@ -171,13 +171,13 @@ namespace WeaponThread
                 {
 					new EventParticle
                     {
-                        EmptyNames = Names("Electricity_Part4"),
+                        EmptyNames = Names("subpart_Crystal_Top"),
 						MuzzleNames = Names("muzzle_barrel_05"),
                         StartDelay = 0, //ticks 60 = 1 second
                         LoopDelay = 0, //ticks 60 = 1 second
                         Particle = new ParticleDef
                         {
-                            Name = "ElectricDischarge4",
+                            Name = "ElectricDischarge",
                             Color = Color(red: 1.0f, green: 2.0f, blue: 25f, alpha: 1),
                             Extras = new ParticleOptionDef
                             {

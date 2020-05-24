@@ -133,7 +133,7 @@ namespace WeaponThread
                             Restart = true,
                             MaxDistance = 1000,
                             MaxDuration = 1,
-                            Scale = 0.9f,
+                            Scale = 1f,
                         },
                     },
                     Barrel2 = new ParticleDef

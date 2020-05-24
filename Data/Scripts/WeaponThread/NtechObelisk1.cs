@@ -94,13 +94,13 @@ namespace WeaponThread
                 },
                 Loading = new LoadingDef
                 {
-                    RateOfFire = 60,
+                    RateOfFire = 30,
                     BarrelSpinRate = 0, // visual only, 0 disables and uses RateOfFire
                     BarrelsPerShot = 1,
-                    TrajectilesPerBarrel = 5, // Number of Trajectiles per barrel per fire event.
+                    TrajectilesPerBarrel = 1, // Number of Trajectiles per barrel per fire event.
                     SkipBarrels = 0,
                     ReloadTime = 0, // Measured in game ticks (6 = 100ms, 60 = 1 seconds, etc..).
-                    DelayUntilFire = 60, // Measured in game ticks (6 = 100ms, 60 = 1 seconds, etc..).
+                    DelayUntilFire = 120, // Measured in game ticks (6 = 100ms, 60 = 1 seconds, etc..).
                     HeatPerShot = 12000, //heat generated per shot
                     MaxHeat = 24000, //max heat before weapon enters cooldown (70% of max heat)
                     Cooldown = .95f, //percent of max heat to be under to start firing again after overheat accepts .2-.95
@@ -112,8 +112,8 @@ namespace WeaponThread
                 },
                 Audio = new HardPointAudioDef
                 {
-                    PreFiringSound = "ObeliskChargeStart",
-                    FiringSound = "ObeliskChargeEnd", // subtype name from sbc
+                    PreFiringSound = "",
+                    FiringSound = "ObeliskChargeStart", // subtype name from sbc
                     FiringSoundPerShot = true,
                     ReloadSound = "",
                     NoAmmoSound = "",

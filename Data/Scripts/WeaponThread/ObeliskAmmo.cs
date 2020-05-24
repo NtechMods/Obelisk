@@ -9,6 +9,8 @@ using static WeaponThread.WeaponStructure.WeaponDefinition.AmmoDef.DamageScaleDe
 using static WeaponThread.WeaponStructure.WeaponDefinition.AmmoDef.AreaDamageDef;
 using static WeaponThread.WeaponStructure.WeaponDefinition.AmmoDef.AreaDamageDef.AreaEffectType;
 using static WeaponThread.WeaponStructure.WeaponDefinition.AmmoDef.GraphicDef.LineDef;
+using static WeaponThread.WeaponStructure.WeaponDefinition.AmmoDef.GraphicDef.LineDef.Texture;
+using static WeaponThread.WeaponStructure.WeaponDefinition.AmmoDef.GraphicDef.LineDef.TracerBaseDef;
 namespace WeaponThread
 { // Don't edit above this line
     partial class Weapons
@@ -134,23 +136,26 @@ namespace WeaponThread
             {
                 Guidance = Smart,
                 TargetLossDegree = 180f,
-                TargetLossTime = 1800, // 0 is disabled, Measured in game ticks (6 = 100ms, 60 = 1 seconds, etc..).
-                MaxLifeTime = 1200, // 0 is disabled, Measured in game ticks (6 = 100ms, 60 = 1 seconds, etc..).
+                TargetLossTime = 600, // 0 is disabled, Measured in game ticks (6 = 100ms, 60 = 1 seconds, etc..).
+                MaxLifeTime = 600, // 0 is disabled, Measured in game ticks (6 = 100ms, 60 = 1 seconds, etc..).
                 AccelPerSec = 1000f,
                 DesiredSpeed = 777,
                 MaxTrajectory = 2000f,
                 FieldTime = 0, // 0 is disabled, a value causes the projectile to come to rest, spawn a field and remain for a time (Measured in game ticks, 60 = 1 second)
                 SpeedVariance = Random(start: 1, end: 3), // subtracts value from DesiredSpeed
                 RangeVariance = Random(start: 0, end: 0), // subtracts value from MaxTrajectory
+                MaxTrajectoryTime = 120, // How long the weapon must fire before it reaches MaxTrajectory.
                 Smarts = new SmartsDef
                 {
                     Inaccuracy = 0f, // 0 is perfect, hit accuracy will be a random num of meters between 0 and this value.
                     Aggressiveness = 1f, // controls how responsive tracking is.
-                    MaxLateralThrust = 200f, // controls how sharp the trajectile may turn
-                    TrackingDelay = 5, // Measured in Shape diameter units traveled.
-                    MaxChaseTime = 1200, // Measured in game ticks (6 = 100ms, 60 = 1 seconds, etc..).
-                    OverideTarget = true, // when set to true ammo picks its own target, does not use hardpoint's.
-					MaxTargets = 10,
+                    MaxLateralThrust = 1f, // controls how sharp the trajectile may turn
+                    TrackingDelay = 3, // Measured in Shape diameter units traveled.
+                    MaxChaseTime = 600, // Measured in game ticks (6 = 100ms, 60 = 1 seconds, etc..).
+                    OverideTarget = false, // when set to true ammo picks its own target, does not use hardpoint's.
+                    MaxTargets = 10, // Number of targets allowed before ending, 0 = unlimited
+                    NoTargetExpire = true, // Expire without ever having a target at TargetLossTime
+                    Roam = true, // Roam current area after target loss
                 },
                 Mines = new MinesDef
                 {
@@ -171,6 +176,7 @@ namespace WeaponThread
                     Ammo = new ParticleDef
                     {
                         Name = "obeliskbeamarc", //ShipWelderArc
+                        ShrinkByDistance = false,
                         Color = Color(red: 10, green: 20, blue: 25, alpha: 1.5f),
                         Offset = Vector(x: 0, y: 0, z: 0),
                         Extras = new ParticleOptionDef
@@ -202,32 +208,63 @@ namespace WeaponThread
                 },
                 Lines = new LineDef
                 {
-                    TracerMaterial = "WeaponLaser", // WeaponLaser, ProjectileTrailLine, WarpBubble, etc..
                     ColorVariance = Random(start: 0.75f, end: 2f), // multiply the color by random values within range.
                     WidthVariance = Random(start: 0f, end: 0.025f), // adds random value to default width (negatives shrinks width)
                     Tracer = new TracerBaseDef
                     {
-                        Enable = false,
+                        Enable = true,
                         Length = 1f,
-                        Width = 0.2f,
-                        Color = Color(red: 10, green: 20, blue: 25, alpha: 1.2f),
+                        Width = 0.4f,
+                        Color = Color(red: 1, green: 2, blue: 2.5f, alpha: 1),
+                        VisualFadeStart = 0, // Number of ticks the weapon has been firing before projectiles begin to fade their color
+                        VisualFadeEnd = 0, // How many ticks after fade began before it will be invisible.
+                        Textures = new[] {// WeaponLaser, ProjectileTrailLine, WarpBubble, etc..
+                            "WeaponLaser",
+                        },
+                        TextureMode = Normal, // Normal, Cycle, Chaos, Wave
+                        Segmentation = new SegmentDef
+                        {
+                            Enable = false, // If true Tracer TextureMode is ignored
+                            Textures = new[] {
+                                "BlackFireSeg1",
+                                "BlackFireSeg2",
+                                "BlackFireSeg3",
+                                "BlackFireSeg4",
+                                "BlackFireSeg5",
+                                "BlackFireSeg6",
+                                "BlackFireSeg7",
+                                "BlackFireSeg8",
+                            },
+                            SegmentLength = 30f, // Uses the values below.
+                            SegmentGap = 0f, // Uses Tracer textures and values
+                            Speed = 150f, // meters per second
+                            Color = Color(red: 1, green: 2, blue: 2.5f, alpha: 1),
+                            WidthMultiplier = 1f,
+                            Reverse = false,
+                            UseLineVariance = true,
+                            WidthVariance = Random(start: 0f, end: 0f),
+                            ColorVariance = Random(start: 0f, end: 0f)
+                        }
                     },
                     Trail = new TrailDef
                     {
                         Enable = true,
-                        Material = "WeaponLaser",
-                        DecayTime = 50,
-                        Color = Color(red: 10, green: 20, blue: 25, alpha: 1.2f),
+                        Textures = new[] {
+                            "WeaponLaser",
+                        },
+                        TextureMode = Normal,
+                        DecayTime = 128,
+                        Color = Color(red: 1, green: 2, blue: 2.5f, alpha: 1),
                         Back = false,
-                        CustomWidth = 0.2f,
+                        CustomWidth = 0,
                         UseWidthVariance = false,
                         UseColorFade = true,
                     },
                     OffsetEffect = new OffsetEffectDef
                     {
                         MaxOffset = 0,// 0 offset value disables this effect
-                        MinLength = 1f,
-                        MaxLength = 5,
+                        MinLength = 0.2f,
+                        MaxLength = 3,
                     },
                 },
             },
@@ -247,7 +284,7 @@ namespace WeaponThread
             AmmoMagazine = "Energy",
             AmmoRound = "ObeliskType2",
             HybridRound = false, //AmmoMagazine based weapon with energy cost
-            EnergyCost = 1.2f, //(((EnergyCost * DefaultDamage) * ShotsPerSecond) * BarrelsPerShot) * ShotsPerBarrel
+            EnergyCost = 0.2f, //(((EnergyCost * DefaultDamage) * ShotsPerSecond) * BarrelsPerShot) * ShotsPerBarrel
             BaseDamage = 100f,
             Mass = 0.01f, // in kilograms
             Health = 10000, // 0 = disabled, otherwise how much damage it can take from other trajectiles before dying.
@@ -371,6 +408,7 @@ namespace WeaponThread
                 FieldTime = 0, // 0 is disabled, a value causes the projectile to come to rest, spawn a field and remain for a time (Measured in game ticks, 60 = 1 second)
                 SpeedVariance = Random(start: 0, end: 0), // subtracts value from DesiredSpeed
                 RangeVariance = Random(start: 0, end: 0), // subtracts value from MaxTrajectory
+                MaxTrajectoryTime = 120, // How long the weapon must fire before it reaches MaxTrajectory.
                 Smarts = new SmartsDef
                 {
                     Inaccuracy = 0.01f, // 0 is perfect, hit accuracy will be a random num of meters between 0 and this value.
@@ -379,6 +417,9 @@ namespace WeaponThread
                     TrackingDelay = 10, // Measured in Shape diameter units traveled.
                     MaxChaseTime = 18000, // Measured in game ticks (6 = 100ms, 60 = 1 seconds, etc..).
                     OverideTarget = false, // when set to true ammo picks its own target, does not use hardpoint's.
+                    MaxTargets = 0, // Number of targets allowed before ending, 0 = unlimited
+                    NoTargetExpire = false, // Expire without ever having a target at TargetLossTime
+                    Roam = false, // Roam current area after target loss
                 },
                 Mines = new MinesDef
                 {
@@ -399,6 +440,7 @@ namespace WeaponThread
                     Ammo = new ParticleDef
                     {
                         Name = "", //ShipWelderArc
+                        ShrinkByDistance = false,
                         Color = Color(red: 10, green: 20, blue: 25, alpha: 1.2f),
                         Offset = Vector(x: 0, y: 0, z: 0),
                         Extras = new ParticleOptionDef
@@ -430,22 +472,53 @@ namespace WeaponThread
                 },
                 Lines = new LineDef
                 {
-                    TracerMaterial = "WeaponLaser", // WeaponLaser, ProjectileTrailLine, WarpBubble, etc..
                     ColorVariance = Random(start: 0.75f, end: 2f), // multiply the color by random values within range.
-                    WidthVariance = Random(start: 0f, end: 0.015f), // adds random value to default width (negatives shrinks width)
+                    WidthVariance = Random(start: 0f, end: 1.025f), // adds random value to default width (negatives shrinks width)
                     Tracer = new TracerBaseDef
                     {
                         Enable = true,
                         Length = 1f,
-                        Width = 0.03f,
-                        Color = Color(red: 10, green: 20, blue: 25, alpha: 1),
+                        Width = 0.4f,
+                        Color = Color(red: 3, green: 2, blue: 1f, alpha: 1),
+                        VisualFadeStart = 0, // Number of ticks the weapon has been firing before projectiles begin to fade their color
+                        VisualFadeEnd = 0, // How many ticks after fade began before it will be invisible.
+                        Textures = new[] {// WeaponLaser, ProjectileTrailLine, WarpBubble, etc..
+                            "WeaponLaser",
+                        },
+                        TextureMode = Normal, // Normal, Cycle, Chaos, Wave
+                        Segmentation = new SegmentDef
+                        {
+                            Enable = true, // If true Tracer TextureMode is ignored
+                            Textures = new[] {
+                                "BlackFireSeg1",
+                                "BlackFireSeg2",
+                                "BlackFireSeg3",
+                                "BlackFireSeg4",
+                                "BlackFireSeg5",
+                                "BlackFireSeg6",
+                                "BlackFireSeg7",
+                                "BlackFireSeg8",
+                            },
+                            SegmentLength = 30f, // Uses the values below.
+                            SegmentGap = 0f, // Uses Tracer textures and values
+                            Speed = 150f, // meters per second
+                            Color = Color(red: 1, green: 2, blue: 2.5f, alpha: 1),
+                            WidthMultiplier = 1f,
+                            Reverse = false,
+                            UseLineVariance = true,
+                            WidthVariance = Random(start: 0f, end: 0f),
+                            ColorVariance = Random(start: 0f, end: 0f)
+                        }
                     },
                     Trail = new TrailDef
                     {
                         Enable = false,
-                        Material = "WeaponLaser",
-                        DecayTime = 600,
-                        Color = Color(red: 8, green: 8, blue: 64, alpha: 8),
+                        Textures = new[] {
+                            "WeaponLaser",
+                        },
+                        TextureMode = Normal,
+                        DecayTime = 128,
+                        Color = Color(red: 0, green: 0, blue: 1, alpha: 1),
                         Back = false,
                         CustomWidth = 0,
                         UseWidthVariance = false,
@@ -454,8 +527,8 @@ namespace WeaponThread
                     OffsetEffect = new OffsetEffectDef
                     {
                         MaxOffset = 0,// 0 offset value disables this effect
-                        MinLength = 5f,
-                        MaxLength = 15,
+                        MinLength = 0.2f,
+                        MaxLength = 3,
                     },
                 },
             },

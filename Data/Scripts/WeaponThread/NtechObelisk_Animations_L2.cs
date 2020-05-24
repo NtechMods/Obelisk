@@ -44,8 +44,8 @@ namespace WeaponThread
                     BarrelId = "muzzle_barrel_05", //only used for firing, use "Any" for all muzzles
                     StartupFireDelay = 0,
                     AnimationDelays = Delays(FiringDelay : 0, ReloadingDelay: 0, OverheatedDelay: 0, TrackingDelay: 0, LockedDelay: 0, OnDelay: 60, OffDelay: 0, BurstReloadDelay: 0, OutOfAmmoDelay: 0, PreFireDelay: 0, StopFiringDelay: 0),//Delay before animation starts
-                    Reverse = Events(), // (Firing, Overheated)
-                    Loop = Events(Firing), // (Firing, Overheated)
+                    Reverse = Events(Firing, StopFiring), // (Firing, Overheated)
+                    Loop = Events(Firing, StopFiring), // (Firing, Overheated)
                     TriggerOnce = Events(PreFire, StopFiring, Firing),
                     ResetEmissives = Events(StopTracking, StopFiring, TurnOff),
                     EventMoveSets = new Dictionary<PartAnimationSetDef.EventTriggers, RelMove[]>
@@ -58,12 +58,12 @@ namespace WeaponThread
                                 new RelMove
                                 {
                                     CenterEmpty = "",//Specifiy an empty on the subpart to rotate around
-                                    TicksToMove = 100, //number of ticks to complete motion, 60 = 1 second
+                                    TicksToMove = 60, //number of ticks to complete motion, 60 = 1 second
 
-                                    MovementType = Delay, // ExpoGrowth (speedsup),  ExpoDecay (slows down), Linear, Delay, Show, Hide
+                                    MovementType = Linear, // ExpoGrowth (speedsup),  ExpoDecay (slows down), Linear, Delay, Show, Hide
                                     EmissiveName = "Emissive",//name of defined emissive 
                                     LinearPoints = new[]{
-                                        Transformation(0f, 0, 0f)
+                                        Transformation(0f, 1, 0f)
                                     },
                                     Rotation = Transformation(0, 0, 0), //degrees
                                     RotAroundCenter = Transformation(0, 0, 0), //degrees, rotates around CenterEmpty
@@ -76,13 +76,13 @@ namespace WeaponThread
                                 new RelMove
                                 {
                                     CenterEmpty = "",//Specifiy an empty on the subpart to rotate around
-                                    TicksToMove = 100, //number of ticks to complete motion, 60 = 1 second
+                                    TicksToMove = 60, //number of ticks to complete motion, 60 = 1 second
 
-                                    MovementType = ExpoDecay, // ExpoGrowth (speedsup),  ExpoDecay (slows down), Linear, Delay, Show, Hide
+                                    MovementType = Linear, // ExpoGrowth (speedsup),  ExpoDecay (slows down), Linear, Delay, Show, Hide
                                     EmissiveName = "Emissive",//name of defined emissive 
                                     LinearPoints = new[]
                                     {
-                                        Transformation(0, 0, 0), //linear movement x=L,R y=U,D z=F,B
+                                        Transformation(0, -1, 0), //linear movement x=L,R y=U,D z=F,B
                                     },
                                     Rotation = Transformation(0f, 0, 0f), //degrees
                                     RotAroundCenter = Transformation(0, 0, 0), //degrees, rotates around CenterEmpty

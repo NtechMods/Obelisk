@@ -30,7 +30,6 @@ namespace WeaponThread
                     [ProtoMember(3)] internal string MuzzlePartId;
                     [ProtoMember(4)] internal string AzimuthPartId;
                     [ProtoMember(5)] internal string ElevationPartId;
-                    [ProtoMember(6)] internal string CameraPartId;
                 }
             }
 
@@ -73,6 +72,7 @@ namespace WeaponThread
                 [ProtoMember(12)] internal bool LockedSmartOnly;
             }
 
+
             [ProtoContract]
             public struct AnimationDef
             {
@@ -80,7 +80,6 @@ namespace WeaponThread
                 [ProtoMember(2)] internal WeaponEmissive[] Emissives;
                 [ProtoMember(3)] internal string[] HeatingEmissiveParts;
                 [ProtoMember(4)] internal Dictionary<PartAnimationSetDef.EventTriggers, EventParticle[]> EventParticles;
-
 
                 [ProtoContract(IgnoreListHandling = true)]
                 public struct PartAnimationSetDef
@@ -413,6 +412,14 @@ namespace WeaponThread
                     [ProtoContract]
                     public struct LineDef
                     {
+                        internal enum Texture
+                        {
+                            Normal,
+                            Cycle,
+                            Chaos,
+                            Wave,
+                        }
+
                         [ProtoMember(1)] internal TracerBaseDef Tracer;
                         [ProtoMember(2)] internal string TracerMaterial;
                         [ProtoMember(3)] internal Randomize ColorVariance;
@@ -438,11 +445,13 @@ namespace WeaponThread
                             [ProtoMember(5)] internal uint VisualFadeStart;
                             [ProtoMember(6)] internal uint VisualFadeEnd;
                             [ProtoMember(7)] internal SegmentDef Segmentation;
+                            [ProtoMember(8)] internal string[] Textures;
+                            [ProtoMember(9)] internal Texture TextureMode;
 
                             [ProtoContract]
                             public struct SegmentDef
                             {
-                                [ProtoMember(1)] internal string Material;
+                                [ProtoMember(1)] internal string Material; //retired
                                 [ProtoMember(2)] internal double SegmentLength;
                                 [ProtoMember(3)] internal double SegmentGap;
                                 [ProtoMember(4)] internal double Speed;
@@ -452,6 +461,8 @@ namespace WeaponThread
                                 [ProtoMember(8)] internal bool UseLineVariance;
                                 [ProtoMember(9)] internal Randomize ColorVariance;
                                 [ProtoMember(10)] internal Randomize WidthVariance;
+                                [ProtoMember(11)] internal string[] Textures;
+                                [ProtoMember(12)] internal bool Enable;
                             }
                         }
 
@@ -466,10 +477,13 @@ namespace WeaponThread
                             [ProtoMember(6)] internal float CustomWidth;
                             [ProtoMember(7)] internal bool UseWidthVariance;
                             [ProtoMember(8)] internal bool UseColorFade;
+                            [ProtoMember(9)] internal string[] Textures;
+                            [ProtoMember(10)] internal Texture TextureMode;
+
                         }
                     }
                 }
-                
+
                 [ProtoContract]
                 public struct BeamDef
                 {
@@ -677,3 +691,4 @@ namespace WeaponThread
         }
     }
 }
+
