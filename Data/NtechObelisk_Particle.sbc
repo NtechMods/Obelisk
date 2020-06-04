@@ -4032,7 +4032,7 @@
             </Property>
             <Property Name="Direction" Type="Vector3" AnimationType="Const">
               <ValueVector3>
-                <X>1</X>
+                <X>90</X>
                 <Y>0</Y>
                 <Z>0</Z>
               </ValueVector3>
@@ -4227,14 +4227,14 @@
             <Property Name="Angle" Type="Vector3" AnimationType="Const">
               <ValueVector3>
                 <X>0</X>
-                <Y>90</Y>
+                <Y>0</Y>
                 <Z>0</Z>
               </ValueVector3>
             </Property>
             <Property Name="Angle var" Type="Vector3" AnimationType="Const">
               <ValueVector3>
                 <X>0</X>
-                <Y>45</Y>
+                <Y>0</Y>
                 <Z>0</Z>
               </ValueVector3>
             </Property>

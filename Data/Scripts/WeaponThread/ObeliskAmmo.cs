@@ -134,7 +134,7 @@ namespace WeaponThread
             },
             Trajectory = new TrajectoryDef
             {
-                Guidance = Smart,
+                Guidance = None, // Smart, None
                 TargetLossDegree = 180f,
                 TargetLossTime = 600, // 0 is disabled, Measured in game ticks (6 = 100ms, 60 = 1 seconds, etc..).
                 MaxLifeTime = 600, // 0 is disabled, Measured in game ticks (6 = 100ms, 60 = 1 seconds, etc..).
@@ -150,8 +150,8 @@ namespace WeaponThread
                     Inaccuracy = 0f, // 0 is perfect, hit accuracy will be a random num of meters between 0 and this value.
                     Aggressiveness = 1f, // controls how responsive tracking is.
                     MaxLateralThrust = 1f, // controls how sharp the trajectile may turn
-                    TrackingDelay = 3, // Measured in Shape diameter units traveled.
-                    MaxChaseTime = 600, // Measured in game ticks (6 = 100ms, 60 = 1 seconds, etc..).
+                    TrackingDelay = 0, // Measured in Shape diameter units traveled.
+                    MaxChaseTime = 0, // Measured in game ticks (6 = 100ms, 60 = 1 seconds, etc..).
                     OverideTarget = false, // when set to true ammo picks its own target, does not use hardpoint's.
                     MaxTargets = 10, // Number of targets allowed before ending, 0 = unlimited
                     NoTargetExpire = true, // Expire without ever having a target at TargetLossTime
@@ -226,14 +226,14 @@ namespace WeaponThread
                         {
                             Enable = false, // If true Tracer TextureMode is ignored
                             Textures = new[] {
-                                "BlackFireSeg1",
-                                "BlackFireSeg2",
-                                "BlackFireSeg3",
-                                "BlackFireSeg4",
-                                "BlackFireSeg5",
-                                "BlackFireSeg6",
-                                "BlackFireSeg7",
-                                "BlackFireSeg8",
+                                "BlueChargeSeg1",
+                                "BlueChargeSeg2",
+                                "BlueChargeSeg3",
+                                "BlueChargeSeg4",
+                                "BlueChargeSeg5",
+                                "BlueChargeSeg6",
+                                "BlueChargeSeg7",
+                                "BlueChargeSeg8",
                             },
                             SegmentLength = 30f, // Uses the values below.
                             SegmentGap = 0f, // Uses Tracer textures and values
@@ -490,14 +490,14 @@ namespace WeaponThread
                         {
                             Enable = true, // If true Tracer TextureMode is ignored
                             Textures = new[] {
-                                "BlackFireSeg1",
-                                "BlackFireSeg2",
-                                "BlackFireSeg3",
-                                "BlackFireSeg4",
-                                "BlackFireSeg5",
-                                "BlackFireSeg6",
-                                "BlackFireSeg7",
-                                "BlackFireSeg8",
+                                "BlueChargeSeg1",
+                                "BlueChargeSeg2",
+                                "BlueChargeSeg3",
+                                "BlueChargeSeg4",
+                                "BlueChargeSeg5",
+                                "BlueChargeSeg6",
+                                "BlueChargeSeg7",
+                                "BlueChargeSeg8",
                             },
                             SegmentLength = 30f, // Uses the values below.
                             SegmentGap = 0f, // Uses Tracer textures and values
