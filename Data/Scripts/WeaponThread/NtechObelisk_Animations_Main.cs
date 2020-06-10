@@ -70,7 +70,7 @@ namespace WeaponThread
                         LoopDelay = 0, //ticks 60 = 1 second
                         Particle = new ParticleDef
                         {
-                            Name = "ElectricDischarge",
+                            Name = "",
                             Color = Color(red: 1.0f, green: 2.0f, blue: 25f, alpha: 1),
                             Extras = new ParticleOptionDef
                             {
@@ -93,7 +93,7 @@ namespace WeaponThread
                         LoopDelay = 0, //ticks 60 = 1 second
                         Particle = new ParticleDef
                         {
-                            Name = "ElectricDischarge",
+                            Name = "",
                             Color = Color(red: 1.0f, green: 2.0f, blue: 25f, alpha: 1),
                             Extras = new ParticleOptionDef
                             {
@@ -121,7 +121,7 @@ namespace WeaponThread
                         LoopDelay = 0, //ticks 60 = 1 second
                         Particle = new ParticleDef
                         {
-                            Name = "ElectricDischarge",
+                            Name = "",
                             Color = Color(red: 1.0f, green: 2.0f, blue: 25f, alpha: 1),
                             Extras = new ParticleOptionDef
                             {
@@ -149,7 +149,7 @@ namespace WeaponThread
                         LoopDelay = 0, //ticks 60 = 1 second
                         Particle = new ParticleDef
                         {
-                            Name = "ElectricDischarge",
+                            Name = "",
                             Color = Color(red: 1.0f, green: 2.0f, blue: 25f, alpha: 1),
                             Extras = new ParticleOptionDef
                             {
@@ -177,7 +177,7 @@ namespace WeaponThread
                         LoopDelay = 0, //ticks 60 = 1 second
                         Particle = new ParticleDef
                         {
-                            Name = "ElectricDischarge",
+                            Name = "",
                             Color = Color(red: 1.0f, green: 2.0f, blue: 25f, alpha: 1),
                             Extras = new ParticleOptionDef
                             {
