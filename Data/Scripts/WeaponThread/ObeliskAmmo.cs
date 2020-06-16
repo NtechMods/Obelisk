@@ -92,9 +92,9 @@ namespace WeaponThread
             },
             AreaEffect = new AreaDamageDef
             {
-                AreaEffect = Radiant, // Disabled = do not use area effect at all, Explosive, Radiant, AntiSmart, JumpNullField, JumpNullField, EnergySinkField, AnchorField, EmpField, OffenseField, NavField, DotField.
-                AreaEffectDamage = 200f, // 0 = use spillover from BaseDamage, otherwise use this value.
-                AreaEffectRadius = 10f,
+                AreaEffect = DotField, // Disabled = do not use area effect at all, Explosive, Radiant, AntiSmart, JumpNullField, JumpNullField, EnergySinkField, AnchorField, EmpField, OffenseField, NavField, DotField.
+                AreaEffectDamage = 1000f, // 0 = use spillover from BaseDamage, otherwise use this value.
+                AreaEffectRadius = 100f,
                 Pulse = new PulseDef // interval measured in game ticks (60 == 1 second), pulseChance chance (0 - 100) that an entity in field will be hit
                 {
                     Interval = 180,
@@ -117,11 +117,11 @@ namespace WeaponThread
                 },
                 EwarFields = new EwarFieldsDef
                 {
-                    Duration = 1200,
+                    Duration = 1800,
                     StackDuration = true,
                     Depletable = false,
-                    MaxStacks = 1,
-                    TriggerRange = 5f,
+                    MaxStacks = 2,
+                    TriggerRange = 1000f,
                 },
             },
             Beams = new BeamDef
@@ -134,17 +134,17 @@ namespace WeaponThread
             },
             Trajectory = new TrajectoryDef
             {
-                Guidance = None, // Smart, None
+                Guidance = Smart, // Smart, None
                 TargetLossDegree = 180f,
                 TargetLossTime = 600, // 0 is disabled, Measured in game ticks (6 = 100ms, 60 = 1 seconds, etc..).
                 MaxLifeTime = 600, // 0 is disabled, Measured in game ticks (6 = 100ms, 60 = 1 seconds, etc..).
                 AccelPerSec = 1000f,
                 DesiredSpeed = 777,
-                MaxTrajectory = 2000f,
-                FieldTime = 0, // 0 is disabled, a value causes the projectile to come to rest, spawn a field and remain for a time (Measured in game ticks, 60 = 1 second)
+                MaxTrajectory = 1000f,
+                FieldTime = 1800, // 0 is disabled, a value causes the projectile to come to rest, spawn a field and remain for a time (Measured in game ticks, 60 = 1 second)
                 SpeedVariance = Random(start: 1, end: 3), // subtracts value from DesiredSpeed
                 RangeVariance = Random(start: 0, end: 0), // subtracts value from MaxTrajectory
-                MaxTrajectoryTime = 120, // How long the weapon must fire before it reaches MaxTrajectory.
+                MaxTrajectoryTime = 0, // How long the weapon must fire before it reaches MaxTrajectory.
                 Smarts = new SmartsDef
                 {
                     Inaccuracy = 0f, // 0 is perfect, hit accuracy will be a random num of meters between 0 and this value.
@@ -168,7 +168,7 @@ namespace WeaponThread
             },
             AmmoGraphics = new GraphicDef
             {
-                ModelName = "", // \\Models\\Ammo\\CrystalAmmo.mwm
+                ModelName = "\\Models\\Ammo\\CrystalAmmo.mwm", // \\Models\\Ammo\\CrystalAmmo.mwm
                 VisualProbability = 1f,
                 ShieldHitDraw = true,
                 Particles = new AmmoParticleDef
@@ -190,7 +190,7 @@ namespace WeaponThread
                     },
                     Hit = new ParticleDef
                     {
-                        Name = "obeliskbeamarc",
+                        Name = "ObeliskDoTField",
                         ApplyToShield = true,
                         ShrinkByDistance = false,
                         Color = Color(red: 10, green: 20, blue: 25, alpha: 1.5f),
@@ -212,7 +212,7 @@ namespace WeaponThread
                     WidthVariance = Random(start: 0f, end: 0.025f), // adds random value to default width (negatives shrinks width)
                     Tracer = new TracerBaseDef
                     {
-                        Enable = true,
+                        Enable = false,
                         Length = 1f,
                         Width = 0.4f,
                         Color = Color(red: 1, green: 2, blue: 2.5f, alpha: 1),
@@ -248,7 +248,7 @@ namespace WeaponThread
                     },
                     Trail = new TrailDef
                     {
-                        Enable = true,
+                        Enable = false,
                         Textures = new[] {
                             "WeaponLaser",
                         },
@@ -408,7 +408,7 @@ namespace WeaponThread
                 FieldTime = 0, // 0 is disabled, a value causes the projectile to come to rest, spawn a field and remain for a time (Measured in game ticks, 60 = 1 second)
                 SpeedVariance = Random(start: 0, end: 0), // subtracts value from DesiredSpeed
                 RangeVariance = Random(start: 0, end: 0), // subtracts value from MaxTrajectory
-                MaxTrajectoryTime = 120, // How long the weapon must fire before it reaches MaxTrajectory.
+                MaxTrajectoryTime = 0, // How long the weapon must fire before it reaches MaxTrajectory.
                 Smarts = new SmartsDef
                 {
                     Inaccuracy = 0.01f, // 0 is perfect, hit accuracy will be a random num of meters between 0 and this value.

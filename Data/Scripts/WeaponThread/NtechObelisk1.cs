@@ -94,7 +94,7 @@ namespace WeaponThread
                 },
                 Loading = new LoadingDef
                 {
-                    RateOfFire = 30,
+                    RateOfFire = 20,
                     BarrelSpinRate = 0, // visual only, 0 disables and uses RateOfFire
                     BarrelsPerShot = 1,
                     TrajectilesPerBarrel = 1, // Number of Trajectiles per barrel per fire event.
@@ -143,10 +143,10 @@ namespace WeaponThread
                         Offset = Vector(x: 0, y: 0, z: 0),
                         Extras = new ParticleOptionDef
                         {
-                            Loop = true,
+                            Loop = false,
                             Restart = false,
                             MaxDistance = 100,
-                            MaxDuration = 1,
+                            MaxDuration = 0.4f,
                             Scale = 8.9f,
                         },
                     },
