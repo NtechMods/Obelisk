@@ -40,7 +40,7 @@ namespace WeaponThread
                 },
                 SubSystems = new[]
                 {
-                    Power, // subsystems the gun targets
+                    Power, Offense, Thrust, Utility,// subsystems the gun targets
                 },
                 ClosestFirst = false, // tries to pick closest targets first (blocks on grids, projectiles, etc...).
                 MinimumDiameter = 0, // 0 = unlimited, Minimum radius of threat to engage.
