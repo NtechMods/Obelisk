@@ -92,9 +92,9 @@ namespace WeaponThread
             },
             AreaEffect = new AreaDamageDef
             {
-                AreaEffect = DotField, // Disabled = do not use area effect at all, Explosive, Radiant, AntiSmart, JumpNullField, JumpNullField, EnergySinkField, AnchorField, EmpField, OffenseField, NavField, DotField.
-                AreaEffectDamage = 1000f, // 0 = use spillover from BaseDamage, otherwise use this value.
-                AreaEffectRadius = 100f,
+                AreaEffect = Radiant, // Disabled = do not use area effect at all, Explosive, Radiant, AntiSmart, JumpNullField, JumpNullField, EnergySinkField, AnchorField, EmpField, OffenseField, NavField, DotField.
+                AreaEffectDamage = 10000f, // 0 = use spillover from BaseDamage, otherwise use this value.
+                AreaEffectRadius = 10f,
                 Pulse = new PulseDef // interval measured in game ticks (60 == 1 second), pulseChance chance (0 - 100) that an entity in field will be hit
                 {
                     Interval = 180,
@@ -110,7 +110,7 @@ namespace WeaponThread
                 },
                 Detonation = new DetonateDef
                 {
-                    DetonateOnEnd = true,
+                    DetonateOnEnd = false,
                     ArmOnlyOnHit = false,
                     DetonationDamage = 100,
                     DetonationRadius = 10,
@@ -140,7 +140,7 @@ namespace WeaponThread
                 MaxLifeTime = 600, // 0 is disabled, Measured in game ticks (6 = 100ms, 60 = 1 seconds, etc..).
                 AccelPerSec = 1000f,
                 DesiredSpeed = 777,
-                MaxTrajectory = 1000f,
+                MaxTrajectory = 2000f,
                 FieldTime = 1800, // 0 is disabled, a value causes the projectile to come to rest, spawn a field and remain for a time (Measured in game ticks, 60 = 1 second)
                 SpeedVariance = Random(start: 1, end: 3), // subtracts value from DesiredSpeed
                 RangeVariance = Random(start: 0, end: 0), // subtracts value from MaxTrajectory
@@ -155,15 +155,15 @@ namespace WeaponThread
                     OverideTarget = false, // when set to true ammo picks its own target, does not use hardpoint's.
                     MaxTargets = 10, // Number of targets allowed before ending, 0 = unlimited
                     NoTargetExpire = true, // Expire without ever having a target at TargetLossTime
-                    Roam = true, // Roam current area after target loss
+                    Roam = false, // Roam current area after target loss
                 },
                 Mines = new MinesDef
                 {
                     DetectRadius = 1,
                     DeCloakRadius = 1,
-                    FieldTime = 0,
+                    FieldTime = 1800,
                     Cloak = false,
-                    Persist = false,
+                    Persist = true,
                 },
             },
             AmmoGraphics = new GraphicDef
@@ -201,7 +201,7 @@ namespace WeaponThread
                             Restart = false,
                             MaxDistance = 5000,
                             MaxDuration = 8,
-                            Scale = 2,
+                            Scale = 4,
                             HitPlayChance = 1f,
                         },
                     },
@@ -248,7 +248,7 @@ namespace WeaponThread
                     },
                     Trail = new TrailDef
                     {
-                        Enable = false,
+                        Enable = true,
                         Textures = new[] {
                             "WeaponLaser",
                         },
@@ -414,8 +414,8 @@ namespace WeaponThread
                     Inaccuracy = 0.01f, // 0 is perfect, hit accuracy will be a random num of meters between 0 and this value.
                     Aggressiveness = 1f, // controls how responsive tracking is.
                     MaxLateralThrust = 0f, // controls how sharp the trajectile may turn
-                    TrackingDelay = 10, // Measured in Shape diameter units traveled.
-                    MaxChaseTime = 18000, // Measured in game ticks (6 = 100ms, 60 = 1 seconds, etc..).
+                    TrackingDelay = 0, // Measured in Shape diameter units traveled.
+                    MaxChaseTime = 0, // Measured in game ticks (6 = 100ms, 60 = 1 seconds, etc..).
                     OverideTarget = false, // when set to true ammo picks its own target, does not use hardpoint's.
                     MaxTargets = 0, // Number of targets allowed before ending, 0 = unlimited
                     NoTargetExpire = false, // Expire without ever having a target at TargetLossTime
