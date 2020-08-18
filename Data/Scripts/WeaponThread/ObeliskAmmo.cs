@@ -212,7 +212,7 @@ namespace WeaponThread
                     WidthVariance = Random(start: 0f, end: 0.025f), // adds random value to default width (negatives shrinks width)
                     Tracer = new TracerBaseDef
                     {
-                        Enable = false,
+                        Enable = true,
                         Length = 1f,
                         Width = 0.4f,
                         Color = Color(red: 1, green: 2, blue: 2.5f, alpha: 1),
@@ -221,7 +221,7 @@ namespace WeaponThread
                         Textures = new[] {// WeaponLaser, ProjectileTrailLine, WarpBubble, etc..
                             "WeaponLaser",
                         },
-                        TextureMode = Normal, // Normal, Cycle, Chaos, Wave
+                        TextureMode = Chaos, // Normal, Cycle, Chaos, Wave
                         Segmentation = new SegmentDef
                         {
                             Enable = false, // If true Tracer TextureMode is ignored
