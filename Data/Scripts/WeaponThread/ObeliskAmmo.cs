@@ -221,7 +221,7 @@ namespace WeaponThread
                         Textures = new[] {// WeaponLaser, ProjectileTrailLine, WarpBubble, etc..
                             "WeaponLaser",
                         },
-                        TextureMode = Normal, // Normal, Cycle, Chaos, Wave
+                        TextureMode = Chaos, // Normal, Cycle, Chaos, Wave
                         Segmentation = new SegmentDef
                         {
                             Enable = false, // If true Tracer TextureMode is ignored
