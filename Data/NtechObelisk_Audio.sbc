@@ -34,10 +34,14 @@
 	  <Loopable>true</Loopable>
       <Waves>
         <Wave Type="D2">
-          <Start>Audio\WEP\ObeliskLoop_S.wav</Start>
+          <Start>Audio\WEP\ObeliskStart_S.wav</Start>
+          <Loop>Audio\WEP\ObeliskLoop_S.wav</Loop>
+          <End>Audio\WEP\ObeliskEnd_S.wav</End>
         </Wave>
         <Wave Type="D3">
-          <Start>Audio\WEP\ObeliskLoop_M.wav</Start>
+          <Start>Audio\WEP\ObeliskStart_M.wav</Start>
+          <Loop>Audio\WEP\ObeliskLoop_M.wav</Loop>
+          <End>Audio\WEP\ObeliskEnd_M.wav</End>
         </Wave>
       </Waves>
     </Sound>
@@ -58,6 +62,26 @@
         </Wave>
         <Wave Type="D3">
           <Start>Audio\WEP\ObeliskEnd_M.wav</Start>
+        </Wave>
+      </Waves>
+    </Sound>
+	<Sound>
+      <Id>
+        <TypeId>AudioDefinition</TypeId>
+        <SubtypeId>ObeliskChargeFire</SubtypeId>
+      </Id>
+      <Category>WEP_TURR</Category>
+      <MaxDistance>300</MaxDistance>
+      <PitchVariation>50</PitchVariation>
+      <VolumeVariation>0.2</VolumeVariation>
+      <Volume>0.6</Volume>
+	  <Loopable>false</Loopable>
+      <Waves>
+        <Wave Type="D2">
+          <Start>Audio\WEP\ObeliskCenterFire_S.wav</Start>
+        </Wave>
+        <Wave Type="D3">
+          <Start>Audio\WEP\ObeliskCenterFire_M.wav</Start>
         </Wave>
       </Waves>
     </Sound>

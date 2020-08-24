@@ -11,8 +11,8 @@
       <Version>0</Version>
       <ParticleId>5422</ParticleId>
       <Length>5</Length>
-      <DurationMin>0</DurationMin>
-      <DurationMax>0</DurationMax>
+      <DurationMin>1</DurationMin>
+      <DurationMax>3</DurationMax>
       <DistanceMax>5000</DistanceMax>
       <Loop>false</Loop>
       <ParticleGenerations>
@@ -1758,7 +1758,7 @@
       <ParticleId>12121111</ParticleId>
       <Length>10</Length>
       <DurationMin>1</DurationMin>
-      <DurationMax>0</DurationMax>
+      <DurationMax>3</DurationMax>
       <DistanceMax>1000</DistanceMax>
       <Loop>true</Loop>
       <ParticleGenerations>
@@ -1959,19 +1959,19 @@
                     <Keys>
                       <Key>
                         <Time>0</Time>
-                        <ValueFloat>0.03</ValueFloat>
+                        <ValueFloat>0.13</ValueFloat>
                       </Key>
                       <Key>
                         <Time>0.00862069</Time>
-                        <ValueFloat>0.03</ValueFloat>
+                        <ValueFloat>0.13</ValueFloat>
                       </Key>
                       <Key>
                         <Time>0.01637931</Time>
-                        <ValueFloat>0.03</ValueFloat>
+                        <ValueFloat>0.13</ValueFloat>
                       </Key>
                       <Key>
                         <Time>1</Time>
-                        <ValueFloat>0.2</ValueFloat>
+                        <ValueFloat>0.13</ValueFloat>
                       </Key>
                     </Keys>
                   </Value2D>
@@ -2320,7 +2320,7 @@
       <ParticleId>3412</ParticleId>
       <Length>1</Length>
       <DurationMin>1</DurationMin>
-      <DurationMax>0</DurationMax>
+      <DurationMax>3</DurationMax>
       <DistanceMax>1000</DistanceMax>
       <Loop>false</Loop>
       <ParticleGenerations>

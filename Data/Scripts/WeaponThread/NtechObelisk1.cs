@@ -52,7 +52,7 @@ namespace WeaponThread
             HardPoint = new HardPointDef
             {
                 WeaponName = "Obelisk Embers", // name of weapon in terminal
-                DeviateShotAngle = 0f,
+                DeviateShotAngle = 30f,
                 AimingTolerance = 1f, // 0 - 180 firing angle
                 AimLeadingPrediction = Off, // Off, Basic, Accurate, Advanced
                 DelayCeaseFire = 0, // Measured in game ticks (6 = 100ms, 60 = 1 seconds, etc..).
@@ -113,7 +113,7 @@ namespace WeaponThread
                 Audio = new HardPointAudioDef
                 {
                     PreFiringSound = "",
-                    FiringSound = "ObeliskChargeStart", // subtype name from sbc
+                    FiringSound = "ObeliskCenterFire", // subtype name from sbc
                     FiringSoundPerShot = true,
                     ReloadSound = "",
                     NoAmmoSound = "",

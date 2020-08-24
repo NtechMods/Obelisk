@@ -150,7 +150,7 @@ namespace WeaponThread
                     Inaccuracy = 0f, // 0 is perfect, hit accuracy will be a random num of meters between 0 and this value.
                     Aggressiveness = 1f, // controls how responsive tracking is.
                     MaxLateralThrust = 1f, // controls how sharp the trajectile may turn
-                    TrackingDelay = 0, // Measured in Shape diameter units traveled.
+                    TrackingDelay = 30, // Measured in Shape diameter units traveled.
                     MaxChaseTime = 0, // Measured in game ticks (6 = 100ms, 60 = 1 seconds, etc..).
                     OverideTarget = false, // when set to true ammo picks its own target, does not use hardpoint's.
                     MaxTargets = 10, // Number of targets allowed before ending, 0 = unlimited
@@ -200,8 +200,8 @@ namespace WeaponThread
                             Loop = false,
                             Restart = false,
                             MaxDistance = 5000,
-                            MaxDuration = 8,
-                            Scale = 4,
+                            MaxDuration = 2,
+                            Scale = 1,
                             HitPlayChance = 1f,
                         },
                     },
@@ -212,12 +212,12 @@ namespace WeaponThread
                     WidthVariance = Random(start: 0f, end: 0.025f), // adds random value to default width (negatives shrinks width)
                     Tracer = new TracerBaseDef
                     {
-                        Enable = false,
+                        Enable = true,
                         Length = 1f,
                         Width = 0.4f,
                         Color = Color(red: 1, green: 2, blue: 2.5f, alpha: 1),
-                        VisualFadeStart = 0, // Number of ticks the weapon has been firing before projectiles begin to fade their color
-                        VisualFadeEnd = 0, // How many ticks after fade began before it will be invisible.
+                        VisualFadeStart = 30, // Number of ticks the weapon has been firing before projectiles begin to fade their color
+                        VisualFadeEnd = 30, // How many ticks after fade began before it will be invisible.
                         Textures = new[] {// WeaponLaser, ProjectileTrailLine, WarpBubble, etc..
                             "WeaponLaser",
                         },

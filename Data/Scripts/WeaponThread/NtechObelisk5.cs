@@ -133,7 +133,7 @@ namespace WeaponThread
                             Restart = false,
                             MaxDistance = 1000,
                             MaxDuration = 1,
-                            Scale = 0.9f,
+                            Scale = 2f,
                         },
                     },
                     Barrel2 = new ParticleDef
@@ -147,7 +147,7 @@ namespace WeaponThread
                             Restart = false,
                             MaxDistance = 1000,
                             MaxDuration = 1,
-                            Scale = 1f,
+                            Scale = 2f,
                         },
                     },
                 },
