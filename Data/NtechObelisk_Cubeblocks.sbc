@@ -52,7 +52,7 @@
       <BuildProgressModels>
       </BuildProgressModels>
       <BlockPairName>NtechObeliskTower</BlockPairName>
-      <Description>Discovered on an alien planet, a relic from long ago. Engineers were able to figure out it's function and replicate it, though unable to replicate it's original alloy, it is comprised of common components and more likely to be damaged than the original which is stored at an unknown location.</Description>
+      <Description>Discovered on Mars, a relic from long ago. Engineers were able to figure out it's function and replicate it, though unable to replicate it's original alloy, it is comprised of common components and more likely to be damaged than the original which is stored at an unknown location.</Description>
       <MirroringY>Z</MirroringY>
       <MirroringZ>Y</MirroringZ>
       <EdgeType>Light</EdgeType>
