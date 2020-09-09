@@ -19,8 +19,8 @@
         <SubtypeId>Obelisk_Emissive</SubtypeId>
       </Id>
       <EmissiveStates>
-        <EmissiveState StateName="Damaged" EmissiveColorName="Red" DisplayColorName="Black" Emissivity="0.5" />
-        <EmissiveState StateName="Disabled" EmissiveColorName="Black" DisplayColorName="White" Emissivity="0" />
+        <EmissiveState StateName="Damaged" EmissiveColorName="Black" DisplayColorName="Black" Emissivity="0.5" />
+        <EmissiveState StateName="Disabled" EmissiveColorName="Blue" DisplayColorName="White" Emissivity="0" />
         <EmissiveState StateName="Working" EmissiveColorName="Teal" DisplayColorName="White" Emissivity="1" />
         <EmissiveState StateName="Warning" EmissiveColorName="Teal" DisplayColorName="White" Emissivity="0.5" />
       </EmissiveStates>
@@ -59,12 +59,12 @@
     <EmissiveColor>
       <Id>
         <TypeId>MyObjectBuilder_EmissiveColorDefinition</TypeId>
-        <SubtypeId>Black</SubtypeId>
+        <SubtypeId>Blue</SubtypeId>
       </Id>
       <ColorDefinition>
         <R>0</R>
-        <G>0</G>
-        <B>0</B>
+        <G>100</G>
+        <B>255</B>
         <A>255</A>
       </ColorDefinition>
     </EmissiveColor>

@@ -32,32 +32,37 @@
       <Icon>Textures\GUI\Icons\Obelisk.dds</Icon>
       <CubeSize>Large</CubeSize>
       <BlockTopology>TriangleMesh</BlockTopology>
-      <Size x="3" y="5" z="3" /> <!-- in blender(x = zy) (y = z) (z = y) -->
+      <Size x="3" y="5" z="3" /> <!-- in blender(x = x) (y = z) (z = y) -->
       <ModelOffset x="0" y="0" z="0" />
       <Model>Models\Cubes\Obelisk_base.mwm</Model>
       <UseModelIntersection>true</UseModelIntersection>
       <Components>
-        <Component Subtype="SteelPlate" Count="10" />
+        <Component Subtype="SteelPlate" Count="40" />
         <Component Subtype="Construction" Count="100" />
         <Component Subtype="LargeTube" Count="2" />
 		<Component Subtype="Superconductor" Count="500" />
+        <Component Subtype="Construction" Count="10" />
+		<Component Subtype="BulletproofGlass" Count="200" />
         <Component Subtype="Computer" Count="300" />
-        <Component Subtype="Construction" Count="20" />
-        <Component Subtype="SteelPlate" Count="50" />
+        <Component Subtype="MetalGrid" Count="40" />
+        <Component Subtype="SteelPlate" Count="300" />
       </Components>
       <CriticalComponent Subtype="Computer" Index="0" />
       <MountPoints>
         <MountPoint Side="Bottom" StartX="1" StartY="1" EndX="2" EndY="2" />
       </MountPoints>
-      <BuildProgressModels>
-      </BuildProgressModels>
+			<BuildProgressModels>
+				<Model BuildPercentUpperBound="0.33" File="Models\Cubes\Obelisk_base_BS1.mwm"/>
+				<Model BuildPercentUpperBound="0.66" File="Models\Cubes\Obelisk_base_BS2.mwm"/>
+				<Model BuildPercentUpperBound="1.0" File="Models\Cubes\Obelisk_base_BS3.mwm"/>
+			</BuildProgressModels>
       <BlockPairName>NtechObeliskTower</BlockPairName>
       <Description>Discovered on Mars, a relic from long ago. Engineers were able to figure out it's function and replicate it, though unable to replicate it's original alloy, it is comprised of common components and more likely to be damaged than the original which is stored at an unknown location.</Description>
       <MirroringY>Z</MirroringY>
       <MirroringZ>Y</MirroringZ>
       <EdgeType>Light</EdgeType>
 	  <EmissiveColorPreset>Obelisk_Emissive</EmissiveColorPreset>
-      <BuildTimeSeconds>60</BuildTimeSeconds>
+      <BuildTimeSeconds>260</BuildTimeSeconds>
       <WeaponDefinitionId Subtype="NtechObelisk" />
       <InventoryMaxVolume>0.004</InventoryMaxVolume>
 	  <MaxRangeMeters>5000</MaxRangeMeters>

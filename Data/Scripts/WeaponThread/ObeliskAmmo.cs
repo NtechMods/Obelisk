@@ -67,9 +67,9 @@ namespace WeaponThread
                 },
                 Shields = new ShieldDef
                 {
-                    Modifier = 20f,
-                    Type = Bypass,
-                    BypassModifier = -1f,
+                    Modifier = 1f,
+                    Type = Bypass, // Energy, Kinetic, Emp, Bypass
+                    BypassModifier = 0.5f,
                 },
                 // first true/false (ignoreOthers) will cause projectiles to pass through all blocks that do not match the custom subtypeIds.
                 Custom = new CustomScalesDef
@@ -110,7 +110,7 @@ namespace WeaponThread
                 },
                 Detonation = new DetonateDef
                 {
-                    DetonateOnEnd = false,
+                    DetonateOnEnd = true,
                     ArmOnlyOnHit = false,
                     DetonationDamage = 100,
                     DetonationRadius = 10,
