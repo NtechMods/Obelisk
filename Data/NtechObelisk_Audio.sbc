@@ -27,7 +27,7 @@
         <SubtypeId>ObeliskChargeLoop</SubtypeId>
       </Id>
       <Category>WEP_TURR</Category>
-      <MaxDistance>300</MaxDistance>
+      <MaxDistance>100</MaxDistance>
       <PitchVariation>50</PitchVariation>
       <VolumeVariation>0.2</VolumeVariation>
       <Volume>0.6</Volume>
