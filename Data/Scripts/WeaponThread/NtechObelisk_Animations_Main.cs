@@ -212,7 +212,7 @@ namespace WeaponThread
                     EventMoveSets = new Dictionary<PartAnimationSetDef.EventTriggers, RelMove[]>
                     {
                         [TurnOff] =
-                            new[] //Firing, Reloading, Overheated, Tracking, On, Off, BurstReload, OutOfAmmo, PreFire define a new[] for each
+                            new[] //Firing, Tracking, Overheated, TurnOn, TurnOff, BurstReload, OutOfAmmo, PreFire, EmptyOnGameLoad, StopFiring, StopTracking
                             {
 								
                                 new RelMove
