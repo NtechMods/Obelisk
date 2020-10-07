@@ -232,7 +232,7 @@
                 </Key>
               </Keys>
             </Property>
-            <Property Name="Life" Type="Float" AnimationType="Const">
+            <Property Name="Life" Type="Float" AnimationType="Const"> <!--Life of particle-->
               <ValueFloat>0.05</ValueFloat>
             </Property>
             <Property Name="Soft particle distance scale" Type="Float" AnimationType="Const">
@@ -242,7 +242,7 @@
               <ValueFloat>4</ValueFloat>
             </Property>
             <Property Name="Animation frame time" Type="Float" AnimationType="Const">
-              <ValueFloat>1</ValueFloat>
+              <ValueFloat>1</ValueFloat> 
             </Property>
             <Property Name="Enabled" Type="Bool" AnimationType="Const">
               <ValueBool>true</ValueBool>
@@ -271,7 +271,7 @@
               <ValueBool>false</ValueBool>
             </Property>
             <Property Name="VolumetricLight" Type="Bool" AnimationType="Const">
-              <ValueBool>false</ValueBool>
+              <ValueBool>true</ValueBool>
             </Property>
             <Property Name="Target coverage" Type="Float" AnimationType="Const">
               <ValueFloat>1</ValueFloat>
@@ -1149,7 +1149,7 @@
               <ValueBool>false</ValueBool>
             </Property>
             <Property Name="VolumetricLight" Type="Bool" AnimationType="Const">
-              <ValueBool>false</ValueBool>
+              <ValueBool>true</ValueBool>
             </Property>
             <Property Name="Target coverage" Type="Float" AnimationType="Const">
               <ValueFloat>1</ValueFloat>
@@ -2017,7 +2017,7 @@
               <ValueBool>false</ValueBool>
             </Property>
             <Property Name="VolumetricLight" Type="Bool" AnimationType="Const">
-              <ValueBool>false</ValueBool>
+              <ValueBool>true</ValueBool>
             </Property>
             <Property Name="Target coverage" Type="Float" AnimationType="Const">
               <ValueFloat>1</ValueFloat>
