@@ -212,7 +212,7 @@ namespace WeaponThread
                     EventMoveSets = new Dictionary<PartAnimationSetDef.EventTriggers, RelMove[]>
                     {
                         [TurnOff] =
-                            new[] //Firing, Tracking, Overheated, TurnOn, TurnOff, BurstReload, OutOfAmmo, PreFire, EmptyOnGameLoad, StopFiring, StopTracking
+                            new[] //Firing, Reloading, Overheated, Tracking, TurnOn, TurnOff, BurstReload, NoMagsToLoad, OutOfAmmo, PreFire  EmptyOnGameLoad, StopFiring, StopTracking, LockDelay
                             {
 								
                                 new RelMove
@@ -231,7 +231,7 @@ namespace WeaponThread
                                 },								
                             },
                         [TurnOn] =
-                            new[] //Firing, Reloading, Overheated, Tracking, On, Off, BurstReload, OutOfAmmo, PreFire define a new[] for each
+                            new[] //Firing, Reloading, Overheated, Tracking, TurnOn, TurnOff, BurstReload, NoMagsToLoad, OutOfAmmo, PreFire  EmptyOnGameLoad, StopFiring, StopTracking, LockDelay
                             {
 								
                                 new RelMove
@@ -250,7 +250,7 @@ namespace WeaponThread
                                 },
                             },
 						[Firing] =
-                            new[] //Firing, Reloading, Overheated, Tracking, On, Off, BurstReload, OutOfAmmo, PreFire define a new[] for each
+                            new[] //Firing, Reloading, Overheated, Tracking, TurnOn, TurnOff, BurstReload, NoMagsToLoad, OutOfAmmo, PreFire  EmptyOnGameLoad, StopFiring, StopTracking, LockDelay
                             {
 
                                 new RelMove
@@ -269,7 +269,7 @@ namespace WeaponThread
                             },
 						
                         [StopFiring] =
-                            new[] //Firing, Reloading, Overheated, Tracking, On, Off, BurstReload, OutOfAmmo, PreFire define a new[] for each
+                            new[] //Firing, Reloading, Overheated, Tracking, TurnOn, TurnOff, BurstReload, NoMagsToLoad, OutOfAmmo, PreFire  EmptyOnGameLoad, StopFiring, StopTracking, LockDelay
                             {
 
                                 new RelMove
@@ -302,7 +302,7 @@ namespace WeaponThread
                     EventMoveSets = new Dictionary<PartAnimationSetDef.EventTriggers, RelMove[]>
                     {
                         [TurnOn] =
-                            new[] //Firing, Reloading, Overheated, Tracking, On, Off, BurstReload, OutOfAmmo, PreFire define a new[] for each
+                            new[] //Firing, Reloading, Overheated, Tracking, TurnOn, TurnOff, BurstReload, NoMagsToLoad, OutOfAmmo, PreFire  EmptyOnGameLoad, StopFiring, StopTracking, LockDelay
                             {
 								
                                 new RelMove
@@ -321,7 +321,7 @@ namespace WeaponThread
                                 },								
                             },
                         [TurnOff] =
-                            new[] //Firing, Reloading, Overheated, Tracking, On, Off, BurstReload, OutOfAmmo, PreFire define a new[] for each
+                            new[] //Firing, Reloading, Overheated, Tracking, TurnOn, TurnOff, BurstReload, NoMagsToLoad, OutOfAmmo, PreFire  EmptyOnGameLoad, StopFiring, StopTracking, LockDelay
                             {
 								
                                 new RelMove
@@ -340,7 +340,7 @@ namespace WeaponThread
                                 },
                             },
                         [Firing] =
-                            new[] //Firing, Reloading, Overheated, Tracking, On, Off, BurstReload, OutOfAmmo, PreFire define a new[] for each
+                            new[] //Firing, Reloading, Overheated, Tracking, TurnOn, TurnOff, BurstReload, NoMagsToLoad, OutOfAmmo, PreFire  EmptyOnGameLoad, StopFiring, StopTracking, LockDelay
                             {
 
                                 new RelMove
@@ -359,7 +359,7 @@ namespace WeaponThread
                             },
 						
                         [StopFiring] =
-                            new[] //Firing, Reloading, Overheated, Tracking, On, Off, BurstReload, OutOfAmmo, PreFire define a new[] for each
+                            new[] //Firing, Reloading, Overheated, Tracking, TurnOn, TurnOff, BurstReload, NoMagsToLoad, OutOfAmmo, PreFire  EmptyOnGameLoad, StopFiring, StopTracking, LockDelay
                             {
 
                                 new RelMove
@@ -396,7 +396,7 @@ namespace WeaponThread
                     EventMoveSets = new Dictionary<PartAnimationSetDef.EventTriggers, RelMove[]>
                     {
                         [TurnOn] =
-                            new[] //Firing, Reloading, Overheated, Tracking, TurnOn, TurnOff, BurstReload, OutOfAmmo, PreFire define a new[] for each
+                            new[] //Firing, Reloading, Overheated, Tracking, TurnOn, TurnOff, BurstReload, NoMagsToLoad, OutOfAmmo, PreFire  EmptyOnGameLoad, StopFiring, StopTracking, LockDelay
                             {
 
                                 new RelMove
@@ -416,7 +416,7 @@ namespace WeaponThread
 
                             },
                         [TurnOff] =
-                            new[] //Firing, Reloading, Overheated, Tracking, TurnOn, TurnOff, BurstReload, OutOfAmmo, PreFire define a new[] for each
+                            new[] //Firing, Reloading, Overheated, Tracking, TurnOn, TurnOff, BurstReload, NoMagsToLoad, OutOfAmmo, PreFire  EmptyOnGameLoad, StopFiring, StopTracking, LockDelay
                             {
 
                                 new RelMove
@@ -449,7 +449,7 @@ namespace WeaponThread
                     EventMoveSets = new Dictionary<PartAnimationSetDef.EventTriggers, RelMove[]>
                     {
                         [TurnOn] =
-                            new[] //Firing, Reloading, Overheated, Tracking, On, Off, BurstReload, OutOfAmmo, PreFire define a new[] for each
+                            new[] //Firing, Reloading, Overheated, Tracking, TurnOn, TurnOff, BurstReload, NoMagsToLoad, OutOfAmmo, PreFire  EmptyOnGameLoad, StopFiring, StopTracking, LockDelay
                             {
 
                                 new RelMove
@@ -468,7 +468,7 @@ namespace WeaponThread
                                 },
                             },
                         [TurnOff] =
-                            new[] //Firing, Reloading, Overheated, Tracking, On, Off, BurstReload, OutOfAmmo, PreFire define a new[] for each
+                            new[] //Firing, Reloading, Overheated, Tracking, TurnOn, TurnOff, BurstReload, NoMagsToLoad, OutOfAmmo, PreFire  EmptyOnGameLoad, StopFiring, StopTracking, LockDelay
                             {
 
                                 new RelMove
@@ -501,7 +501,7 @@ namespace WeaponThread
                     EventMoveSets = new Dictionary<PartAnimationSetDef.EventTriggers, RelMove[]>
                     {
                         [TurnOn] =
-                            new[] //Firing, Reloading, Overheated, Tracking, On, Off, BurstReload, OutOfAmmo, PreFire define a new[] for each
+                            new[] //Firing, Reloading, Overheated, Tracking, TurnOn, TurnOff, BurstReload, NoMagsToLoad, OutOfAmmo, PreFire  EmptyOnGameLoad, StopFiring, StopTracking, LockDelay
                             {
 
                                 new RelMove
@@ -520,7 +520,7 @@ namespace WeaponThread
                                 },
                             },
                         [TurnOff] =
-                            new[] //Firing, Reloading, Overheated, Tracking, On, Off, BurstReload, OutOfAmmo, PreFire define a new[] for each
+                            new[] //Firing, Reloading, Overheated, Tracking, TurnOn, TurnOff, BurstReload, NoMagsToLoad, OutOfAmmo, PreFire  EmptyOnGameLoad, StopFiring, StopTracking, LockDelay
                             {
 
                                 new RelMove
@@ -553,7 +553,7 @@ namespace WeaponThread
                     EventMoveSets = new Dictionary<PartAnimationSetDef.EventTriggers, RelMove[]>
                     {
                         [TurnOn] =
-                            new[] //Firing, Reloading, Overheated, Tracking, On, Off, BurstReload, OutOfAmmo, PreFire define a new[] for each
+                            new[] //Firing, Reloading, Overheated, Tracking, TurnOn, TurnOff, BurstReload, NoMagsToLoad, OutOfAmmo, PreFire  EmptyOnGameLoad, StopFiring, StopTracking, LockDelay
                             {
 
                                 new RelMove
@@ -572,7 +572,7 @@ namespace WeaponThread
                                 },
                             },
                         [TurnOff] =
-                            new[] //Firing, Reloading, Overheated, Tracking, On, Off, BurstReload, OutOfAmmo, PreFire define a new[] for each
+                            new[] //Firing, Reloading, Overheated, Tracking, TurnOn, TurnOff, BurstReload, NoMagsToLoad, OutOfAmmo, PreFire  EmptyOnGameLoad, StopFiring, StopTracking, LockDelay
                             {
 
                                 new RelMove
@@ -610,7 +610,7 @@ namespace WeaponThread
                     EventMoveSets = new Dictionary<PartAnimationSetDef.EventTriggers, RelMove[]>
                     {
                         [TurnOn] =
-                            new[] //Firing, Reloading, Overheated, Tracking, TurnOn, TurnOff, BurstReload, OutOfAmmo, PreFire define a new[] for each
+                            new[] //Firing, Reloading, Overheated, Tracking, TurnOn, TurnOff, BurstReload, NoMagsToLoad, OutOfAmmo, PreFire  EmptyOnGameLoad, StopFiring, StopTracking, LockDelay
                             {
 
                                 new RelMove
@@ -630,7 +630,7 @@ namespace WeaponThread
 
                             },
                         [TurnOff] =
-                            new[] //Firing, Reloading, Overheated, Tracking, TurnOn, TurnOff, BurstReload, OutOfAmmo, PreFire define a new[] for each
+                            new[] //Firing, Reloading, Overheated, Tracking, TurnOn, TurnOff, BurstReload, NoMagsToLoad, OutOfAmmo, PreFire  EmptyOnGameLoad, StopFiring, StopTracking, LockDelay
                             {
 
                                 new RelMove
@@ -663,7 +663,7 @@ namespace WeaponThread
                     EventMoveSets = new Dictionary<PartAnimationSetDef.EventTriggers, RelMove[]>
                     {
                         [TurnOn] =
-                            new[] //Firing, Reloading, Overheated, Tracking, On, Off, BurstReload, OutOfAmmo, PreFire define a new[] for each
+                            new[] //Firing, Reloading, Overheated, Tracking, TurnOn, TurnOff, BurstReload, NoMagsToLoad, OutOfAmmo, PreFire  EmptyOnGameLoad, StopFiring, StopTracking, LockDelay
                             {
 
                                 new RelMove
@@ -682,7 +682,7 @@ namespace WeaponThread
                                 },
                             },
                         [TurnOff] =
-                            new[] //Firing, Reloading, Overheated, Tracking, On, Off, BurstReload, OutOfAmmo, PreFire define a new[] for each
+                            new[] //Firing, Reloading, Overheated, Tracking, TurnOn, TurnOff, BurstReload, NoMagsToLoad, OutOfAmmo, PreFire  EmptyOnGameLoad, StopFiring, StopTracking, LockDelay
                             {
 
                                 new RelMove
@@ -715,7 +715,7 @@ namespace WeaponThread
                     EventMoveSets = new Dictionary<PartAnimationSetDef.EventTriggers, RelMove[]>
                     {
                         [TurnOn] =
-                            new[] //Firing, Reloading, Overheated, Tracking, On, Off, BurstReload, OutOfAmmo, PreFire define a new[] for each
+                            new[] //Firing, Reloading, Overheated, Tracking, TurnOn, TurnOff, BurstReload, NoMagsToLoad, OutOfAmmo, PreFire  EmptyOnGameLoad, StopFiring, StopTracking, LockDelay
                             {
 
                                 new RelMove
@@ -734,7 +734,7 @@ namespace WeaponThread
                                 },
                             },
                         [TurnOff] =
-                            new[] //Firing, Reloading, Overheated, Tracking, On, Off, BurstReload, OutOfAmmo, PreFire define a new[] for each
+                            new[] //Firing, Reloading, Overheated, Tracking, TurnOn, TurnOff, BurstReload, NoMagsToLoad, OutOfAmmo, PreFire  EmptyOnGameLoad, StopFiring, StopTracking, LockDelay
                             {
 
                                 new RelMove
@@ -767,7 +767,7 @@ namespace WeaponThread
                     EventMoveSets = new Dictionary<PartAnimationSetDef.EventTriggers, RelMove[]>
                     {
                         [TurnOn] =
-                            new[] //Firing, Reloading, Overheated, Tracking, On, Off, BurstReload, OutOfAmmo, PreFire define a new[] for each
+                            new[] //Firing, Reloading, Overheated, Tracking, TurnOn, TurnOff, BurstReload, NoMagsToLoad, OutOfAmmo, PreFire  EmptyOnGameLoad, StopFiring, StopTracking, LockDelay
                             {
 
                                 new RelMove
@@ -786,7 +786,7 @@ namespace WeaponThread
                                 },
                             },
                         [TurnOff] =
-                            new[] //Firing, Reloading, Overheated, Tracking, On, Off, BurstReload, OutOfAmmo, PreFire define a new[] for each
+                            new[] //Firing, Reloading, Overheated, Tracking, TurnOn, TurnOff, BurstReload, NoMagsToLoad, OutOfAmmo, PreFire  EmptyOnGameLoad, StopFiring, StopTracking, LockDelay
                             {
 
                                 new RelMove
@@ -824,7 +824,7 @@ namespace WeaponThread
                     EventMoveSets = new Dictionary<PartAnimationSetDef.EventTriggers, RelMove[]>
                     {
                         [TurnOn] =
-                            new[] //Firing, Reloading, Overheated, Tracking, On, Off, BurstReload, OutOfAmmo, PreFire define a new[] for each
+                            new[] //Firing, Reloading, Overheated, Tracking, TurnOn, TurnOff, BurstReload, NoMagsToLoad, OutOfAmmo, PreFire  EmptyOnGameLoad, StopFiring, StopTracking, LockDelay
                             {
 
                                 new RelMove
@@ -843,7 +843,7 @@ namespace WeaponThread
                                 },
                             },
                         [TurnOff] =
-                            new[] //Firing, Reloading, Overheated, Tracking, On, Off, BurstReload, OutOfAmmo, PreFire define a new[] for each
+                            new[] //Firing, Reloading, Overheated, Tracking, TurnOn, TurnOff, BurstReload, NoMagsToLoad, OutOfAmmo, PreFire  EmptyOnGameLoad, StopFiring, StopTracking, LockDelay
                             {
 
                                 new RelMove
@@ -876,7 +876,7 @@ namespace WeaponThread
                     EventMoveSets = new Dictionary<PartAnimationSetDef.EventTriggers, RelMove[]>
                     {
                         [TurnOn] =
-                            new[] //Firing, Reloading, Overheated, Tracking, On, Off, BurstReload, OutOfAmmo, PreFire define a new[] for each
+                            new[] //Firing, Reloading, Overheated, Tracking, TurnOn, TurnOff, BurstReload, NoMagsToLoad, OutOfAmmo, PreFire  EmptyOnGameLoad, StopFiring, StopTracking, LockDelay
                             {
 
                                 new RelMove
@@ -895,7 +895,7 @@ namespace WeaponThread
                                 },
                             },
                         [TurnOff] =
-                            new[] //Firing, Reloading, Overheated, Tracking, On, Off, BurstReload, OutOfAmmo, PreFire define a new[] for each
+                            new[] //Firing, Reloading, Overheated, Tracking, TurnOn, TurnOff, BurstReload, NoMagsToLoad, OutOfAmmo, PreFire  EmptyOnGameLoad, StopFiring, StopTracking, LockDelay
                             {
 
                                 new RelMove
@@ -928,7 +928,7 @@ namespace WeaponThread
                     EventMoveSets = new Dictionary<PartAnimationSetDef.EventTriggers, RelMove[]>
                     {
                         [TurnOn] =
-                            new[] //Firing, Reloading, Overheated, Tracking, On, Off, BurstReload, OutOfAmmo, PreFire define a new[] for each
+                            new[] //Firing, Reloading, Overheated, Tracking, TurnOn, TurnOff, BurstReload, NoMagsToLoad, OutOfAmmo, PreFire  EmptyOnGameLoad, StopFiring, StopTracking, LockDelay
                             {
 
                                 new RelMove
@@ -947,7 +947,7 @@ namespace WeaponThread
                                 },
                             },
                         [TurnOff] =
-                            new[] //Firing, Reloading, Overheated, Tracking, On, Off, BurstReload, OutOfAmmo, PreFire define a new[] for each
+                            new[] //Firing, Reloading, Overheated, Tracking, TurnOn, TurnOff, BurstReload, NoMagsToLoad, OutOfAmmo, PreFire  EmptyOnGameLoad, StopFiring, StopTracking, LockDelay
                             {
 
                                 new RelMove
@@ -980,7 +980,7 @@ namespace WeaponThread
                     EventMoveSets = new Dictionary<PartAnimationSetDef.EventTriggers, RelMove[]>
                     {
                         [TurnOn] =
-                            new[] //Firing, Reloading, Overheated, Tracking, On, Off, BurstReload, OutOfAmmo, PreFire define a new[] for each
+                            new[] //Firing, Reloading, Overheated, Tracking, TurnOn, TurnOff, BurstReload, NoMagsToLoad, OutOfAmmo, PreFire  EmptyOnGameLoad, StopFiring, StopTracking, LockDelay
                             {
 
                                 new RelMove
@@ -999,7 +999,7 @@ namespace WeaponThread
                                 },
                             },
                         [TurnOff] =
-                            new[] //Firing, Reloading, Overheated, Tracking, On, Off, BurstReload, OutOfAmmo, PreFire define a new[] for each
+                            new[] //Firing, Reloading, Overheated, Tracking, TurnOn, TurnOff, BurstReload, NoMagsToLoad, OutOfAmmo, PreFire  EmptyOnGameLoad, StopFiring, StopTracking, LockDelay
                             {
 
                                 new RelMove
@@ -1036,7 +1036,7 @@ namespace WeaponThread
                     EventMoveSets = new Dictionary<PartAnimationSetDef.EventTriggers, RelMove[]>
                     {
                         [TurnOn] =
-                            new[] //Firing, Reloading, Overheated, Tracking, On, Off, BurstReload, OutOfAmmo, PreFire define a new[] for each
+                            new[] //Firing, Reloading, Overheated, Tracking, TurnOn, TurnOff, BurstReload, NoMagsToLoad, OutOfAmmo, PreFire  EmptyOnGameLoad, StopFiring, StopTracking, LockDelay
                             {
 
                                 new RelMove
@@ -1055,7 +1055,7 @@ namespace WeaponThread
                                 },
                             },
                         [TurnOff] =
-                            new[] //Firing, Reloading, Overheated, Tracking, On, Off, BurstReload, OutOfAmmo, PreFire define a new[] for each
+                            new[] //Firing, Reloading, Overheated, Tracking, TurnOn, TurnOff, BurstReload, NoMagsToLoad, OutOfAmmo, PreFire  EmptyOnGameLoad, StopFiring, StopTracking, LockDelay
                             {
 
                                 new RelMove
@@ -1088,7 +1088,7 @@ namespace WeaponThread
                     EventMoveSets = new Dictionary<PartAnimationSetDef.EventTriggers, RelMove[]>
                     {
                         [TurnOn] =
-                            new[] //Firing, Reloading, Overheated, Tracking, On, Off, BurstReload, OutOfAmmo, PreFire define a new[] for each
+                            new[] //Firing, Reloading, Overheated, Tracking, TurnOn, TurnOff, BurstReload, NoMagsToLoad, OutOfAmmo, PreFire  EmptyOnGameLoad, StopFiring, StopTracking, LockDelay
                             {
 
                                 new RelMove
@@ -1107,7 +1107,7 @@ namespace WeaponThread
                                 },
                             },
                         [TurnOff] =
-                            new[] //Firing, Reloading, Overheated, Tracking, On, Off, BurstReload, OutOfAmmo, PreFire define a new[] for each
+                            new[] //Firing, Reloading, Overheated, Tracking, TurnOn, TurnOff, BurstReload, NoMagsToLoad, OutOfAmmo, PreFire  EmptyOnGameLoad, StopFiring, StopTracking, LockDelay
                             {
 
                                 new RelMove
@@ -1140,7 +1140,7 @@ namespace WeaponThread
                     EventMoveSets = new Dictionary<PartAnimationSetDef.EventTriggers, RelMove[]>
                     {
                         [TurnOn] =
-                            new[] //Firing, Reloading, Overheated, Tracking, On, Off, BurstReload, OutOfAmmo, PreFire define a new[] for each
+                            new[] //Firing, Reloading, Overheated, Tracking, TurnOn, TurnOff, BurstReload, NoMagsToLoad, OutOfAmmo, PreFire  EmptyOnGameLoad, StopFiring, StopTracking, LockDelay
                             {
 
                                 new RelMove
@@ -1159,7 +1159,7 @@ namespace WeaponThread
                                 },
                             },
                         [TurnOff] =
-                            new[] //Firing, Reloading, Overheated, Tracking, On, Off, BurstReload, OutOfAmmo, PreFire define a new[] for each
+                            new[] //Firing, Reloading, Overheated, Tracking, TurnOn, TurnOff, BurstReload, NoMagsToLoad, OutOfAmmo, PreFire  EmptyOnGameLoad, StopFiring, StopTracking, LockDelay
                             {
 
                                 new RelMove
@@ -1192,7 +1192,7 @@ namespace WeaponThread
                     EventMoveSets = new Dictionary<PartAnimationSetDef.EventTriggers, RelMove[]>
                     {
                         [TurnOn] =
-                            new[] //Firing, Reloading, Overheated, Tracking, On, Off, BurstReload, OutOfAmmo, PreFire define a new[] for each
+                            new[] //Firing, Reloading, Overheated, Tracking, TurnOn, TurnOff, BurstReload, NoMagsToLoad, OutOfAmmo, PreFire  EmptyOnGameLoad, StopFiring, StopTracking, LockDelay
                             {
 
                                 new RelMove
@@ -1211,7 +1211,7 @@ namespace WeaponThread
                                 },
                             },
                         [TurnOff] =
-                            new[] //Firing, Reloading, Overheated, Tracking, On, Off, BurstReload, OutOfAmmo, PreFire define a new[] for each
+                            new[] //Firing, Reloading, Overheated, Tracking, TurnOn, TurnOff, BurstReload, NoMagsToLoad, OutOfAmmo, PreFire  EmptyOnGameLoad, StopFiring, StopTracking, LockDelay
                             {
 
                                 new RelMove
