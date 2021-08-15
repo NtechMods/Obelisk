@@ -138,7 +138,7 @@ namespace WeaponThread
                     },
                     Barrel2 = new ParticleDef
                     {
-                        Name = "ObeliskDoTField",//Muzzle_Flash_Large
+                        Name = "ObeliskDoTField",//Muzzle_Flash_Large ObeliskDoTField
                         Color = Color(red: 1, green: 1, blue: 1, alpha: 1),
                         Offset = Vector(x: 0, y: 0, z: 0),
                         Extras = new ParticleOptionDef
@@ -146,7 +146,7 @@ namespace WeaponThread
                             Loop = false,
                             Restart = false,
                             MaxDistance = 100,
-                            MaxDuration = 0.4f,
+                            MaxDuration = 0f,
                             Scale = 8.9f,
                         },
                     },

@@ -3531,15 +3531,15 @@
                       </Key>
                       <Key>
                         <Time>0.33</Time>
-                        <ValueFloat>2</ValueFloat>
+                        <ValueFloat>1</ValueFloat>
                       </Key>
                       <Key>
                         <Time>0.66</Time>
-                        <ValueFloat>2</ValueFloat>
+                        <ValueFloat>1</ValueFloat>
                       </Key>
                       <Key>
                         <Time>1</Time>
-                        <ValueFloat>2</ValueFloat>
+                        <ValueFloat>1</ValueFloat>
                       </Key>
                     </Keys>
                   </Value2D>
