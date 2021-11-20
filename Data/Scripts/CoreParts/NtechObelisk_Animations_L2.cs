@@ -1,13 +1,12 @@
 using System.Collections.Generic;
-using static WeaponThread.WeaponStructure;
-using static WeaponThread.WeaponStructure.WeaponDefinition;
-using static WeaponThread.WeaponStructure.WeaponDefinition.AnimationDef;
-using static WeaponThread.WeaponStructure.WeaponDefinition.AnimationDef.PartAnimationSetDef.EventTriggers;
-using static WeaponThread.WeaponStructure.WeaponDefinition.AnimationDef.RelMove.MoveType;
-using static WeaponThread.WeaponStructure.WeaponDefinition.AnimationDef.RelMove;
-namespace WeaponThread
+using static Scripts.Structure.WeaponDefinition;
+using static Scripts.Structure.WeaponDefinition.AnimationDef;
+using static Scripts.Structure.WeaponDefinition.AnimationDef.PartAnimationSetDef.EventTriggers;
+using static Scripts.Structure.WeaponDefinition.AnimationDef.RelMove.MoveType;
+using static Scripts.Structure.WeaponDefinition.AnimationDef.RelMove;
+namespace Scripts
 { // Don't edit above this line
-    partial class Weapons
+    partial class Parts
     {
         private AnimationDef MonolithEdgeCrystals2 => new AnimationDef 
         {
@@ -36,15 +35,15 @@ namespace WeaponThread
                         "Emissive"
                     }),
             },
-            WeaponAnimationSets = new[]
+            AnimationSets = new[]
             {
                 new PartAnimationSetDef()
                 {
                     SubpartId = Names("Crystal_Edge2"),
                     BarrelId = "Any", //only used for firing, use "Any" for all muzzles
                     StartupFireDelay = 0,
-                    AnimationDelays = Delays(FiringDelay : 0, ReloadingDelay: 0, OverheatedDelay: 0, TrackingDelay: 0, LockedDelay: 0, OnDelay: 60, OffDelay: 0, BurstReloadDelay: 0, OutOfAmmoDelay: 0, PreFireDelay: 0, StopFiringDelay: 0),//Delay before animation starts
-                    Reverse = Events(Firing, StopFiring), // (Firing, Overheated)
+                    AnimationDelays = Delays(firingDelay : 0, reloadingDelay: 0, overheatedDelay: 0, trackingDelay: 0, lockedDelay: 0, onDelay: 60, offDelay: 0, burstReloadDelay: 0, outOfAmmoDelay: 0, preFireDelay: 0, stopFiringDelay: 0),//Delay before animation starts
+                     Reverse = Events(Firing, StopFiring), // (Firing, Overheated)
                     Loop = Events(Firing), // (Firing, Overheated)
                     TriggerOnce = Events(PreFire, StopFiring, Firing),
                     ResetEmissives = Events(StopTracking, TurnOff),

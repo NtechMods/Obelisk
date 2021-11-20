@@ -1,33 +1,12 @@
 using System.Collections.Generic;
-using static WeaponThread.WeaponStructure;
-using static WeaponThread.WeaponStructure.WeaponDefinition;
-using static WeaponThread.WeaponStructure.WeaponDefinition.AnimationDef;
-using static WeaponThread.WeaponStructure.WeaponDefinition.AnimationDef.PartAnimationSetDef.EventTriggers;
-using static WeaponThread.WeaponStructure.WeaponDefinition.AnimationDef.RelMove.MoveType;
-using static WeaponThread.WeaponStructure.WeaponDefinition.AnimationDef.RelMove;
-namespace WeaponThread
+using static Scripts.Structure.WeaponDefinition;
+using static Scripts.Structure.WeaponDefinition.AnimationDef;
+using static Scripts.Structure.WeaponDefinition.AnimationDef.PartAnimationSetDef.EventTriggers;
+using static Scripts.Structure.WeaponDefinition.AnimationDef.RelMove.MoveType;
+using static Scripts.Structure.WeaponDefinition.AnimationDef.RelMove;
+namespace Scripts
 { // Don't edit above this line
-
-
-
-
-        /// Possible Events ///
-        
-        //Reloading,
-        //Firing,
-        //Tracking,
-        //Overheated,
-        //TurnOn,
-        //TurnOff,
-        //BurstReload,
-        //OutOfAmmo,
-        //PreFire,
-        //EmptyOnGameLoad,
-        //StopFiring,
-        //StopTracking
-		
-		
-    partial class Weapons
+    partial class Parts
     {
         private AnimationDef MonolithMain => new AnimationDef
         {
@@ -197,15 +176,15 @@ namespace WeaponThread
             },
 			
 					
-            WeaponAnimationSets = new[]
+            AnimationSets = new[]
             {
                 new PartAnimationSetDef()
                 {
                     SubpartId = Names("Crystal_Top"),
                     BarrelId = "Any", //only used for firing, use "Any" for all muzzles
                     StartupFireDelay = 0,
-                    AnimationDelays = Delays(FiringDelay : 0, ReloadingDelay: 0, OverheatedDelay: 0, TrackingDelay: 0, LockedDelay: 0, OnDelay: 0, OffDelay: 0, BurstReloadDelay: 0, OutOfAmmoDelay: 0, PreFireDelay: 0, StopFiringDelay: 0),//Delay before animation starts
-                    Reverse = Events(Firing, StopFiring), // (Firing, Overheated)
+                    AnimationDelays = Delays(firingDelay : 0, reloadingDelay: 0, overheatedDelay: 0, trackingDelay: 0, lockedDelay: 0, onDelay: 60, offDelay: 0, burstReloadDelay: 0, outOfAmmoDelay: 0, preFireDelay: 0, stopFiringDelay: 0),//Delay before animation starts
+                     Reverse = Events(Firing, StopFiring), // (Firing, Overheated)
                     Loop = Events(Firing), // (Firing, Overheated)
                     TriggerOnce = Events(PreFire, StopFiring, Firing),
                     ResetEmissives = Events(StopTracking, TurnOff),
@@ -294,8 +273,8 @@ namespace WeaponThread
                     SubpartId = Names("Crystal_Bottom"),
                     BarrelId = "Any", //only used for firing, use "Any" for all muzzles
                     StartupFireDelay = 0,
-                    AnimationDelays = Delays(FiringDelay : 0, ReloadingDelay: 0, OverheatedDelay: 0, TrackingDelay: 0, LockedDelay: 0, OnDelay: 0, OffDelay: 0, BurstReloadDelay: 0, OutOfAmmoDelay: 0, PreFireDelay: 0, StopFiringDelay: 0),//Delay before animation starts
-                    Reverse = Events(Firing, StopFiring), // (Firing, Overheated)
+                    AnimationDelays = Delays(firingDelay : 0, reloadingDelay: 0, overheatedDelay: 0, trackingDelay: 0, lockedDelay: 0, onDelay: 60, offDelay: 0, burstReloadDelay: 0, outOfAmmoDelay: 0, preFireDelay: 0, stopFiringDelay: 0),//Delay before animation starts
+                     Reverse = Events(Firing, StopFiring), // (Firing, Overheated)
                     Loop = Events(Firing), // (Firing, Overheated)
                     TriggerOnce = Events(PreFire, StopFiring, Firing),
                     ResetEmissives = Events(StopTracking, TurnOff),
@@ -388,8 +367,8 @@ namespace WeaponThread
                     SubpartId = Names("Sheath_1"),
                     BarrelId = "Any", //only used for firing, use "Any" for all muzzles
                     StartupFireDelay = 0,
-                    AnimationDelays = Delays(FiringDelay : 0, ReloadingDelay: 0, OverheatedDelay: 0, TrackingDelay: 0, LockedDelay: 0, OnDelay: 0, OffDelay: 120, BurstReloadDelay: 0, OutOfAmmoDelay: 0, PreFireDelay: 0, StopFiringDelay: 0),//Delay before animation starts
-                    Reverse = Events(),
+                    AnimationDelays = Delays(firingDelay : 0, reloadingDelay: 0, overheatedDelay: 0, trackingDelay: 0, lockedDelay: 0, onDelay: 60, offDelay: 0, burstReloadDelay: 0, outOfAmmoDelay: 0, preFireDelay: 0, stopFiringDelay: 0),//Delay before animation starts
+                     Reverse = Events(),
                     Loop = Events(),
                     TriggerOnce = Events(Tracking, StopTracking),
                     ResetEmissives = Events(TurnOff, StopTracking),
@@ -441,8 +420,8 @@ namespace WeaponThread
                     SubpartId = Names("Sheath_2"),
                     BarrelId = "Any", //only used for firing, use "Any" for all muzzles
                     StartupFireDelay = 0,
-                    AnimationDelays = Delays(FiringDelay : 0, ReloadingDelay: 0, OverheatedDelay: 0, TrackingDelay: 0, LockedDelay: 0, OnDelay: 0, OffDelay: 120, BurstReloadDelay: 0, OutOfAmmoDelay: 0, PreFireDelay: 0, StopFiringDelay: 0),//Delay before animation starts
-                    Reverse = Events(),
+                    AnimationDelays = Delays(firingDelay : 0, reloadingDelay: 0, overheatedDelay: 0, trackingDelay: 0, lockedDelay: 0, onDelay: 60, offDelay: 0, burstReloadDelay: 0, outOfAmmoDelay: 0, preFireDelay: 0, stopFiringDelay: 0),//Delay before animation starts
+                     Reverse = Events(),
                     Loop = Events(),
                     TriggerOnce = Events(Tracking, StopTracking),
                     ResetEmissives = Events(TurnOff, StopTracking),
@@ -493,8 +472,8 @@ namespace WeaponThread
                     SubpartId = Names("Sheath_3"),
                     BarrelId = "Any", //only used for firing, use "Any" for all muzzles
                     StartupFireDelay = 0,
-                    AnimationDelays = Delays(FiringDelay : 0, ReloadingDelay: 0, OverheatedDelay: 0, TrackingDelay: 0, LockedDelay: 0, OnDelay: 0, OffDelay: 120, BurstReloadDelay: 0, OutOfAmmoDelay: 0, PreFireDelay: 0, StopFiringDelay: 0),//Delay before animation starts
-                    Reverse = Events(),
+                    AnimationDelays = Delays(firingDelay : 0, reloadingDelay: 0, overheatedDelay: 0, trackingDelay: 0, lockedDelay: 0, onDelay: 60, offDelay: 0, burstReloadDelay: 0, outOfAmmoDelay: 0, preFireDelay: 0, stopFiringDelay: 0),//Delay before animation starts
+                     Reverse = Events(),
                     Loop = Events(),
                     TriggerOnce = Events(Tracking, StopTracking),
                     ResetEmissives = Events(TurnOff, StopTracking),
@@ -545,8 +524,8 @@ namespace WeaponThread
                     SubpartId = Names("Sheath_4"),
                     BarrelId = "Any", //only used for firing, use "Any" for all muzzles
                     StartupFireDelay = 0,
-                    AnimationDelays = Delays(FiringDelay : 0, ReloadingDelay: 0, OverheatedDelay: 0, TrackingDelay: 0, LockedDelay: 0, OnDelay: 0, OffDelay: 120, BurstReloadDelay: 0, OutOfAmmoDelay: 0, PreFireDelay: 0, StopFiringDelay: 0),//Delay before animation starts
-                    Reverse = Events(),
+                    AnimationDelays = Delays(firingDelay : 0, reloadingDelay: 0, overheatedDelay: 0, trackingDelay: 0, lockedDelay: 0, onDelay: 60, offDelay: 0, burstReloadDelay: 0, outOfAmmoDelay: 0, preFireDelay: 0, stopFiringDelay: 0),//Delay before animation starts
+                     Reverse = Events(),
                     Loop = Events(),
                     TriggerOnce = Events(Tracking, StopTracking),
                     ResetEmissives = Events(TurnOff, StopTracking),
@@ -602,8 +581,8 @@ namespace WeaponThread
                     SubpartId = Names("Sheath2_1"),
                     BarrelId = "Any", //only used for firing, use "Any" for all muzzles
                     StartupFireDelay = 0,
-                    AnimationDelays = Delays(FiringDelay : 0, ReloadingDelay: 0, OverheatedDelay: 0, TrackingDelay: 0, LockedDelay: 0, OnDelay: 0, OffDelay: 120, BurstReloadDelay: 0, OutOfAmmoDelay: 0, PreFireDelay: 0, StopFiringDelay: 0),//Delay before animation starts
-                    Reverse = Events(),
+                    AnimationDelays = Delays(firingDelay : 0, reloadingDelay: 0, overheatedDelay: 0, trackingDelay: 0, lockedDelay: 0, onDelay: 60, offDelay: 0, burstReloadDelay: 0, outOfAmmoDelay: 0, preFireDelay: 0, stopFiringDelay: 0),//Delay before animation starts
+                     Reverse = Events(),
                     Loop = Events(),
                     TriggerOnce = Events(Tracking, StopTracking),
                     ResetEmissives = Events(TurnOff, StopTracking),
@@ -655,8 +634,8 @@ namespace WeaponThread
                     SubpartId = Names("Sheath2_2"),
                     BarrelId = "Any", //only used for firing, use "Any" for all muzzles
                     StartupFireDelay = 0,
-                    AnimationDelays = Delays(FiringDelay : 0, ReloadingDelay: 0, OverheatedDelay: 0, TrackingDelay: 0, LockedDelay: 0, OnDelay: 0, OffDelay: 120, BurstReloadDelay: 0, OutOfAmmoDelay: 0, PreFireDelay: 0, StopFiringDelay: 0),//Delay before animation starts
-                    Reverse = Events(),
+                    AnimationDelays = Delays(firingDelay : 0, reloadingDelay: 0, overheatedDelay: 0, trackingDelay: 0, lockedDelay: 0, onDelay: 60, offDelay: 0, burstReloadDelay: 0, outOfAmmoDelay: 0, preFireDelay: 0, stopFiringDelay: 0),//Delay before animation starts
+                     Reverse = Events(),
                     Loop = Events(),
                     TriggerOnce = Events(Tracking, StopTracking),
                     ResetEmissives = Events(TurnOff, StopTracking),
@@ -707,8 +686,8 @@ namespace WeaponThread
                     SubpartId = Names("Sheath2_3"),
                     BarrelId = "Any", //only used for firing, use "Any" for all muzzles
                     StartupFireDelay = 0,
-                    AnimationDelays = Delays(FiringDelay : 0, ReloadingDelay: 0, OverheatedDelay: 0, TrackingDelay: 0, LockedDelay: 0, OnDelay: 0, OffDelay: 120, BurstReloadDelay: 0, OutOfAmmoDelay: 0, PreFireDelay: 0, StopFiringDelay: 0),//Delay before animation starts
-                    Reverse = Events(),
+                    AnimationDelays = Delays(firingDelay : 0, reloadingDelay: 0, overheatedDelay: 0, trackingDelay: 0, lockedDelay: 0, onDelay: 60, offDelay: 0, burstReloadDelay: 0, outOfAmmoDelay: 0, preFireDelay: 0, stopFiringDelay: 0),//Delay before animation starts
+                     Reverse = Events(),
                     Loop = Events(),
                     TriggerOnce = Events(Tracking, StopTracking),
                     ResetEmissives = Events(TurnOff, StopTracking),
@@ -759,8 +738,8 @@ namespace WeaponThread
                     SubpartId = Names("Sheath2_4"),
                     BarrelId = "Any", //only used for firing, use "Any" for all muzzles
                     StartupFireDelay = 0,
-                    AnimationDelays = Delays(FiringDelay : 0, ReloadingDelay: 0, OverheatedDelay: 0, TrackingDelay: 0, LockedDelay: 0, OnDelay: 0, OffDelay: 120, BurstReloadDelay: 0, OutOfAmmoDelay: 0, PreFireDelay: 0, StopFiringDelay: 0),//Delay before animation starts
-                    Reverse = Events(),
+                    AnimationDelays = Delays(firingDelay : 0, reloadingDelay: 0, overheatedDelay: 0, trackingDelay: 0, lockedDelay: 0, onDelay: 60, offDelay: 0, burstReloadDelay: 0, outOfAmmoDelay: 0, preFireDelay: 0, stopFiringDelay: 0),//Delay before animation starts
+                     Reverse = Events(),
                     Loop = Events(),
                     TriggerOnce = Events(Tracking, StopTracking),
                     ResetEmissives = Events(TurnOff, StopTracking),
@@ -816,8 +795,8 @@ namespace WeaponThread
                     SubpartId = Names("Sheath_C1"),
                     BarrelId = "Any", //only used for firing, use "Any" for all muzzles
                     StartupFireDelay = 0,
-                    AnimationDelays = Delays(FiringDelay : 0, ReloadingDelay: 0, OverheatedDelay: 0, TrackingDelay: 0, LockedDelay: 0, OnDelay: 0, OffDelay: 120, BurstReloadDelay: 0, OutOfAmmoDelay: 0, PreFireDelay: 0, StopFiringDelay: 0),//Delay before animation starts
-                    Reverse = Events(), // (Firing, Overheated)
+                    AnimationDelays = Delays(firingDelay : 0, reloadingDelay: 0, overheatedDelay: 0, trackingDelay: 0, lockedDelay: 0, onDelay: 60, offDelay: 0, burstReloadDelay: 0, outOfAmmoDelay: 0, preFireDelay: 0, stopFiringDelay: 0),//Delay before animation starts
+                     Reverse = Events(), // (Firing, Overheated)
                     Loop = Events(), // (Firing, Overheated)
                     TriggerOnce = Events(Tracking, StopTracking, TurnOff, TurnOn),
                     ResetEmissives = Events(StopTracking),
@@ -868,8 +847,8 @@ namespace WeaponThread
                     SubpartId = Names("Sheath_C2"),
                     BarrelId = "Any", //only used for firing, use "Any" for all muzzles
                     StartupFireDelay = 0,
-                    AnimationDelays = Delays(FiringDelay : 0, ReloadingDelay: 0, OverheatedDelay: 0, TrackingDelay: 0, LockedDelay: 0, OnDelay: 0, OffDelay: 120, BurstReloadDelay: 0, OutOfAmmoDelay: 0, PreFireDelay: 0, StopFiringDelay: 0),//Delay before animation starts
-                    Reverse = Events(), // (Firing, Overheated)
+                    AnimationDelays = Delays(firingDelay : 0, reloadingDelay: 0, overheatedDelay: 0, trackingDelay: 0, lockedDelay: 0, onDelay: 60, offDelay: 0, burstReloadDelay: 0, outOfAmmoDelay: 0, preFireDelay: 0, stopFiringDelay: 0),//Delay before animation starts
+                     Reverse = Events(), // (Firing, Overheated)
                     Loop = Events(), // (Firing, Overheated)
                     TriggerOnce = Events(Tracking, StopTracking),
                     ResetEmissives = Events(StopTracking),
@@ -920,8 +899,8 @@ namespace WeaponThread
                     SubpartId = Names("Sheath_C3"),
                     BarrelId = "Any", //only used for firing, use "Any" for all muzzles
                     StartupFireDelay = 0,
-                    AnimationDelays = Delays(FiringDelay : 0, ReloadingDelay: 0, OverheatedDelay: 0, TrackingDelay: 0, LockedDelay: 0, OnDelay: 0, OffDelay: 120, BurstReloadDelay: 0, OutOfAmmoDelay: 0, PreFireDelay: 0, StopFiringDelay: 0),//Delay before animation starts
-                    Reverse = Events(), // (Firing, Overheated)
+                    AnimationDelays = Delays(firingDelay : 0, reloadingDelay: 0, overheatedDelay: 0, trackingDelay: 0, lockedDelay: 0, onDelay: 60, offDelay: 0, burstReloadDelay: 0, outOfAmmoDelay: 0, preFireDelay: 0, stopFiringDelay: 0),//Delay before animation starts
+                     Reverse = Events(), // (Firing, Overheated)
                     Loop = Events(), // (Firing, Overheated)
                     TriggerOnce = Events(Tracking, StopTracking),
                     ResetEmissives = Events(StopTracking),
@@ -972,8 +951,8 @@ namespace WeaponThread
                     SubpartId = Names("Sheath_C4"),
                     BarrelId = "Any", //only used for firing, use "Any" for all muzzles
                     StartupFireDelay = 0,
-                    AnimationDelays = Delays(FiringDelay : 0, ReloadingDelay: 0, OverheatedDelay: 0, TrackingDelay: 0, LockedDelay: 0, OnDelay: 0, OffDelay: 120, BurstReloadDelay: 0, OutOfAmmoDelay: 0, PreFireDelay: 0, StopFiringDelay: 0),//Delay before animation starts
-                    Reverse = Events(), // (Firing, Overheated)
+                    AnimationDelays = Delays(firingDelay : 0, reloadingDelay: 0, overheatedDelay: 0, trackingDelay: 0, lockedDelay: 0, onDelay: 60, offDelay: 0, burstReloadDelay: 0, outOfAmmoDelay: 0, preFireDelay: 0, stopFiringDelay: 0),//Delay before animation starts
+                     Reverse = Events(), // (Firing, Overheated)
                     Loop = Events(), // (Firing, Overheated)
                     TriggerOnce = Events(Tracking, StopTracking),
                     ResetEmissives = Events(StopTracking),
@@ -1028,8 +1007,8 @@ namespace WeaponThread
                     SubpartId = Names("Sheath_2C1"),
                     BarrelId = "Any", //only used for firing, use "Any" for all muzzles
                     StartupFireDelay = 0,
-                    AnimationDelays = Delays(FiringDelay : 0, ReloadingDelay: 0, OverheatedDelay: 0, TrackingDelay: 0, LockedDelay: 0, OnDelay: 0, OffDelay: 120, BurstReloadDelay: 0, OutOfAmmoDelay: 0, PreFireDelay: 0, StopFiringDelay: 0),//Delay before animation starts
-                    Reverse = Events(), // (Firing, Overheated)
+                    AnimationDelays = Delays(firingDelay : 0, reloadingDelay: 0, overheatedDelay: 0, trackingDelay: 0, lockedDelay: 0, onDelay: 60, offDelay: 0, burstReloadDelay: 0, outOfAmmoDelay: 0, preFireDelay: 0, stopFiringDelay: 0),//Delay before animation starts
+                     Reverse = Events(), // (Firing, Overheated)
                     Loop = Events(), // (Firing, Overheated)
                     TriggerOnce = Events(Tracking, StopTracking, TurnOff, TurnOn),
                     ResetEmissives = Events(StopTracking),
@@ -1080,8 +1059,8 @@ namespace WeaponThread
                     SubpartId = Names("Sheath_2C2"),
                     BarrelId = "Any", //only used for firing, use "Any" for all muzzles
                     StartupFireDelay = 0,
-                    AnimationDelays = Delays(FiringDelay : 0, ReloadingDelay: 0, OverheatedDelay: 0, TrackingDelay: 0, LockedDelay: 0, OnDelay: 0, OffDelay: 120, BurstReloadDelay: 0, OutOfAmmoDelay: 0, PreFireDelay: 0, StopFiringDelay: 0),//Delay before animation starts
-                    Reverse = Events(), // (Firing, Overheated)
+                    AnimationDelays = Delays(firingDelay : 0, reloadingDelay: 0, overheatedDelay: 0, trackingDelay: 0, lockedDelay: 0, onDelay: 60, offDelay: 0, burstReloadDelay: 0, outOfAmmoDelay: 0, preFireDelay: 0, stopFiringDelay: 0),//Delay before animation starts
+                     Reverse = Events(), // (Firing, Overheated)
                     Loop = Events(), // (Firing, Overheated)
                     TriggerOnce = Events(Tracking, StopTracking),
                     ResetEmissives = Events(StopTracking),
@@ -1132,8 +1111,8 @@ namespace WeaponThread
                     SubpartId = Names("Sheath_2C3"),
                     BarrelId = "Any", //only used for firing, use "Any" for all muzzles
                     StartupFireDelay = 0,
-                    AnimationDelays = Delays(FiringDelay : 0, ReloadingDelay: 0, OverheatedDelay: 0, TrackingDelay: 0, LockedDelay: 0, OnDelay: 0, OffDelay: 120, BurstReloadDelay: 0, OutOfAmmoDelay: 0, PreFireDelay: 0, StopFiringDelay: 0),//Delay before animation starts
-                    Reverse = Events(), // (Firing, Overheated)
+                    AnimationDelays = Delays(firingDelay : 0, reloadingDelay: 0, overheatedDelay: 0, trackingDelay: 0, lockedDelay: 0, onDelay: 60, offDelay: 0, burstReloadDelay: 0, outOfAmmoDelay: 0, preFireDelay: 0, stopFiringDelay: 0),//Delay before animation starts
+                     Reverse = Events(), // (Firing, Overheated)
                     Loop = Events(), // (Firing, Overheated)
                     TriggerOnce = Events(Tracking, StopTracking),
                     ResetEmissives = Events(StopTracking),
@@ -1184,8 +1163,8 @@ namespace WeaponThread
                     SubpartId = Names("Sheath_2C4"),
                     BarrelId = "Any", //only used for firing, use "Any" for all muzzles
                     StartupFireDelay = 0,
-                    AnimationDelays = Delays(FiringDelay : 0, ReloadingDelay: 0, OverheatedDelay: 0, TrackingDelay: 0, LockedDelay: 0, OnDelay: 0, OffDelay: 120, BurstReloadDelay: 0, OutOfAmmoDelay: 0, PreFireDelay: 0, StopFiringDelay: 0),//Delay before animation starts
-                    Reverse = Events(), // (Firing, Overheated)
+                    AnimationDelays = Delays(firingDelay : 0, reloadingDelay: 0, overheatedDelay: 0, trackingDelay: 0, lockedDelay: 0, onDelay: 60, offDelay: 0, burstReloadDelay: 0, outOfAmmoDelay: 0, preFireDelay: 0, stopFiringDelay: 0),//Delay before animation starts
+                     Reverse = Events(), // (Firing, Overheated)
                     Loop = Events(), // (Firing, Overheated)
                     TriggerOnce = Events(Tracking, StopTracking),
                     ResetEmissives = Events(StopTracking),

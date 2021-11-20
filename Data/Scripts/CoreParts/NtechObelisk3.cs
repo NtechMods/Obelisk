@@ -1,17 +1,18 @@
-﻿using VRageMath;
-using static WeaponThread.WeaponStructure;
-using static WeaponThread.WeaponStructure.WeaponDefinition;
-using static WeaponThread.WeaponStructure.WeaponDefinition.ModelAssignmentsDef;
-using static WeaponThread.WeaponStructure.WeaponDefinition.HardPointDef;
-using static WeaponThread.WeaponStructure.WeaponDefinition.HardPointDef.Prediction;
-using static WeaponThread.WeaponStructure.WeaponDefinition.TargetingDef.BlockTypes;
-using static WeaponThread.WeaponStructure.WeaponDefinition.TargetingDef.Threat;
+﻿using static Scripts.Structure;
+using static Scripts.Structure.WeaponDefinition;
+using static Scripts.Structure.WeaponDefinition.ModelAssignmentsDef;
+using static Scripts.Structure.WeaponDefinition.HardPointDef;
+using static Scripts.Structure.WeaponDefinition.HardPointDef.Prediction;
+using static Scripts.Structure.WeaponDefinition.TargetingDef.BlockTypes;
+using static Scripts.Structure.WeaponDefinition.TargetingDef.Threat;
+using static Scripts.Structure.WeaponDefinition.HardPointDef.HardwareDef;
+using static Scripts.Structure.WeaponDefinition.HardPointDef.HardwareDef.HardwareType;
 
-namespace WeaponThread
-{   // Don't edit above this line
-    partial class Weapons
+namespace Scripts
+{
+    partial class Parts
     {
-        WeaponDefinition NtechObelisk5 => new WeaponDefinition
+        WeaponDefinition NtechObelisk3 => new WeaponDefinition
         {
             Assignments = new ModelAssignmentsDef
             {
@@ -20,42 +21,48 @@ namespace WeaponThread
                     new MountPointDef
                     {
                         SubtypeId = "NtechObelisk",
-                        AimPartId = "elevation_05",
-                        MuzzlePartId = "elevation_05",
-                        AzimuthPartId = "azimuth05",
-                        ElevationPartId = "elevation_05",
+                        SpinPartId = "elevation_03",
+                        MuzzlePartId = "elevation_03",
+                        AzimuthPartId = "azimuth03",
+                        ElevationPartId = "elevation_03",
+                        DurabilityMod = 0.5f,
+                        IconName = "TestIcon.dds",
                     },
 					
                 },
-                Barrels = new []
+                Muzzles = new []
                 {
-                    "muzzle_barrel_04",
+                    "muzzle_barrel_03",
                 },
+                Ejector = "",
             },
             Targeting = new TargetingDef
             {
                 Threats = new[]
                 {
-                    Meteors, Characters, Grids, Projectiles,   // threats percieved automatically without changing menu settings
+                    Characters, Meteors, Grids, Projectiles,    // threats percieved automatically without changing menu settings
                 },
                 SubSystems = new[]
                 {
-                    Power, Offense, Thrust, Utility,// subsystems the gun targets
+                    Power, Offense, Thrust, Utility, // subsystems the gun targets
                 },
                 ClosestFirst = false, // tries to pick closest targets first (blocks on grids, projectiles, etc...).
                 MinimumDiameter = 0, // 0 = unlimited, Minimum radius of threat to engage.
                 MaximumDiameter = 0, // 0 = unlimited, Maximum radius of threat to engage.
+                MaxTargetDistance = 0, // 0 = unlimited, Maximum target distance that targets will be automatically shot at.
+                MinTargetDistance = 0, // 0 = unlimited, Min target distance that targets will be automatically shot at.
                 TopTargets = 10, // 0 = unlimited, max number of top targets to randomize between.
                 TopBlocks = 10, // 0 = unlimited, max number of blocks to randomize between
                 StopTrackingSpeed = 100, // do not track target threats traveling faster than this speed
             },
             HardPoint = new HardPointDef
             {
-                WeaponName = "Obelisk Laser 4", // name of weapon in terminal
+                PartName = "Obelisk Laser 2", // name of weapon in terminal
                 DeviateShotAngle = 0f,
                 AimingTolerance = 180f, // 0 - 180 firing angle
                 AimLeadingPrediction = Off, // Off, Basic, Accurate, Advanced
                 DelayCeaseFire = 0, // Measured in game ticks (6 = 100ms, 60 = 1 seconds, etc..).
+                AddToleranceToTracking = false,
 
                 Ui = new UiDef
                 {
@@ -66,11 +73,13 @@ namespace WeaponThread
                 },
                 Ai = new AiDef
                 {
-                    TrackTargets = true,
-                    TurretAttached = true,
-                    TurretController = true,
-                    PrimaryTracking = true,
-                    LockOnFocus = false,
+                    TrackTargets = true, // Whether this weapon tracks its own targets, or (for multiweapons) relies on the weapon with PrimaryTracking enabled for target designation.
+                    TurretAttached = true, // Whether this weapon is a turret and should have the UI and API options for such.
+                    TurretController = true, // Whether this weapon can physically control the turret's movement.
+                    PrimaryTracking = true, // For multiweapons: whether this weapon should designate targets for other weapons on the platform without their own tracking.
+                    LockOnFocus = false, // Whether this weapon should automatically fire at a target that has been locked onto via HUD.
+                    SuppressFire = false, // If enabled, weapon can only be fired manually.
+                    OverrideLeads = false, // Disable target leading on fixed weapons, or allow it for turrets.
                 },
                 HardWare = new HardwareDef
                 {
@@ -83,6 +92,15 @@ namespace WeaponThread
                     FixedOffset = false,
                     InventorySize = 0.01f,
                     Offset = Vector(x: 0, y: 0, z: 0),
+                    Type = BlockWeapon, // BlockWeapon, HandWeapon, Phantom 
+                    CriticalReaction = new CriticalDef
+                    {
+                        Enable = false, // Enables Warhead behaviour
+                        DefaultArmedTimer = 120,
+                        PreArmed = true,
+                        TerminalControls = true,
+                        AmmoRound = "", // Optional. If specified, the warhead will always use this ammo on detonation rather than the currently selected ammo.
+                    },
                 },
                 Other = new OtherDef
                 {
@@ -91,11 +109,13 @@ namespace WeaponThread
                     EnergyPriority = 0,
                     MuzzleCheck = false,
                     Debug = false,
+                    RestrictionRadius = 0, // Meters, radius of sphere disable this gun if another is present
+                    CheckInflatedBox = false, // if true, the bounding box of the gun is expanded by the RestrictionRadius
+                    CheckForAnyWeapon = false, // if true, the check will fail if ANY gun is present, false only looks for this subtype
                 },
                 Loading = new LoadingDef
                 {
                     RateOfFire = 3600,
-                    BarrelSpinRate = 0, // visual only, 0 disables and uses RateOfFire
                     BarrelsPerShot = 1,
                     TrajectilesPerBarrel = 1, // Number of Trajectiles per barrel per fire event.
                     SkipBarrels = 0,
@@ -109,6 +129,12 @@ namespace WeaponThread
                     ShotsInBurst = 0,
                     DelayAfterBurst = 0, // Measured in game ticks (6 = 100ms, 60 = 1 seconds, etc..).
                     FireFullBurst = false,
+                    GiveUpAfterBurst = false,
+                    BarrelSpinRate = 700, // Visual only, 0 disables and uses RateOfFire.
+                    MagsToLoad = 4, // Number of physical magazines to consume on reload.
+                    DeterministicSpin = false, // Spin barrel position will always be relative to initial / starting positions (spin will not be as smooth).
+                    SpinFree = false, // Spin barrel while not firing.
+                    StayCharged = false, // Will start recharging whenever power cap is not full.
                 },
                 Audio = new HardPointAudioDef
                 {
@@ -122,7 +148,7 @@ namespace WeaponThread
                 },
                 Graphics = new HardPointParticleDef
                 {
-                    Barrel1 = new ParticleDef
+                    Effect1 = new ParticleDef
                     {
                         Name = "CrystalBeamSpawn", // Smoke_LargeGunShot LaserImpactParticle
                         Color = Color(red: 10, green: 20, blue: 25, alpha: 1.2f),
@@ -136,7 +162,7 @@ namespace WeaponThread
                             Scale = 2f,
                         },
                     },
-                    Barrel2 = new ParticleDef
+                    Effect2 = new ParticleDef
                     {
                         Name = "",//Muzzle_Flash_Large
                         Color = Color(red: 10, green: 20, blue: 25, alpha: 1),
@@ -156,7 +182,7 @@ namespace WeaponThread
             Ammos = new [] {
                 ObeliskType2
             },
-            Animations = MonolithEdgeCrystals2,
+            Animations = MonolithEdgeCrystals4,
             // Don't edit below this line
         };
     }

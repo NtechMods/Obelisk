@@ -1,19 +1,25 @@
-﻿using static WeaponThread.WeaponStructure.WeaponDefinition;
-using static WeaponThread.WeaponStructure.WeaponDefinition.AmmoDef;
-using static WeaponThread.WeaponStructure.WeaponDefinition.AmmoDef.ShapeDef.Shapes;
-using static WeaponThread.WeaponStructure.WeaponDefinition.AmmoDef.GraphicDef;
-using static WeaponThread.WeaponStructure.WeaponDefinition.AmmoDef.TrajectoryDef;
-using static WeaponThread.WeaponStructure.WeaponDefinition.AmmoDef.TrajectoryDef.GuidanceType;
-using static WeaponThread.WeaponStructure.WeaponDefinition.AmmoDef.DamageScaleDef;
-using static WeaponThread.WeaponStructure.WeaponDefinition.AmmoDef.DamageScaleDef.ShieldDef.ShieldType;
-using static WeaponThread.WeaponStructure.WeaponDefinition.AmmoDef.AreaDamageDef;
-using static WeaponThread.WeaponStructure.WeaponDefinition.AmmoDef.AreaDamageDef.AreaEffectType;
-using static WeaponThread.WeaponStructure.WeaponDefinition.AmmoDef.GraphicDef.LineDef;
-using static WeaponThread.WeaponStructure.WeaponDefinition.AmmoDef.GraphicDef.LineDef.Texture;
-using static WeaponThread.WeaponStructure.WeaponDefinition.AmmoDef.GraphicDef.LineDef.TracerBaseDef;
-namespace WeaponThread
+﻿using static Scripts.Structure.WeaponDefinition;
+using static Scripts.Structure.WeaponDefinition.AmmoDef;
+using static Scripts.Structure.WeaponDefinition.AmmoDef.EjectionDef;
+using static Scripts.Structure.WeaponDefinition.AmmoDef.EjectionDef.SpawnType;
+using static Scripts.Structure.WeaponDefinition.AmmoDef.ShapeDef.Shapes;
+using static Scripts.Structure.WeaponDefinition.AmmoDef.GraphicDef;
+using static Scripts.Structure.WeaponDefinition.AmmoDef.TrajectoryDef;
+using static Scripts.Structure.WeaponDefinition.AmmoDef.TrajectoryDef.GuidanceType;
+using static Scripts.Structure.WeaponDefinition.AmmoDef.DamageScaleDef;
+using static Scripts.Structure.WeaponDefinition.AmmoDef.DamageScaleDef.ShieldDef.ShieldType;
+using static Scripts.Structure.WeaponDefinition.AmmoDef.AreaDamageDef;
+using static Scripts.Structure.WeaponDefinition.AmmoDef.AreaDamageDef.AreaEffectType;
+using static Scripts.Structure.WeaponDefinition.AmmoDef.AreaDamageDef.EwarFieldsDef;
+using static Scripts.Structure.WeaponDefinition.AmmoDef.AreaDamageDef.EwarFieldsDef.PushPullDef.Force;
+using static Scripts.Structure.WeaponDefinition.AmmoDef.GraphicDef.LineDef;
+using static Scripts.Structure.WeaponDefinition.AmmoDef.GraphicDef.LineDef.TracerBaseDef;
+using static Scripts.Structure.WeaponDefinition.AmmoDef.GraphicDef.LineDef.Texture;
+using static Scripts.Structure.WeaponDefinition.AmmoDef.DamageScaleDef.DamageTypes.Damage;
+
+namespace Scripts
 { // Don't edit above this line
-    partial class Weapons
+    partial class Parts
     {
         private AmmoDef ObeliskType1 => new AmmoDef
         {
@@ -26,6 +32,7 @@ namespace WeaponThread
             Health = 10000, // 0 = disabled, otherwise how much damage it can take from other trajectiles before dying.
             BackKickForce = 1f,
             HardPointUsable = true, // set to false if this is a shrapnel ammoType and you don't want the turret to be able to select it directly.
+            IgnoreWater = true,
 
             Shape = new ShapeDef //defines the collision shape of projectile, defaults line and visual Line Length if set to 0
             {
@@ -37,22 +44,46 @@ namespace WeaponThread
                 MaxObjectsHit = 5, // 0 = disabled
                 CountBlocks = false, // counts gridBlocks and not just entities hit
             },
-			Shrapnel = new ShrapnelDef
+            Fragment = new FragmentDef
             {
                 AmmoRound = "",
-                Fragments = 12,
-                Degrees = 90,
+                Fragments = 1,
+                Degrees = 0,
                 Reverse = false,
-                RandomizeDir = false,
+                RandomizeDir = false, // randomize between forward and backward directions
+            },
+            Pattern = new PatternDef
+            {
+                Patterns = new[] {
+                        "",
+                    },
+                Enable = false,
+                TriggerChance = 1f,
+                Random = false,
+                RandomMin = 1,
+                RandomMax = 1,
+                SkipParent = false,
+                PatternSteps = 1, // Number of Ammos activated per round, will progress in order and loop.  Ignored if Random = true.
             },
             DamageScales = new DamageScaleDef
             {
                 MaxIntegrity = 0f, // 0 = disabled, 1000 = any blocks with currently integrity above 1000 will be immune to damage.
                 DamageVoxels = false, // true = voxels are vulnerable to this weapon
                 SelfDamage = false, // true = allow self damage.
-
+                DamageType = new DamageTypes
+                {
+                    Base = Kinetic, //Kinetic, Energy
+                    AreaEffect = Kinetic,
+                    Detonation = Kinetic,
+                    Shield = Kinetic,
+                },
                 // modifier values: -1 = disabled (higher performance), 0 = no damage, 0.01 = 1% damage, 2 = 200% damage.
                 Characters = -1f,
+                FallOff = new FallOffDef
+                {
+                    Distance = 1000f, // Distance at which max damage begins falling off.
+                    MinMultipler = 0.25f, // value from 0.0f to 1f where 0.1f would be a min damage of 10% of max damage.
+                },
                 Grids = new GridSizeDef
                 {
                     Large = -1f,
@@ -68,7 +99,7 @@ namespace WeaponThread
                 Shields = new ShieldDef
                 {
                     Modifier = 1f,
-                    Type = Bypass, // Energy, Kinetic, Emp, Bypass
+                    Type = Default, // Damage vs healing against shields; Default, Heal
                     BypassModifier = 0.5f,
                 },
                 // first true/false (ignoreOthers) will cause projectiles to pass through all blocks that do not match the custom subtypeIds.
@@ -97,14 +128,34 @@ namespace WeaponThread
                 AreaEffectRadius = 10f,
                 Pulse = new PulseDef // interval measured in game ticks (60 == 1 second), pulseChance chance (0 - 100) that an entity in field will be hit
                 {
-                    Interval = 180,
+                    Interval = 60,
                     PulseChance = 100,
+                    GrowTime = 100,
+                    HideModel = false,
+                    ShowParticle = false,
+                    Particle = new ParticleDef
+                    {
+                        Name = "", //ShipWelderArc
+                        ShrinkByDistance = false,
+                        Color = Color(red: 128, green: 0, blue: 0, alpha: 32),
+                        Offset = Vector(x: 0, y: -1, z: 0),
+                        Extras = new ParticleOptionDef
+                        {
+                            Loop = true,
+                            Restart = false,
+                            MaxDistance = 5000,
+                            MaxDuration = 1,
+                            Scale = 1,
+                        },
+                    },
                 },
                 Explosions = new ExplosionDef
                 {
                     NoVisuals = false,
                     NoSound = false,
                     Scale = 1,
+                    NoShrapnel = true,
+                    NoDeformation = false,
                     CustomParticle = "",
                     CustomSound = "",
                 },
@@ -122,6 +173,13 @@ namespace WeaponThread
                     Depletable = false,
                     MaxStacks = 2,
                     TriggerRange = 1000f,
+                    DisableParticleEffect = true,
+                    Force = new PushPullDef // AreaEffectDamage is multiplied by target mass.
+                    {
+                        ForceFrom = ProjectileLastPosition, // ProjectileLastPosition, ProjectileOrigin, HitPosition, TargetCenter, TargetCenterOfMass
+                        ForceTo = HitPosition, // ProjectileLastPosition, ProjectileOrigin, HitPosition, TargetCenter, TargetCenterOfMass
+                        Position = TargetCenterOfMass, // ProjectileLastPosition, ProjectileOrigin, HitPosition, TargetCenter, TargetCenterOfMass
+                    },
                 },
             },
             Beams = new BeamDef
@@ -142,9 +200,11 @@ namespace WeaponThread
                 DesiredSpeed = 777,
                 MaxTrajectory = 2000f,
                 FieldTime = 1800, // 0 is disabled, a value causes the projectile to come to rest, spawn a field and remain for a time (Measured in game ticks, 60 = 1 second)
+                GravityMultiplier = 0f, // Gravity multiplier, influences the trajectory of the projectile, value greater than 0 to enable.
                 SpeedVariance = Random(start: 1, end: 3), // subtracts value from DesiredSpeed
                 RangeVariance = Random(start: 0, end: 0), // subtracts value from MaxTrajectory
                 MaxTrajectoryTime = 0, // How long the weapon must fire before it reaches MaxTrajectory.
+
                 Smarts = new SmartsDef
                 {
                     Inaccuracy = 0f, // 0 is perfect, hit accuracy will be a random num of meters between 0 and this value.
@@ -272,6 +332,10 @@ namespace WeaponThread
             {
                 TravelSound = "",
                 HitSound = "",
+                ShieldHitSound = "",
+                PlayerHitSound = "",
+                VoxelHitSound = "",
+                FloatingHitSound = "",
                 HitPlayChance = 0.5f,
                 HitPlayShield = true,
             }, // Don't edit below this line
@@ -290,6 +354,7 @@ namespace WeaponThread
             Health = 10000, // 0 = disabled, otherwise how much damage it can take from other trajectiles before dying.
             BackKickForce = 0f,
             HardPointUsable = true, // set to false if this is a shrapnel ammoType and you don't want the turret to be able to select it directly.
+            IgnoreWater = false,
 
             Shape = new ShapeDef //defines the collision shape of projectile, defaults line and visual Line Length if set to 0
             {
@@ -301,22 +366,46 @@ namespace WeaponThread
                 MaxObjectsHit = 0, // 0 = disabled
                 CountBlocks = false, // counts gridBlocks and not just entities hit
             },
-			Shrapnel = new ShrapnelDef
+            Fragment = new FragmentDef
             {
                 AmmoRound = "",
-                Fragments = 6,
-                Degrees = 180,
+                Fragments = 1,
+                Degrees = 0,
                 Reverse = false,
-                RandomizeDir = false,
+                RandomizeDir = false, // randomize between forward and backward directions
+            },
+            Pattern = new PatternDef
+            {
+                Patterns = new[] {
+                        "",
+                    },
+                Enable = false,
+                TriggerChance = 1f,
+                Random = false,
+                RandomMin = 1,
+                RandomMax = 1,
+                SkipParent = false,
+                PatternSteps = 1, // Number of Ammos activated per round, will progress in order and loop.  Ignored if Random = true.
             },
             DamageScales = new DamageScaleDef
             {
                 MaxIntegrity = 0f, // 0 = disabled, 1000 = any blocks with currently integrity above 1000 will be immune to damage.
                 DamageVoxels = false, // true = voxels are vulnerable to this weapon
                 SelfDamage = false, // true = allow self damage.
-
+                DamageType = new DamageTypes
+                {
+                    Base = Kinetic, //Kinetic, Energy
+                    AreaEffect = Kinetic,
+                    Detonation = Kinetic,
+                    Shield = Kinetic,
+                },
                 // modifier values: -1 = disabled (higher performance), 0 = no damage, 0.01 = 1% damage, 2 = 200% damage.
-                Characters = 0.2f,
+                Characters = 1.2f,
+                FallOff = new FallOffDef
+                {
+                    Distance = 1000f, // Distance at which max damage begins falling off.
+                    MinMultipler = 0.25f, // value from 0.0f to 1f where 0.1f would be a min damage of 10% of max damage.
+                },
                 Grids = new GridSizeDef
                 {
                     Large = -1f,
@@ -332,7 +421,7 @@ namespace WeaponThread
                 Shields = new ShieldDef
                 {
                     Modifier = 1f,
-                    Type = Energy, // Bypass, Kinetic
+                    Type = Default, // Damage vs healing against shields; Default, Heal
                     BypassModifier = -1f,
                 },
                 // first true/false (ignoreOthers) will cause projectiles to pass through all blocks that do not match the custom subtypeIds.
@@ -362,13 +451,33 @@ namespace WeaponThread
                 Pulse = new PulseDef // interval measured in game ticks (60 == 1 second), pulseChance chance (0 - 100) that an entity in field will be hit
                 {
                     Interval = 60,
-                    PulseChance = 0,
+                    PulseChance = 100,
+                    GrowTime = 100,
+                    HideModel = false,
+                    ShowParticle = false,
+                    Particle = new ParticleDef
+                    {
+                        Name = "", //ShipWelderArc
+                        ShrinkByDistance = false,
+                        Color = Color(red: 128, green: 0, blue: 0, alpha: 32),
+                        Offset = Vector(x: 0, y: -1, z: 0),
+                        Extras = new ParticleOptionDef
+                        {
+                            Loop = true,
+                            Restart = false,
+                            MaxDistance = 5000,
+                            MaxDuration = 1,
+                            Scale = 1,
+                        },
+                    },
                 },
                 Explosions = new ExplosionDef
                 {
                     NoVisuals = false,
                     NoSound = false,
                     Scale = 1,
+                    NoShrapnel = true,
+                    NoDeformation = false,
                     CustomParticle = "Energy_Explosion",
                     CustomSound = "",
                 },
@@ -386,6 +495,13 @@ namespace WeaponThread
                     Depletable = true,
                     MaxStacks = 1,
                     TriggerRange = 5f,
+                    DisableParticleEffect = true,
+                    Force = new PushPullDef // AreaEffectDamage is multiplied by target mass.
+                    {
+                        ForceFrom = ProjectileLastPosition, // ProjectileLastPosition, ProjectileOrigin, HitPosition, TargetCenter, TargetCenterOfMass
+                        ForceTo = HitPosition, // ProjectileLastPosition, ProjectileOrigin, HitPosition, TargetCenter, TargetCenterOfMass
+                        Position = TargetCenterOfMass, // ProjectileLastPosition, ProjectileOrigin, HitPosition, TargetCenter, TargetCenterOfMass
+                    },
                 },
             },
             Beams = new BeamDef
@@ -406,6 +522,7 @@ namespace WeaponThread
                 DesiredSpeed = 0,
                 MaxTrajectory = 2000f,
                 FieldTime = 0, // 0 is disabled, a value causes the projectile to come to rest, spawn a field and remain for a time (Measured in game ticks, 60 = 1 second)
+                GravityMultiplier = 0f, // Gravity multiplier, influences the trajectory of the projectile, value greater than 0 to enable.
                 SpeedVariance = Random(start: 0, end: 0), // subtracts value from DesiredSpeed
                 RangeVariance = Random(start: 0, end: 0), // subtracts value from MaxTrajectory
                 MaxTrajectoryTime = 0, // How long the weapon must fire before it reaches MaxTrajectory.
