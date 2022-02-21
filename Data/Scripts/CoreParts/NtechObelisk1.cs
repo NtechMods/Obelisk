@@ -165,7 +165,7 @@ namespace Scripts
                     },
                     Effect2 = new ParticleDef
                     {
-                        Name = "ObeliskDoTField",//Muzzle_Flash_Large ObeliskDoTField
+                        Name = "",//Muzzle_Flash_Large ObeliskDoTField
                         Color = Color(red: 1, green: 1, blue: 1, alpha: 1),
                         Offset = Vector(x: 0, y: 0, z: 0),
                         Extras = new ParticleOptionDef
